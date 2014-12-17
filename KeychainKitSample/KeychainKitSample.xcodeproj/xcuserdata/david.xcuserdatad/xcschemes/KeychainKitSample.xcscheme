@@ -34,6 +34,20 @@
                ReferencedContainer = "container:KeychainKitSample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "63B51D131A421F52001B4EFC"
+               BuildableName = "KeychainKitTests.xctest"
+               BlueprintName = "KeychainKitTests"
+               ReferencedContainer = "container:KeychainKitSample.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "63B51CD41A4207FC001B4EFC"
                BuildableName = "KeychainKitSampleTests.xctest"
                BlueprintName = "KeychainKitSampleTests"
+               ReferencedContainer = "container:KeychainKitSample.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "63B51D131A421F52001B4EFC"
+               BuildableName = "KeychainKitTests.xctest"
+               BlueprintName = "KeychainKitTests"
                ReferencedContainer = "container:KeychainKitSample.xcodeproj">
             </BuildableReference>
          </TestableReference>

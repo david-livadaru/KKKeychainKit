@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>KeychainKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>KeychainKitSample.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>63B51CD41A4207FC001B4EFC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>63B51D091A421F52001B4EFC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>63B51D131A421F52001B4EFC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
