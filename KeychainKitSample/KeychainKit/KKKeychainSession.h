@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class KKKeychainRequest;
+
 @interface KKKeychainSession : NSObject
+
+- (void)performRequest:(KKKeychainRequest *)keychainRequest completion:(void (^)(NSArray *items, NSError *error))completion;
 
 @end

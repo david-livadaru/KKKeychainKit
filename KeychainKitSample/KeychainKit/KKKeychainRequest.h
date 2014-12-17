@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, KKKeychainRequestOperationType) {
+    KKKeychainRequestOperationTypeAdd = 1,
+    KKKeychainRequestOperationTypeUpdate,
+    KKKeychainRequestOperationTypeDelete,
+    KKKeychainRequestOperationTypeSearch
+};
+
 @interface KKKeychainRequest : NSObject
+
+@property (nonatomic, assign) KKKeychainRequestOperationType    operationType;
+
+- (instancetype)initWithOperationType:(KKKeychainRequestOperationType)operationType NS_DESIGNATED_INITIALIZER;
 
 @end

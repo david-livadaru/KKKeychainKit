@@ -19,3 +19,4 @@ FOUNDATION_EXPORT const unsigned char KeychainKitVersionString[];
 #import <KeychainKit/KKKeychainSession.h>
 #import <KeychainKit/KKKeychainRequest.h>
 #import <KeychainKit/KKKeychainItem.h>
+#import <KeychainKit/KKError.h>

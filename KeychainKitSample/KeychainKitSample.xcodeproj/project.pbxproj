@@ -115,6 +115,7 @@
 		63B51D351A422124001B4EFC /* KKKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainItem.m; sourceTree = "<group>"; };
 		63B51D381A4221A4001B4EFC /* KKSKeychainHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSKeychainHandler.h; sourceTree = "<group>"; };
 		63B51D391A4221A4001B4EFC /* KKSKeychainHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSKeychainHandler.m; sourceTree = "<group>"; };
+		63B51D3B1A422722001B4EFC /* KKError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKError.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +254,7 @@
 				63B51D341A422124001B4EFC /* KKKeychainItem.h */,
 				63B51D351A422124001B4EFC /* KKKeychainItem.m */,
 				63B51D0C1A421F52001B4EFC /* Supporting Files */,
+				63B51D3B1A422722001B4EFC /* KKError.h */,
 			);
 			path = KeychainKit;
 			sourceTree = "<group>";
@@ -786,6 +788,7 @@
 				63B51D241A421F52001B4EFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		63B51D291A421F52001B4EFC /* Build configuration list for PBXNativeTarget "KeychainKitTests" */ = {
 			isa = XCConfigurationList;
@@ -794,6 +797,7 @@
 				63B51D261A421F52001B4EFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
