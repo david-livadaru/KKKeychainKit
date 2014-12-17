@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  KKSDeleteViewController.h
 //  KeychainKitSample
 //
 //  Created by david on 17/12/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
-
+@interface KKSDeleteViewController : UIViewController
 
 @end
-

@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "KKSAddViewController.h"
+#import "KKSUpdateViewController.h"
+#import "KKSDeleteViewController.h"
+#import "KKSSearchViewController.h"
+#import "KKSFetchViewController.h"
 
 @interface AppDelegate ()
 
@@ -14,9 +19,38 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UITabBarController *tabBarController = [[UITabBarController alloc] initWithNibName:nil bundle:nil];
+    KKSAddViewController *addViewController = [[KKSAddViewController alloc] initWithNibName:nil bundle:nil];
+    addViewController.view.backgroundColor = [UIColor greenColor];
+    addViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil
+                                                                 image:[UIImage imageNamed:@"add"]
+                                                         selectedImage:nil];
+    KKSUpdateViewController *updateViewController = [[KKSUpdateViewController alloc] initWithNibName:nil bundle:nil];
+    updateViewController.view.backgroundColor = [UIColor cyanColor];
+    updateViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil
+                                                                    image:[UIImage imageNamed:@"refresh"]
+                                                            selectedImage:nil];
+    KKSDeleteViewController *deleteViewController = [[KKSDeleteViewController alloc] initWithNibName:nil bundle:nil];
+    deleteViewController.view.backgroundColor = [UIColor redColor];
+    deleteViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil
+                                                                    image:[UIImage imageNamed:@"delete"]
+                                                            selectedImage:nil];
+    KKSSearchViewController *searchViewController = [[KKSSearchViewController alloc] initWithNibName:nil bundle:nil];
+    searchViewController.view.backgroundColor = [UIColor magentaColor];
+    searchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil
+                                                                    image:[UIImage imageNamed:@"search"]
+                                                            selectedImage:nil];
+    KKSFetchViewController *fetchViewController = [[KKSFetchViewController alloc] initWithNibName:nil bundle:nil];
+    fetchViewController.view.backgroundColor = [UIColor purpleColor];
+    fetchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil
+                                                                   image:[UIImage imageNamed:@"download"]
+                                                           selectedImage:nil];
+    tabBarController.viewControllers = @[addViewController, updateViewController, deleteViewController,
+                                         searchViewController, fetchViewController];
+    self.window.rootViewController = tabBarController;
+    
     return YES;
 }
 
