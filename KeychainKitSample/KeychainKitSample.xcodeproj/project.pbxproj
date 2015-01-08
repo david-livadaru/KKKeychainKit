@@ -21,7 +21,6 @@
 		63B51D0F1A421F52001B4EFC /* KeychainKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B51D0E1A421F52001B4EFC /* KeychainKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63B51D151A421F52001B4EFC /* KeychainKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B51D0A1A421F52001B4EFC /* KeychainKit.framework */; };
 		63B51D1E1A421F52001B4EFC /* KeychainKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B51D1D1A421F52001B4EFC /* KeychainKitTests.m */; };
-		63B51D211A421F52001B4EFC /* KeychainKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B51D0A1A421F52001B4EFC /* KeychainKit.framework */; };
 		63B51D221A421F52001B4EFC /* KeychainKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63B51D0A1A421F52001B4EFC /* KeychainKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		63B51D2B1A421F6D001B4EFC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B51D2A1A421F6D001B4EFC /* Security.framework */; };
 		63B51D2E1A422104001B4EFC /* KKKeychainSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B51D2C1A422104001B4EFC /* KKKeychainSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,6 +30,8 @@
 		63B51D361A422124001B4EFC /* KKKeychainItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B51D341A422124001B4EFC /* KKKeychainItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63B51D371A422124001B4EFC /* KKKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B51D351A422124001B4EFC /* KKKeychainItem.m */; };
 		63B51D3A1A4221A4001B4EFC /* KKSKeychainHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B51D391A4221A4001B4EFC /* KKSKeychainHandler.m */; };
+		63DFAD5C1A5F03C00079B0B2 /* KKError.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B51D3B1A422722001B4EFC /* KKError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63DFAD5D1A5F05240079B0B2 /* KeychainKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B51D0A1A421F52001B4EFC /* KeychainKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63B51D211A421F52001B4EFC /* KeychainKit.framework in Frameworks */,
+				63DFAD5D1A5F05240079B0B2 /* KeychainKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +295,7 @@
 				63B51D0F1A421F52001B4EFC /* KeychainKit.h in Headers */,
 				63B51D321A422115001B4EFC /* KKKeychainRequest.h in Headers */,
 				63B51D2E1A422104001B4EFC /* KKKeychainSession.h in Headers */,
+				63DFAD5C1A5F03C00079B0B2 /* KKError.h in Headers */,
 				63B51D361A422124001B4EFC /* KKKeychainItem.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
