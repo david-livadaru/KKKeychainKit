@@ -10,4 +10,7 @@
 
 @interface KKSKeychainHandler : NSObject
 
+// Operations
+- (void)addStringInKeychain:(NSString *)string key:(NSString *)key;
+
 @end

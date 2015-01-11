@@ -23,7 +23,6 @@
     // Override point for customization after application launch.
     UITabBarController *tabBarController = [[UITabBarController alloc] initWithNibName:nil bundle:nil];
     KKSAddViewController *addViewController = [[KKSAddViewController alloc] initWithNibName:nil bundle:nil];
-    addViewController.view.backgroundColor = [UIColor greenColor];
     addViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil
                                                                  image:[UIImage imageNamed:@"add"]
                                                          selectedImage:nil];
