@@ -13,7 +13,16 @@
 
 @interface KKKeychainGenericPassword ()
 
+/*!
+ *  @abstract
+ *      A string that represents the service associated with this item.
+ *      (Exmaple: "com.apple.iDevice.PasscodeScreen")
+ */
 @property (nonatomic, strong, readwrite) NSString        *service;
+/*!
+ *  @abstract
+ *      Contains a user-defined attribute.
+ */
 @property (nonatomic, strong, readwrite) NSData          *generic;
 
 @end
@@ -22,6 +31,12 @@
 
 #pragma mark - Object Life Cycle
 
+/*!
+ *  Initiazes a Keychain Item using provided parameters.
+ *
+ *  @return An initialized object, or nil if an object could not be created for some
+ *          reason that would not result in an exception.
+ */
 - (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup
                 creationDate:(NSDate *)creationDate modificationDate:(NSDate *)modificationDate
              itemDescription:(NSString *)itemDescription comment:(NSString *)comment creator:(NSNumber *)creator
@@ -38,6 +53,12 @@
     return self;
 }
 
+/*!
+ *  Convenien method to initialize a Keychain Item using provided parameters.
+ *
+ *  @return An initialized object, or nil if an object could not be created for some
+ *          reason that would not result in an exception.
+ */
 - (instancetype)initWithData:(NSData *)data accessGroup:(NSString *)accessGroup
              itemDescription:(NSString *)itemDescription account:(NSString *)account service:(NSString *)service
                      generic:(NSData *)generic {
@@ -47,6 +68,12 @@
     return self;
 }
 
+/*!
+ *  Initiazes a Keychain Item using provided parameters.
+ *
+ *  @return An initialized object, or nil if an object could not be created for some
+ *          reason that would not result in an exception.
+ */
 - (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup
                 creationDate:(NSDate *)creationDate modificationDate:(NSDate *)modificationDate
              itemDescription:(NSString *)itemDescription comment:(NSString *)comment creator:(NSNumber *)creator
@@ -65,6 +92,12 @@
     return self;
 }
 
+/*!
+ *  Convenien method to initialize a Keychain Item using provided parameters.
+ *
+ *  @return An initialized object, or nil if an object could not be created for some
+ *          reason that would not result in an exception.
+ */
 - (instancetype)initWithData:(NSData *)data accessGroup:(NSString *)accessGroup
              itemDescription:(NSString *)itemDescription account:(NSString *)account service:(NSString *)service
                      generic:(NSData *)generic
@@ -75,6 +108,9 @@
     return self;
 }
 
+/*!
+ *  Continues object's common initialization using provided parameters.
+ */
 - (void)updateObjectWithService:(NSString *)service generic:(NSData *)generic {
     self.service = service;
     self.generic = generic;

@@ -13,11 +13,42 @@
 
 @interface KKKeychainInternetPassword ()
 
+/*!
+ *  @abstract
+ *      Represents the Internet security domain.
+ *      Examples: NIPRNet, SIPRNet. JWICS, NSANet.
+ */
 @property (nonatomic, strong, readwrite) NSString                       *securityDomain;
+/*!
+ *  @abstract
+ *      Contains the server's domain name or IP address.
+ *      Examples: apple.com or 127.0.0.1
+ *
+ */
 @property (nonatomic, strong, readwrite) NSString                       *server;
+/*!
+ *  @abstract
+ *      Denotes the protocol for this item. 
+ *      See enumeration for possible values.
+ */
 @property (nonatomic, assign, readwrite) KKKeychainProtocol             protocol;
+/*!
+ *  @abstract
+ *      Denotes the authentication scheme for this item.
+ *      See enumeration for possible values.
+ */
 @property (nonatomic, assign, readwrite) KKKeychainAuthenticationType   authenticationType;
+/*!
+ *  @abstract
+ *      Represents an Internet port number.
+ *      Example: @80.
+ */
 @property (nonatomic, strong, readwrite) NSNumber                       *port;
+/*!
+ *  @abstract
+ *      Represents a path, typically the path component of the URL.
+ *      Example: login.html
+ */
 @property (nonatomic, strong, readwrite) NSString                       *path;
 
 @end
@@ -26,6 +57,12 @@
 
 #pragma mark - Object Life Cycle
 
+/*!
+ *  Initiazes a Keychain Item using provided parameters.
+ *
+ *  @return An initialized object, or nil if an object could not be created for some
+ *          reason that would not result in an exception.
+ */
 - (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup
                 creationDate:(NSDate *)creationDate modificationDate:(NSDate *)modificationDate
              itemDescription:(NSString *)itemDescription comment:(NSString *)comment creator:(NSNumber *)creator
@@ -46,6 +83,12 @@
     return self;
 }
 
+/*!
+ *  Initiazes a Keychain Item using provided parameters.
+ *
+ *  @return An initialized object, or nil if an object could not be created for some
+ *          reason that would not result in an exception.
+ */
 - (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup
                 creationDate:(NSDate *)creationDate modificationDate:(NSDate *)modificationDate
              itemDescription:(NSString *)itemDescription comment:(NSString *)comment creator:(NSNumber *)creator
@@ -67,6 +110,9 @@
     return self;
 }
 
+/*!
+ *  Continues object's common initialization using provided parameters.
+ */
 - (void)updateObjectWithSecurityDomain:(NSString *)securityDomain server:(NSString *)server
                               protocol:(KKKeychainProtocol)protocol 
                     authenticationType:(KKKeychainAuthenticationType)authenticationType port:(NSNumber *)port
@@ -123,6 +169,9 @@
     return attributes;
 }
 
+/*!
+ *  @return CFTypeRef associated to Intenert Protocol chosen by Item's creator.
+ */
 - (CFTypeRef)protocolFromInternetPassword {
     switch (self.protocol) {
         case KKKeychainProtocolFTP:
@@ -190,6 +239,9 @@
     }
 }
 
+/*!
+ *  @return CFTypeRef associated to Authentication type chosen by Item's creator.
+ */
 - (CFTypeRef)authenticationTypeFromInternetPassword {
     switch (self.authenticationType) {
         case KKKeychainAuthenticationTypeNTLM:

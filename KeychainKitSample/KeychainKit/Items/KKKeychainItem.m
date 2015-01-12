@@ -13,15 +13,34 @@
 @interface KKKeychainItem ()
 
 /*!
- @abstract
- Abstract description.
- 
- @discussion
- Discussion description.
+ *  @abstract
+ *      Item's content data.
  */
 @property (nonatomic, strong, readwrite) NSData                         *data;
+/*!
+ *  @abstract
+ *      User-visible label for this Keychain Item.
+ */
 @property (nonatomic, strong, readwrite) NSString                       *label;
+/*!
+ *  @abstract
+ *      Indicates which access group a Keychain Item is in.
+ *
+ *  @discussion
+ *      Access groups can be used to share Keychain Items among two or more applications.
+ *      For applications to share a keychain item, the applications must have a common 
+ *      access group listed in their keychain-access-groups entitlement.
+ */
 @property (nonatomic, strong, readwrite) NSString                       *accessGroup;
+/*!
+ *  @abstract
+ *      A value which indicates item's accessibility.
+ *
+ *  @discussion
+ *      You should choose the most restrictive option that meets your app’s needs so
+ *      that iOS can protect that item to the greatest extent possible.
+ *      See enumeration for possible values.
+ */
 @property (nonatomic, assign, readwrite) KKKeychainItemAccessibility    accessbility;
 
 @end
@@ -31,12 +50,10 @@
 #pragma mark - Life Cycle
 
 /*!
- *  Description
+ *  Initiazes a Keychain Item using provided parameters.
  *
- *  @param data        data description
- *  @param serviceName serviceName description
- *
- *  @return return value description
+ *  @return An initialized object, or nil if an object could not be created for some 
+ *          reason that would not result in an exception.
  */
 - (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup {
     self = [super init];
@@ -50,6 +67,12 @@
     return self;
 }
 
+/*!
+ *  Initiazes a Keychain Item using provided parameters.
+ *
+ *  @return An initialized object, or nil if an object could not be created for some
+ *          reason that would not result in an exception.
+ */
 - (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup
                accessibility:(KKKeychainItemAccessibility)accessibility {
     self = [self initWithData:data label:label accessGroup:accessGroup];
@@ -63,6 +86,11 @@
 
 #pragma mark - Keychain mapping
 
+/*!
+ *  Updates this item with content values from dictionary.
+ *
+ *  @param attributes An NSDictionary which contain data.
+ */
 - (void)updateItemWithAttributes:(NSDictionary *)attributes {
     NSData *data = [attributes objectForKey:(__bridge id)kSecValueData];
     if (data) {
@@ -81,6 +109,14 @@
     // diferent accessibility.
 }
 
+/*!
+ *  Converts Keychain Item into an NSDictionary.
+ *  The error will be set only on iOS 8 and later.
+ *
+ *  @param error an error which will be set if something goes wrong.
+ *
+ *  @return An NSDictionary filled with data from Keychain Item. Will be empty if does not contain any data,
+ */
 - (NSDictionary *)keychainAttributesWithError:(NSError *__autoreleasing *)error {
     NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
     if ([[NSProcessInfo processInfo] respondsToSelector:@selector(operatingSystemVersion)]) { // iOS 8.0 or later?
@@ -101,6 +137,9 @@
     return [attributes copy];
 }
 
+/*!
+ *  @return CFTypeRef associated to access control protection chosen by item creator.
+ */
 - (CFTypeRef)accessControlProtectionFromItem {
     switch (self.accessbility) {
         case KKKeychainItemAccessibleAlways:

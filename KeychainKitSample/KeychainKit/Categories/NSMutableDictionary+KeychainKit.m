@@ -11,7 +11,7 @@
 @implementation NSMutableDictionary (KeychainKit)
 
 /*!
- *  Check if anObject and aKey are not nil.
+ *  Checks if anObject and aKey are not nil.
  *  If they aren't, setObject:forKey: is called.
  *
  *  @param anObject an object which can be nil.

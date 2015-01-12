@@ -75,7 +75,7 @@
 - (void)executeOperation:(KKKeychainOperation *)operation attributes:(NSDictionary *)attributes completion:(void (^)(NSArray *items, NSError *error))completion {
     switch (operation.operationType) {
         case KKKeychainOperationTypeAdd: {
-#warning check if you need the item, how do you want data? (NSData, NSDictionary or Reference)
+//#warning check if you need the item, how do you want data? (NSData, NSDictionary or Reference)
             CFTypeRef result;
             OSStatus resultCode = SecItemAdd((__bridge CFDictionaryRef)attributes, &result);
             CFDictionaryRef dictionary = result;
@@ -110,7 +110,7 @@
     }
 }
 
-#warning To be check if this method is really needed
+//#warning To be check if this method is really needed
 - (NSString *)errorMesageForOSStatus:(OSStatus)status {
     switch (status) {
         case errSecUnimplemented:

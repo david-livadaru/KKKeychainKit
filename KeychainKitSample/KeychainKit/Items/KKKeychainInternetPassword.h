@@ -8,48 +8,171 @@
 
 #import "KKKeychainPassword.h"
 
-typedef NS_ENUM(NSUInteger, KKKeychainProtocol) {
+/*!
+ *  Enumeration which provides possbile values for protocol.
+ */
+typedef NS_ENUM(NSUInteger, KKKeychainProtocol){
+    /*!
+     *  FTP protocol.
+     */
     KKKeychainProtocolFTP,
+    /*!
+     *  FTP over TLS/SSL.
+     */
     KKKeychainProtocolFTPS,
+    /*!
+     *  FTP proxy.
+     */
     KKKeychainProtocolFTPProxy,
+    /*!
+     *  A client side FTP account.
+     */
     KKKeychainProtocolFTPAccount,
+    /*!
+     *  HTTP protocol.
+     */
     KKKeychainProtocolHTTP,
+    /*!
+     *  HTTP over TLS/SSL.
+     */
     KKKeychainProtocolHTTPS,
+    /*!
+     *  HTTP proxy.
+     */
     KKKeychainProtocolHTTPProxy,
+    /*!
+     *  HTTPS proxy.
+     */
     KKKeychainProtocolHTTPSProxy,
+    /*!
+     *  IRC protocol.
+     */
     KKKeychainProtocolIRC,
+    /*!
+     *  IRC over TLS/SSL.
+     */
     KKKeychainProtocolIRCS,
+    /*!
+     *  NNTP protocol.
+     */
     KKKeychainProtocolNNTP,
+    /*!
+     *  NNTP over TLS/SSL.
+     */
     KKKeychainProtocolNNTPS,
+    /*!
+     *  POP3 protocol.
+     */
     KKKeychainProtocolPOP3,
+    /*!
+     *  POP3 over TLS/SSL.
+     */
     KKKeychainProtocolPOP3S,
+    /*!
+     *  SMTP protocol.
+     */
     KKKeychainProtocolSMTP,
+    /*!
+     *  SOCKS protocol.
+     */
     KKKeychainProtocolSOCKS,
+    /*!
+     *  IMAP protocol.
+     */
     KKKeychainProtocolIMAP,
+    /*!
+     *  IMAP over TLS/SSL.
+     */
     KKKeychainProtocolIMAPS,
+    /*!
+     *  LDAP protocol.
+     */
     KKKeychainProtocolLDAP,
+    /*!
+     *  LDAP over TLS/SSL.
+     */
     KKKeychainProtocolLDAPS,
+    /*!
+     *  AFP over AppleTalk.
+     */
     KKKeychainProtocolAppleTalk,
+    /*!
+     *  AFP over TCP.
+     */
     KKKeychainProtocolAFP,
+    /*!
+     *  Telnet protocol.
+     */
     KKKeychainProtocolTelnet,
+    /*!
+     *  Telnet over TLS/SSL.
+     */
     KKKeychainProtocolTelnetS,
+    /*!
+     *  SSH protocol.
+     */
     KKKeychainProtocolSSH,
+    /*!
+     *  SMB protocol.
+     */
     KKKeychainProtocolSMB,
+    /*!
+     *  RTSP protocol.
+     */
     KKKeychainProtocolRTSP,
+    /*!
+     *  RTSP proxy.
+     */
     KKKeychainProtocolRTSPProxy,
+    /*!
+     *  DAAP protocol.
+     */
     KKKeychainProtocolDAAP,
+    /*!
+     *  Remote Apple Events.
+     */
     KKKeychainProtocolEPPC,
+    /*!
+     *  IPP protocol.
+     */
     KKKeychainProtocolIPP
 };
 
-typedef NS_ENUM(NSUInteger, KKKeychainAuthenticationType) {
+/*!
+ *  Enumeration which provides possbile values for authentication type.
+ */
+typedef NS_ENUM(NSUInteger, KKKeychainAuthenticationType){
+    /*!
+     *  Windows NT LAN Manager authentication.
+     */
     KKKeychainAuthenticationTypeNTLM,
+    /*!
+     *  Microsoft Network default authentication.
+     */
     KKKeychainAuthenticationTypeMSN,
+    /*!
+     *  Distributed Password authentication.
+     */
     KKKeychainAuthenticationTypeDPA,
+    /*!
+     *  Remote Password authentication.
+     */
     KKKeychainAuthenticationTypeRPA,
+    /*!
+     *  HTML form based authentication.
+     */
     KKKeychainAuthenticationTypeHTMLForm,
+    /*!
+     *  HTTP Basic authentication.
+     */
     KKKeychainAuthenticationTypeHTTPBasic,
+    /*!
+     *  HTTP Digest Access authentication.
+     */
     KKKeychainAuthenticationTypeHTTPDigest,
+    /*!
+     *  The default authentication type.
+     */
     KKKeychainAuthenticationTypeDefault
 };
 
