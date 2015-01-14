@@ -192,14 +192,7 @@ typedef NS_ENUM(NSUInteger, KKKeychainAuthenticationType){
                         type:(NSNumber *)type isInvisible:(BOOL)isInvisible isNegative:(BOOL)isNegative
                      account:(NSString *)account securityDomain:(NSString *)securityDomain server:(NSString *)server
                     protocol:(KKKeychainProtocol)protocol
-          authenticationType:(KKKeychainAuthenticationType)authenticationType port:(NSNumber *)port path:(NSString *)path;
-- (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup
-                creationDate:(NSDate *)creationDate modificationDate:(NSDate *)modificationDate
-             itemDescription:(NSString *)itemDescription comment:(NSString *)comment creator:(NSNumber *)creator
-                        type:(NSNumber *)type isInvisible:(BOOL)isInvisible isNegative:(BOOL)isNegative
-                     account:(NSString *)account securityDomain:(NSString *)securityDomain server:(NSString *)server
-                    protocol:(KKKeychainProtocol)protocol
           authenticationType:(KKKeychainAuthenticationType)authenticationType port:(NSNumber *)port path:(NSString *)path
-               accessibility:(KKKeychainItemAccessibility)accessibility NS_AVAILABLE_IOS(8_0);
+               accessibility:(KKKeychainItemAccessibility)accessibility;
 
 @end

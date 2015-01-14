@@ -83,56 +83,22 @@
                 creationDate:(NSDate *)creationDate modificationDate:(NSDate *)modificationDate
              itemDescription:(NSString *)itemDescription comment:(NSString *)comment creator:(NSNumber *)creator
                         type:(NSNumber *)type isInvisible:(BOOL)isInvisible isNegative:(BOOL)isNegative
-                     account:(NSString *)account {
-    self = [super initWithData:data label:label accessGroup:accessGroup];
-    
-    if (self) {
-        [self updateObjectWithCreationDate:creationDate modificationDate:modificationDate
-                           itemDescription:itemDescription comment:comment creator:creator type:type
-                               isInvisible:isInvisible isNegative:isNegative account:account];
-    }
-    
-    return  self;
-}
-
-/*!
- *  Initiazes a Keychain Item using provided parameters.
- *
- *  @return An initialized object, or nil if an object could not be created for some
- *          reason that would not result in an exception.
- */
-- (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup
-                creationDate:(NSDate *)creationDate modificationDate:(NSDate *)modificationDate
-             itemDescription:(NSString *)itemDescription comment:(NSString *)comment creator:(NSNumber *)creator
-                        type:(NSNumber *)type isInvisible:(BOOL)isInvisible isNegative:(BOOL)isNegative
                      account:(NSString *)account accessibility:(KKKeychainItemAccessibility)accessibility {
     self = [super initWithData:data label:label accessGroup:accessGroup accessibility:accessibility];
     
     if (self) {
-        [self updateObjectWithCreationDate:creationDate modificationDate:modificationDate
-                           itemDescription:itemDescription comment:comment creator:creator type:type
-                               isInvisible:isInvisible isNegative:isNegative account:account];
+        self.creationDate = creationDate;
+        self.modificationDate = modificationDate;
+        self.itemDescription = itemDescription;
+        self.comment = comment;
+        self.creator = creator;
+        self.type = type;
+        self.invisible = isInvisible;
+        self.negative = isNegative;
+        self.account = account;
     }
     
     return self;
-}
-
-/*!
- *  Continues object's common initialization using provided parameters.
- */
-- (void)updateObjectWithCreationDate:(NSDate *)creationDate modificationDate:(NSDate *)modificationDate
-                     itemDescription:(NSString *)itemDescription comment:(NSString *)comment creator:(NSNumber *)creator
-                                type:(NSNumber *)type isInvisible:(BOOL)isInvisible isNegative:(BOOL)isNegative
-                             account:(NSString *)account {
-    self.creationDate = creationDate;
-    self.modificationDate = modificationDate;
-    self.itemDescription = itemDescription;
-    self.comment = comment;
-    self.creator = creator;
-    self.type = type;
-    self.invisible = isInvisible;
-    self.negative = isNegative;
-    self.account = account;
 }
 
 #pragma mark - Keychain mapping

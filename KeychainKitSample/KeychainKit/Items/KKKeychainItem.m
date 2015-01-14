@@ -52,32 +52,17 @@
 /*!
  *  Initiazes a Keychain Item using provided parameters.
  *
- *  @return An initialized object, or nil if an object could not be created for some 
+ *  @return An initialized object, or nil if an object could not be created for some
  *          reason that would not result in an exception.
  */
-- (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup {
+- (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup
+               accessibility:(KKKeychainItemAccessibility)accessibility {
     self = [super init];
     
     if (self) {
         self.data = data;
         self.label = label;
         self.accessGroup = accessGroup;
-    }
-    
-    return self;
-}
-
-/*!
- *  Initiazes a Keychain Item using provided parameters.
- *
- *  @return An initialized object, or nil if an object could not be created for some
- *          reason that would not result in an exception.
- */
-- (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup
-               accessibility:(KKKeychainItemAccessibility)accessibility {
-    self = [self initWithData:data label:label accessGroup:accessGroup];
-    
-    if (self) {
         self.accessbility = accessibility;
     }
     

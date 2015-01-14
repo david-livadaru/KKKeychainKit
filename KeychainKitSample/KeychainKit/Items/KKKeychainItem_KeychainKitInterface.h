@@ -13,11 +13,8 @@
 // Object Life Cycle
 - (instancetype)initWithData:(NSData *)data
                        label:(NSString *)label
-                 accessGroup:(NSString *)accessGroup;
-- (instancetype)initWithData:(NSData *)data
-                       label:(NSString *)label
                  accessGroup:(NSString *)accessGroup
-               accessibility:(KKKeychainItemAccessibility)accessibility NS_AVAILABLE_IOS(8_0);
+               accessibility:(KKKeychainItemAccessibility)accessibility;
 
 // Keychain mapping
 - (void)updateItemWithAttributes:(NSDictionary *)attributes;

@@ -70,32 +70,6 @@
                      account:(NSString *)account securityDomain:(NSString *)securityDomain server:(NSString *)server
                     protocol:(KKKeychainProtocol)protocol
           authenticationType:(KKKeychainAuthenticationType)authenticationType port:(NSNumber *)port
-                        path:(NSString *)path {
-    self = [super initWithData:data label:label accessGroup:accessGroup creationDate:creationDate
-              modificationDate:modificationDate itemDescription:itemDescription comment:comment creator:creator
-                          type:type isInvisible:isInvisible isNegative:isNegative account:account];
-    
-    if (self) {
-        [self updateObjectWithSecurityDomain:securityDomain server:server protocol:protocol
-                          authenticationType:authenticationType port:port path:path];
-    }
-    
-    return self;
-}
-
-/*!
- *  Initiazes a Keychain Item using provided parameters.
- *
- *  @return An initialized object, or nil if an object could not be created for some
- *          reason that would not result in an exception.
- */
-- (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup
-                creationDate:(NSDate *)creationDate modificationDate:(NSDate *)modificationDate
-             itemDescription:(NSString *)itemDescription comment:(NSString *)comment creator:(NSNumber *)creator
-                        type:(NSNumber *)type isInvisible:(BOOL)isInvisible isNegative:(BOOL)isNegative
-                     account:(NSString *)account securityDomain:(NSString *)securityDomain server:(NSString *)server
-                    protocol:(KKKeychainProtocol)protocol
-          authenticationType:(KKKeychainAuthenticationType)authenticationType port:(NSNumber *)port
                         path:(NSString *)path accessibility:(KKKeychainItemAccessibility)accessibility {
     self = [super initWithData:data label:label accessGroup:accessGroup creationDate:creationDate
               modificationDate:modificationDate itemDescription:itemDescription comment:comment creator:creator
@@ -103,26 +77,15 @@
                  accessibility:accessibility];
     
     if (self) {
-        [self updateObjectWithSecurityDomain:securityDomain server:server protocol:protocol
-                          authenticationType:authenticationType port:port path:path];
+        self.securityDomain = securityDomain;
+        self.server = server;
+        self.protocol = protocol;
+        self.authenticationType = authenticationType;
+        self.port = port;
+        self.path = path;
     }
     
     return self;
-}
-
-/*!
- *  Continues object's common initialization using provided parameters.
- */
-- (void)updateObjectWithSecurityDomain:(NSString *)securityDomain server:(NSString *)server
-                              protocol:(KKKeychainProtocol)protocol 
-                    authenticationType:(KKKeychainAuthenticationType)authenticationType port:(NSNumber *)port
-                                  path:(NSString *)path {
-    self.securityDomain = securityDomain;
-    self.server = server;
-    self.protocol = protocol;
-    self.authenticationType = authenticationType;
-    self.port = port;
-    self.path = path;
 }
 
 #pragma mark - Keychain mapping

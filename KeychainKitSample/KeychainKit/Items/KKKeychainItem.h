@@ -59,8 +59,8 @@ typedef NS_ENUM(NSUInteger, KKKeychainItemAccessibility){
      *  attribute will never migrate to a new device, so after a backup is restored 
      *  to a new device, these items will be missing.
      */
-    KKKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly
-} NS_ENUM_AVAILABLE_IOS(8_0);
+    KKKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly NS_ENUM_AVAILABLE_IOS(8_0)
+};
 
 @interface KKKeychainItem : NSObject
 
