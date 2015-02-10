@@ -7,8 +7,10 @@
 //
 
 #import "KKKeychainInternetPassword.h"
-#import "KKKeychainItem_KeychainKitInterface.h"
-#import "KKKeychainPassword_KeychainKitInterface.h"
+@import Security;
+#import "KKKeychainItem_SuclassesInterface.h"
+#import "KKKeychainPassword_SuclassesInterface.h"
+#import "KKKeychainItem+KeychainKitInterface.h"
 #import "NSMutableDictionary+KeychainKit.h"
 
 @interface KKKeychainInternetPassword ()
@@ -18,38 +20,38 @@
  *      Represents the Internet security domain.
  *      Examples: NIPRNet, SIPRNet. JWICS, NSANet.
  */
-@property (nonatomic, strong, readwrite) NSString                       *securityDomain;
+@property (nonatomic, strong, readwrite) NSString *securityDomain;
 /*!
  *  @abstract
  *      Contains the server's domain name or IP address.
  *      Examples: apple.com or 127.0.0.1
  *
  */
-@property (nonatomic, strong, readwrite) NSString                       *server;
+@property (nonatomic, strong, readwrite) NSString *server;
 /*!
  *  @abstract
  *      Denotes the protocol for this item. 
  *      See enumeration for possible values.
  */
-@property (nonatomic, assign, readwrite) KKKeychainProtocol             protocol;
+@property (nonatomic, assign, readwrite) KKKeychainProtocol protocol;
 /*!
  *  @abstract
  *      Denotes the authentication scheme for this item.
  *      See enumeration for possible values.
  */
-@property (nonatomic, assign, readwrite) KKKeychainAuthenticationType   authenticationType;
+@property (nonatomic, assign, readwrite) KKKeychainAuthenticationType authenticationType;
 /*!
  *  @abstract
  *      Represents an Internet port number.
  *      Example: @80.
  */
-@property (nonatomic, strong, readwrite) NSNumber                       *port;
+@property (nonatomic, strong, readwrite) NSNumber *port;
 /*!
  *  @abstract
  *      Represents a path, typically the path component of the URL.
  *      Example: login.html
  */
-@property (nonatomic, strong, readwrite) NSString                       *path;
+@property (nonatomic, strong, readwrite) NSString *path;
 
 @end
 
@@ -110,26 +112,6 @@
     // Protocol and authenticationType are not updated because they're set only properties at initilization.
     // If need to be changed, current item in keychain but be deleted and create a new one with
     // diferent protocol and/or authenticationType.
-}
-
-- (NSDictionary *)keychainAttributesWithError:(NSError **)error {
-    NSDictionary *attributes = [super keychainAttributesWithError:error];
-    if (attributes) {
-        NSMutableDictionary *mutableAttributes = [[NSMutableDictionary alloc] initWithDictionary:attributes];
-        [mutableAttributes setObjectSafely:(__bridge id)kSecClassInternetPassword
-                                    forKey:(__bridge id)kSecClass];
-        [mutableAttributes setObjectSafely:self.securityDomain
-                                    forKey:(__bridge id)kSecAttrSecurityDomain];
-        [mutableAttributes setObjectSafely:self.server
-                                    forKey:(__bridge id)kSecAttrServer];
-        [mutableAttributes setObjectSafely:[self protocolFromInternetPassword]
-                                    forKey:(__bridge id)kSecAttrProtocol];
-        [mutableAttributes setObjectSafely:[self authenticationTypeFromInternetPassword]
-                                    forKey:(__bridge id)kSecAttrAuthenticationType];
-        [mutableAttributes setObjectSafely:self.port
-                                    forKey:(__bridge id)kSecAttrPath];
-    }
-    return attributes;
 }
 
 /*!
@@ -224,6 +206,28 @@
         case KKKeychainAuthenticationTypeDefault:
             return kSecAttrAuthenticationTypeDefault;
     }
+}
+
+#pragma mark - Item Conversion
+
+- (NSDictionary *)keychainAttributesWithError:(NSError **)error {
+    NSDictionary *attributes = [super keychainAttributesWithError:error];
+    if (attributes) {
+        NSMutableDictionary *mutableAttributes = [[NSMutableDictionary alloc] initWithDictionary:attributes];
+        [mutableAttributes setObjectSafely:(__bridge id)kSecClassInternetPassword
+                                    forKey:(__bridge id)kSecClass];
+        [mutableAttributes setObjectSafely:self.securityDomain
+                                    forKey:(__bridge id)kSecAttrSecurityDomain];
+        [mutableAttributes setObjectSafely:self.server
+                                    forKey:(__bridge id)kSecAttrServer];
+        [mutableAttributes setObjectSafely:[self protocolFromInternetPassword]
+                                    forKey:(__bridge id)kSecAttrProtocol];
+        [mutableAttributes setObjectSafely:[self authenticationTypeFromInternetPassword]
+                                    forKey:(__bridge id)kSecAttrAuthenticationType];
+        [mutableAttributes setObjectSafely:self.port
+                                    forKey:(__bridge id)kSecAttrPath];
+    }
+    return attributes;
 }
 
 @end

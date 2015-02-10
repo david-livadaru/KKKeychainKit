@@ -18,6 +18,5 @@
 
 // Keychain mapping
 - (void)updateItemWithAttributes:(NSDictionary *)attributes;
-- (NSDictionary *)keychainAttributesWithError:(NSError **)error;
 
 @end

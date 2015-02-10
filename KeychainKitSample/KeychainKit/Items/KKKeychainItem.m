@@ -7,7 +7,9 @@
 //
 
 #import "KKKeychainItem.h"
-#import "KKKeychainItem_KeychainKitInterface.h"
+@import Security;
+#import "KKKeychainItem_SuclassesInterface.h"
+#import "KKKeychainOperation+KeychainKitInteface.h"
 #import "NSMutableDictionary+KeychainKit.h"
 
 @interface KKKeychainItem ()
@@ -16,12 +18,12 @@
  *  @abstract
  *      Item's content data.
  */
-@property (nonatomic, strong, readwrite) NSData                         *data;
+@property (nonatomic, strong, readwrite) NSData *data;
 /*!
  *  @abstract
  *      User-visible label for this Keychain Item.
  */
-@property (nonatomic, strong, readwrite) NSString                       *label;
+@property (nonatomic, strong, readwrite) NSString *label;
 /*!
  *  @abstract
  *      Indicates which access group a Keychain Item is in.
@@ -31,7 +33,7 @@
  *      For applications to share a keychain item, the applications must have a common 
  *      access group listed in their keychain-access-groups entitlement.
  */
-@property (nonatomic, strong, readwrite) NSString                       *accessGroup;
+@property (nonatomic, strong, readwrite) NSString *accessGroup;
 /*!
  *  @abstract
  *      A value which indicates item's accessibility.
@@ -41,7 +43,7 @@
  *      that iOS can protect that item to the greatest extent possible.
  *      See enumeration for possible values.
  */
-@property (nonatomic, assign, readwrite) KKKeychainItemAccessibility    accessbility;
+@property (nonatomic, assign, readwrite) KKKeychainItemAccessibility accessbility;
 
 @end
 
@@ -77,6 +79,7 @@
  *  @param attributes An NSDictionary which contain data.
  */
 - (void)updateItemWithAttributes:(NSDictionary *)attributes {
+#warning check from design perspective if this method is worth keeping
     NSData *data = [attributes objectForKey:(__bridge id)kSecValueData];
     if (data) {
         self.data = data;
@@ -93,6 +96,30 @@
     // If needs to be changed, current item in keychain but be deleted and create a new one with
     // diferent accessibility.
 }
+
+/*!
+ *  @return CFTypeRef associated to access control protection chosen by item creator.
+ */
+- (CFTypeRef)accessControlProtectionFromItem {
+    switch (self.accessbility) {
+        case KKKeychainItemAccessibleAlways:
+            return kSecAttrAccessibleAlways;
+        case KKKeychainItemAccessibleAlwaysThisDeviceOnly:
+            return kSecAttrAccessibleAlwaysThisDeviceOnly;
+        case KKKeychainItemAccessibleAfterFirstUnlock:
+            return kSecAttrAccessibleAfterFirstUnlock;
+        case KKKeychainItemAccessibleAfterFirstUnlockThisDeviceOnly:
+            return kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
+        case KKKeychainItemAccessibleWhenUnlocked:
+            return kSecAttrAccessibleWhenUnlocked;
+        case KKKeychainItemAccessibleWhenUnlockedThisDeviceOnly:
+            return kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
+        case KKKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly:
+            return kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly;
+    }
+}
+
+#pragma mark - Item Conversion
 
 /*!
  *  Converts Keychain Item into an NSDictionary.
@@ -122,26 +149,5 @@
     return [attributes copy];
 }
 
-/*!
- *  @return CFTypeRef associated to access control protection chosen by item creator.
- */
-- (CFTypeRef)accessControlProtectionFromItem {
-    switch (self.accessbility) {
-        case KKKeychainItemAccessibleAlways:
-            return kSecAttrAccessibleAlways;
-        case KKKeychainItemAccessibleAlwaysThisDeviceOnly:
-            return kSecAttrAccessibleAlwaysThisDeviceOnly;
-        case KKKeychainItemAccessibleAfterFirstUnlock:
-            return kSecAttrAccessibleAfterFirstUnlock;
-        case KKKeychainItemAccessibleAfterFirstUnlockThisDeviceOnly:
-            return kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
-        case KKKeychainItemAccessibleWhenUnlocked:
-            return kSecAttrAccessibleWhenUnlocked;
-        case KKKeychainItemAccessibleWhenUnlockedThisDeviceOnly:
-            return kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
-        case KKKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly:
-            return kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly;
-    }
-}
 
 @end
