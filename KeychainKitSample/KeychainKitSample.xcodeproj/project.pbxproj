@@ -15,11 +15,6 @@
 		63B51CCD1A4207FC001B4EFC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63B51CCC1A4207FC001B4EFC /* Images.xcassets */; };
 		63B51CD01A4207FC001B4EFC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63B51CCE1A4207FC001B4EFC /* LaunchScreen.xib */; };
 		63B51CDC1A4207FC001B4EFC /* KeychainKitSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B51CDB1A4207FC001B4EFC /* KeychainKitSampleTests.m */; };
-		63B51CFF1A421563001B4EFC /* KKSAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B51CF61A421563001B4EFC /* KKSAddViewController.m */; };
-		63B51D001A421563001B4EFC /* KKSDeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B51CF81A421563001B4EFC /* KKSDeleteViewController.m */; };
-		63B51D011A421563001B4EFC /* KKSFetchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B51CFA1A421563001B4EFC /* KKSFetchViewController.m */; };
-		63B51D021A421563001B4EFC /* KKSSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B51CFC1A421563001B4EFC /* KKSSearchViewController.m */; };
-		63B51D031A421563001B4EFC /* KKSUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B51CFE1A421563001B4EFC /* KKSUpdateViewController.m */; };
 		63B51D0F1A421F52001B4EFC /* KeychainKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B51D0E1A421F52001B4EFC /* KeychainKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63B51D151A421F52001B4EFC /* KeychainKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B51D0A1A421F52001B4EFC /* KeychainKit.framework */; };
 		63B51D1E1A421F52001B4EFC /* KeychainKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B51D1D1A421F52001B4EFC /* KeychainKitTests.m */; };
@@ -42,6 +37,10 @@
 		63D04F081A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D04F061A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.h */; };
 		63D04F091A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D04F071A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.m */; };
 		63D04F0D1A62E338003B31DB /* KKKeychainPassword_KeychainKitInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D04F0C1A62E338003B31DB /* KKKeychainPassword_KeychainKitInterface.h */; };
+		63D14DEE1A93D5F30089A048 /* KKKeychainSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D14DED1A93D5F30089A048 /* KKKeychainSampleViewController.m */; };
+		63D14DF11A93D61C0089A048 /* KKKeychainSampleDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D14DF01A93D61C0089A048 /* KKKeychainSampleDataModel.m */; };
+		63D14DF41A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D14DF31A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.m */; };
+		63D14DF71A93E4510089A048 /* KKKeychainSampleItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D14DF61A93E4510089A048 /* KKKeychainSampleItemViewController.m */; };
 		63DFAD5C1A5F03C00079B0B2 /* KKError.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B51D3B1A422722001B4EFC /* KKError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63DFAD5D1A5F05240079B0B2 /* KeychainKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B51D0A1A421F52001B4EFC /* KeychainKit.framework */; };
 /* End PBXBuildFile section */
@@ -105,16 +104,6 @@
 		63B51CD51A4207FC001B4EFC /* KeychainKitSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeychainKitSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B51CDA1A4207FC001B4EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63B51CDB1A4207FC001B4EFC /* KeychainKitSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeychainKitSampleTests.m; sourceTree = "<group>"; };
-		63B51CF51A421563001B4EFC /* KKSAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSAddViewController.h; sourceTree = "<group>"; };
-		63B51CF61A421563001B4EFC /* KKSAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSAddViewController.m; sourceTree = "<group>"; };
-		63B51CF71A421563001B4EFC /* KKSDeleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSDeleteViewController.h; sourceTree = "<group>"; };
-		63B51CF81A421563001B4EFC /* KKSDeleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSDeleteViewController.m; sourceTree = "<group>"; };
-		63B51CF91A421563001B4EFC /* KKSFetchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSFetchViewController.h; sourceTree = "<group>"; };
-		63B51CFA1A421563001B4EFC /* KKSFetchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSFetchViewController.m; sourceTree = "<group>"; };
-		63B51CFB1A421563001B4EFC /* KKSSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSSearchViewController.h; sourceTree = "<group>"; };
-		63B51CFC1A421563001B4EFC /* KKSSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSSearchViewController.m; sourceTree = "<group>"; };
-		63B51CFD1A421563001B4EFC /* KKSUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSUpdateViewController.h; sourceTree = "<group>"; };
-		63B51CFE1A421563001B4EFC /* KKSUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSUpdateViewController.m; sourceTree = "<group>"; };
 		63B51D0A1A421F52001B4EFC /* KeychainKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeychainKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B51D0D1A421F52001B4EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63B51D0E1A421F52001B4EFC /* KeychainKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeychainKit.h; sourceTree = "<group>"; };
@@ -141,6 +130,14 @@
 		63D04F061A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+KeychainKit.h"; sourceTree = "<group>"; };
 		63D04F071A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+KeychainKit.m"; sourceTree = "<group>"; };
 		63D04F0C1A62E338003B31DB /* KKKeychainPassword_KeychainKitInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainPassword_KeychainKitInterface.h; sourceTree = "<group>"; };
+		63D14DEC1A93D5F30089A048 /* KKKeychainSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainSampleViewController.h; sourceTree = "<group>"; };
+		63D14DED1A93D5F30089A048 /* KKKeychainSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainSampleViewController.m; sourceTree = "<group>"; };
+		63D14DEF1A93D61C0089A048 /* KKKeychainSampleDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainSampleDataModel.h; sourceTree = "<group>"; };
+		63D14DF01A93D61C0089A048 /* KKKeychainSampleDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainSampleDataModel.m; sourceTree = "<group>"; };
+		63D14DF21A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainSampleUIDataAdapter.h; sourceTree = "<group>"; };
+		63D14DF31A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainSampleUIDataAdapter.m; sourceTree = "<group>"; };
+		63D14DF51A93E4510089A048 /* KKKeychainSampleItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainSampleItemViewController.h; sourceTree = "<group>"; };
+		63D14DF61A93E4510089A048 /* KKKeychainSampleItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainSampleItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +215,7 @@
 			children = (
 				63B51CF41A421563001B4EFC /* ViewControllers */,
 				63B51D041A421586001B4EFC /* Handlers */,
+				63D14DEB1A93D5BF0089A048 /* Model */,
 				63B51CC01A4207FC001B4EFC /* AppDelegate.h */,
 				63B51CC11A4207FC001B4EFC /* AppDelegate.m */,
 				63B51CC91A4207FC001B4EFC /* Main.storyboard */,
@@ -257,16 +255,10 @@
 		63B51CF41A421563001B4EFC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				63B51CF51A421563001B4EFC /* KKSAddViewController.h */,
-				63B51CF61A421563001B4EFC /* KKSAddViewController.m */,
-				63B51CF71A421563001B4EFC /* KKSDeleteViewController.h */,
-				63B51CF81A421563001B4EFC /* KKSDeleteViewController.m */,
-				63B51CF91A421563001B4EFC /* KKSFetchViewController.h */,
-				63B51CFA1A421563001B4EFC /* KKSFetchViewController.m */,
-				63B51CFB1A421563001B4EFC /* KKSSearchViewController.h */,
-				63B51CFC1A421563001B4EFC /* KKSSearchViewController.m */,
-				63B51CFD1A421563001B4EFC /* KKSUpdateViewController.h */,
-				63B51CFE1A421563001B4EFC /* KKSUpdateViewController.m */,
+				63D14DEC1A93D5F30089A048 /* KKKeychainSampleViewController.h */,
+				63D14DED1A93D5F30089A048 /* KKKeychainSampleViewController.m */,
+				63D14DF51A93E4510089A048 /* KKKeychainSampleItemViewController.h */,
+				63D14DF61A93E4510089A048 /* KKKeychainSampleItemViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -276,6 +268,8 @@
 			children = (
 				63B51D381A4221A4001B4EFC /* KKSKeychainHandler.h */,
 				63B51D391A4221A4001B4EFC /* KKSKeychainHandler.m */,
+				63D14DF21A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.h */,
+				63D14DF31A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.m */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -345,6 +339,15 @@
 				63D04F0C1A62E338003B31DB /* KKKeychainPassword_KeychainKitInterface.h */,
 			);
 			path = Items;
+			sourceTree = "<group>";
+		};
+		63D14DEB1A93D5BF0089A048 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63D14DEF1A93D61C0089A048 /* KKKeychainSampleDataModel.h */,
+				63D14DF01A93D61C0089A048 /* KKKeychainSampleDataModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,13 +534,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63B51D001A421563001B4EFC /* KKSDeleteViewController.m in Sources */,
-				63B51D031A421563001B4EFC /* KKSUpdateViewController.m in Sources */,
 				63B51D3A1A4221A4001B4EFC /* KKSKeychainHandler.m in Sources */,
-				63B51CFF1A421563001B4EFC /* KKSAddViewController.m in Sources */,
-				63B51D021A421563001B4EFC /* KKSSearchViewController.m in Sources */,
+				63D14DF11A93D61C0089A048 /* KKKeychainSampleDataModel.m in Sources */,
+				63D14DF41A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.m in Sources */,
 				63B51CC21A4207FC001B4EFC /* AppDelegate.m in Sources */,
-				63B51D011A421563001B4EFC /* KKSFetchViewController.m in Sources */,
+				63D14DF71A93E4510089A048 /* KKKeychainSampleItemViewController.m in Sources */,
+				63D14DEE1A93D5F30089A048 /* KKKeychainSampleViewController.m in Sources */,
 				63B51CBF1A4207FC001B4EFC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

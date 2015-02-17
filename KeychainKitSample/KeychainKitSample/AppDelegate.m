@@ -7,11 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "KKSAddViewController.h"
-#import "KKSUpdateViewController.h"
-#import "KKSDeleteViewController.h"
-#import "KKSSearchViewController.h"
-#import "KKSFetchViewController.h"
+#import "KKKeychainSampleDataModel.h"
+#import "KKKeychainSampleViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,35 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    UITabBarController *tabBarController = [[UITabBarController alloc] initWithNibName:nil bundle:nil];
-    KKSAddViewController *addViewController = [[KKSAddViewController alloc] initWithNibName:nil bundle:nil];
-    addViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil
-                                                                 image:[UIImage imageNamed:@"add"]
-                                                         selectedImage:nil];
-    KKSUpdateViewController *updateViewController = [[KKSUpdateViewController alloc] initWithNibName:nil bundle:nil];
-    updateViewController.view.backgroundColor = [UIColor cyanColor];
-    updateViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil
-                                                                    image:[UIImage imageNamed:@"refresh"]
-                                                            selectedImage:nil];
-    KKSDeleteViewController *deleteViewController = [[KKSDeleteViewController alloc] initWithNibName:nil bundle:nil];
-    deleteViewController.view.backgroundColor = [UIColor redColor];
-    deleteViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil
-                                                                    image:[UIImage imageNamed:@"delete"]
-                                                            selectedImage:nil];
-    KKSSearchViewController *searchViewController = [[KKSSearchViewController alloc] initWithNibName:nil bundle:nil];
-    searchViewController.view.backgroundColor = [UIColor magentaColor];
-    searchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil
-                                                                    image:[UIImage imageNamed:@"search"]
-                                                            selectedImage:nil];
-    KKSFetchViewController *fetchViewController = [[KKSFetchViewController alloc] initWithNibName:nil bundle:nil];
-    fetchViewController.view.backgroundColor = [UIColor purpleColor];
-    fetchViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil
-                                                                   image:[UIImage imageNamed:@"download"]
-                                                           selectedImage:nil];
-    tabBarController.viewControllers = @[addViewController, updateViewController, deleteViewController,
-                                         searchViewController, fetchViewController];
-    self.window.rootViewController = tabBarController;
-    
+    [self setupRootViewController];
     return YES;
 }
 
@@ -73,6 +42,60 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Private Interface
+
+- (void)setupRootViewController {
+    UITabBarController *tabBarController = [[UITabBarController alloc] initWithNibName:nil bundle:nil];
+    tabBarController.viewControllers = [self tabBarViewControllers];
+    self.window.rootViewController = tabBarController;
+}
+
+- (NSArray *)tabBarViewControllers {
+    UINavigationController *addNavigationViewController = [self navigationViewControllerForOperationType:KKKeychainOperationTypeAdd];
+    UINavigationController *updateNavigationViewController = [self navigationViewControllerForOperationType:KKKeychainOperationTypeUpdate];
+    UINavigationController *deleteNavigationViewController = [self navigationViewControllerForOperationType:KKKeychainOperationTypeDelete];
+    UINavigationController *searchNavigationViewController = [self navigationViewControllerForOperationType:KKKeychainOperationTypeSearch];
+    return @[addNavigationViewController, updateNavigationViewController, deleteNavigationViewController, searchNavigationViewController];
+}
+
+- (UINavigationController *)navigationViewControllerForOperationType:(KKKeychainOperationType)operationType {
+    NSArray *model = [self modelForOperationType:operationType];
+    KKKeychainSampleViewController *viewController = [[KKKeychainSampleViewController alloc] initWithModel:model];
+    UINavigationController *navigationViewController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    UIImage *tabBarItemImage = [UIImage imageNamed:[self imageNameForOperationType:operationType]];
+    navigationViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil
+                                                                        image:tabBarItemImage
+                                                                selectedImage:nil];
+    return navigationViewController;
+}
+
+- (NSArray *)modelForOperationType:(KKKeychainOperationType)operationType {
+    KKKeychainSampleDataModel *accountModel = [[KKKeychainSampleDataModel alloc] initWithOperationType:operationType
+                                                                                              dataType:KKKeychainSampleDataTypeAccount];
+    KKKeychainSampleDataModel *stringModel = [[KKKeychainSampleDataModel alloc] initWithOperationType:operationType
+                                                                                             dataType:KKKeychainSampleDataTypeString];
+    KKKeychainSampleDataModel *dictionaryModel = [[KKKeychainSampleDataModel alloc] initWithOperationType:operationType
+                                                                                                 dataType:KKKeychainSampleDataTypeDictionary];
+    KKKeychainSampleDataModel *imageModel = [[KKKeychainSampleDataModel alloc] initWithOperationType:operationType
+                                                                                            dataType:KKKeychainSampleDataTypeImage];
+    return @[accountModel, stringModel, dictionaryModel, imageModel];
+}
+
+- (NSString *)imageNameForOperationType:(KKKeychainOperationType)operationType {
+    switch (operationType) {
+        case KKKeychainOperationTypeAdd:
+            return @"add";
+        case KKKeychainOperationTypeUpdate:
+            return @"refresh";
+        case KKKeychainOperationTypeDelete:
+            return @"delete";
+        case KKKeychainOperationTypeSearch:
+            return @"search";
+        default:
+            return @"";
+    }
 }
 
 @end
