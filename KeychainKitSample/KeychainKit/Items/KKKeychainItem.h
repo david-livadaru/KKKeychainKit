@@ -14,6 +14,6 @@
 @property (nonatomic, strong, readonly) NSData *data;
 @property (nonatomic, strong, readonly) NSString *label;
 @property (nonatomic, strong, readonly) NSString *accessGroup;
-@property (nonatomic, assign, readonly) KKKeychainItemAccessibility accessbility NS_AVAILABLE_IOS(8_0);
+@property (nonatomic, assign, readonly) KKKeychainItemAccessibility accessbility;
 
 @end

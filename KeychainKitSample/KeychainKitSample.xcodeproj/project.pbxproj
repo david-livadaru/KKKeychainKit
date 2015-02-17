@@ -34,12 +34,12 @@
 		63D04EF81A62BC5E003B31DB /* KKKeychainInternetPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D04EEF1A62BC5E003B31DB /* KKKeychainInternetPassword.m */; };
 		63D04EF91A62BC5E003B31DB /* KKKeychainItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D04EF01A62BC5E003B31DB /* KKKeychainItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63D04EFA1A62BC5E003B31DB /* KKKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D04EF11A62BC5E003B31DB /* KKKeychainItem.m */; };
-		63D04EFB1A62BC5E003B31DB /* KKKeychainItem_SuclassesInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D04EF21A62BC5E003B31DB /* KKKeychainItem_SuclassesInterface.h */; };
+		63D04EFB1A62BC5E003B31DB /* KKKeychainItem+SuclassesInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D04EF21A62BC5E003B31DB /* KKKeychainItem+SuclassesInterface.h */; };
 		63D04EFC1A62BC5E003B31DB /* KKKeychainPassword.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D04EF31A62BC5E003B31DB /* KKKeychainPassword.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63D04EFD1A62BC5E003B31DB /* KKKeychainPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D04EF41A62BC5E003B31DB /* KKKeychainPassword.m */; };
 		63D04F081A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D04F061A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.h */; };
 		63D04F091A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D04F071A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.m */; };
-		63D04F0D1A62E338003B31DB /* KKKeychainPassword_SuclassesInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D04F0C1A62E338003B31DB /* KKKeychainPassword_SuclassesInterface.h */; };
+		63D04F0D1A62E338003B31DB /* KKKeychainPassword+SuclassesInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D04F0C1A62E338003B31DB /* KKKeychainPassword+SuclassesInterface.h */; };
 		63D33CF91A8AA5590077802E /* KKKeychainOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33CF71A8AA5590077802E /* KKKeychainOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63D33CFA1A8AA5590077802E /* KKKeychainOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D33CF81A8AA5590077802E /* KKKeychainOperation.m */; };
 		63D33CFE1A8AA61C0077802E /* KKKKeychainAddOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33CFC1A8AA61C0077802E /* KKKKeychainAddOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,17 +53,18 @@
 		63D33D0E1A8AA8300077802E /* KKKeychainOperation+KeychainKitInteface.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D0C1A8AA8300077802E /* KKKeychainOperation+KeychainKitInteface.h */; };
 		63D33D121A8AABB10077802E /* KKKeychainOperation+SubclassesInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D101A8AABB10077802E /* KKKeychainOperation+SubclassesInterface.h */; };
 		63D33D161A8AAD090077802E /* KKKeychainItem+KeychainKitInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D141A8AAD090077802E /* KKKeychainItem+KeychainKitInterface.h */; };
-		63D33D1A1A8AB8690077802E /* KKKeychainItemBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D181A8AB8690077802E /* KKKeychainItemBuilder.h */; };
+		63D33D1A1A8AB8690077802E /* KKKeychainItemBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D181A8AB8690077802E /* KKKeychainItemBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63D33D1B1A8AB8690077802E /* KKKeychainItemBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D33D191A8AB8690077802E /* KKKeychainItemBuilder.m */; };
 		63D33D1D1A8AB94A0077802E /* KKeychainItemTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D1C1A8AB94A0077802E /* KKeychainItemTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		63D33D201A8ABC320077802E /* KKKeychainPasswordBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D1E1A8ABC320077802E /* KKKeychainPasswordBuilder.h */; };
+		63D33D201A8ABC320077802E /* KKKeychainPasswordBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D1E1A8ABC320077802E /* KKKeychainPasswordBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63D33D211A8ABC320077802E /* KKKeychainPasswordBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D33D1F1A8ABC320077802E /* KKKeychainPasswordBuilder.m */; };
-		63D33D241A8ABC7D0077802E /* KKKeychainGenericPasswordBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D221A8ABC7D0077802E /* KKKeychainGenericPasswordBuilder.h */; };
+		63D33D241A8ABC7D0077802E /* KKKeychainGenericPasswordBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D221A8ABC7D0077802E /* KKKeychainGenericPasswordBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63D33D251A8ABC7D0077802E /* KKKeychainGenericPasswordBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D33D231A8ABC7D0077802E /* KKKeychainGenericPasswordBuilder.m */; };
-		63D33D281A8ABCC30077802E /* KKKeychainInternetPasswordBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D261A8ABCC30077802E /* KKKeychainInternetPasswordBuilder.h */; };
+		63D33D281A8ABCC30077802E /* KKKeychainInternetPasswordBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D261A8ABCC30077802E /* KKKeychainInternetPasswordBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63D33D291A8ABCC30077802E /* KKKeychainInternetPasswordBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D33D271A8ABCC30077802E /* KKKeychainInternetPasswordBuilder.m */; };
 		63DFAD5C1A5F03C00079B0B2 /* KKError.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B51D3B1A422722001B4EFC /* KKError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63DFAD5D1A5F05240079B0B2 /* KeychainKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B51D0A1A421F52001B4EFC /* KeychainKit.framework */; };
+		63EA5D7C1A93C49200826CF8 /* KKKeychainSession+KeychainKitInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 63EA5D7A1A93C49200826CF8 /* KKKeychainSession+KeychainKitInterface.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,12 +154,12 @@
 		63D04EEF1A62BC5E003B31DB /* KKKeychainInternetPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainInternetPassword.m; sourceTree = "<group>"; };
 		63D04EF01A62BC5E003B31DB /* KKKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainItem.h; sourceTree = "<group>"; };
 		63D04EF11A62BC5E003B31DB /* KKKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainItem.m; sourceTree = "<group>"; };
-		63D04EF21A62BC5E003B31DB /* KKKeychainItem_SuclassesInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainItem_SuclassesInterface.h; sourceTree = "<group>"; };
+		63D04EF21A62BC5E003B31DB /* KKKeychainItem+SuclassesInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KKKeychainItem+SuclassesInterface.h"; sourceTree = "<group>"; };
 		63D04EF31A62BC5E003B31DB /* KKKeychainPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainPassword.h; sourceTree = "<group>"; };
 		63D04EF41A62BC5E003B31DB /* KKKeychainPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainPassword.m; sourceTree = "<group>"; };
 		63D04F061A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+KeychainKit.h"; sourceTree = "<group>"; };
 		63D04F071A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+KeychainKit.m"; sourceTree = "<group>"; };
-		63D04F0C1A62E338003B31DB /* KKKeychainPassword_SuclassesInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainPassword_SuclassesInterface.h; sourceTree = "<group>"; };
+		63D04F0C1A62E338003B31DB /* KKKeychainPassword+SuclassesInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KKKeychainPassword+SuclassesInterface.h"; sourceTree = "<group>"; };
 		63D33CF71A8AA5590077802E /* KKKeychainOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainOperation.h; sourceTree = "<group>"; };
 		63D33CF81A8AA5590077802E /* KKKeychainOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainOperation.m; sourceTree = "<group>"; };
 		63D33CFC1A8AA61C0077802E /* KKKKeychainAddOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKKeychainAddOperation.h; sourceTree = "<group>"; };
@@ -181,6 +182,7 @@
 		63D33D231A8ABC7D0077802E /* KKKeychainGenericPasswordBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainGenericPasswordBuilder.m; sourceTree = "<group>"; };
 		63D33D261A8ABCC30077802E /* KKKeychainInternetPasswordBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainInternetPasswordBuilder.h; sourceTree = "<group>"; };
 		63D33D271A8ABCC30077802E /* KKKeychainInternetPasswordBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainInternetPasswordBuilder.m; sourceTree = "<group>"; };
+		63EA5D7A1A93C49200826CF8 /* KKKeychainSession+KeychainKitInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KKKeychainSession+KeychainKitInterface.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +329,7 @@
 				63B51D3B1A422722001B4EFC /* KKError.h */,
 				63B51D2C1A422104001B4EFC /* KKKeychainSession.h */,
 				63B51D2D1A422104001B4EFC /* KKKeychainSession.m */,
+				63EA5D7A1A93C49200826CF8 /* KKKeychainSession+KeychainKitInterface.h */,
 				63D04EEA1A62BC5E003B31DB /* Categories */,
 				63D04EEB1A62BC5E003B31DB /* Items */,
 				63D33CF61A8AA5590077802E /* Operations */,
@@ -380,11 +383,11 @@
 				63D04EEF1A62BC5E003B31DB /* KKKeychainInternetPassword.m */,
 				63D04EF01A62BC5E003B31DB /* KKKeychainItem.h */,
 				63D04EF11A62BC5E003B31DB /* KKKeychainItem.m */,
-				63D04EF21A62BC5E003B31DB /* KKKeychainItem_SuclassesInterface.h */,
+				63D04EF21A62BC5E003B31DB /* KKKeychainItem+SuclassesInterface.h */,
 				63D33D141A8AAD090077802E /* KKKeychainItem+KeychainKitInterface.h */,
 				63D04EF31A62BC5E003B31DB /* KKKeychainPassword.h */,
 				63D04EF41A62BC5E003B31DB /* KKKeychainPassword.m */,
-				63D04F0C1A62E338003B31DB /* KKKeychainPassword_SuclassesInterface.h */,
+				63D04F0C1A62E338003B31DB /* KKKeychainPassword+SuclassesInterface.h */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -435,7 +438,7 @@
 				63D33D0E1A8AA8300077802E /* KKKeychainOperation+KeychainKitInteface.h in Headers */,
 				63B51D0F1A421F52001B4EFC /* KeychainKit.h in Headers */,
 				63D33D281A8ABCC30077802E /* KKKeychainInternetPasswordBuilder.h in Headers */,
-				63D04EFB1A62BC5E003B31DB /* KKKeychainItem_SuclassesInterface.h in Headers */,
+				63D04EFB1A62BC5E003B31DB /* KKKeychainItem+SuclassesInterface.h in Headers */,
 				63D33D121A8AABB10077802E /* KKKeychainOperation+SubclassesInterface.h in Headers */,
 				63D04EF91A62BC5E003B31DB /* KKKeychainItem.h in Headers */,
 				63B51D2E1A422104001B4EFC /* KKKeychainSession.h in Headers */,
@@ -446,10 +449,11 @@
 				63D33D1A1A8AB8690077802E /* KKKeychainItemBuilder.h in Headers */,
 				63D33CFE1A8AA61C0077802E /* KKKKeychainAddOperation.h in Headers */,
 				63D33D201A8ABC320077802E /* KKKeychainPasswordBuilder.h in Headers */,
-				63D04F0D1A62E338003B31DB /* KKKeychainPassword_SuclassesInterface.h in Headers */,
+				63D04F0D1A62E338003B31DB /* KKKeychainPassword+SuclassesInterface.h in Headers */,
 				63D04EF51A62BC5E003B31DB /* KKKeychainGenericPassword.h in Headers */,
 				63D33CF91A8AA5590077802E /* KKKeychainOperation.h in Headers */,
 				63D04EF71A62BC5E003B31DB /* KKKeychainInternetPassword.h in Headers */,
+				63EA5D7C1A93C49200826CF8 /* KKKeychainSession+KeychainKitInterface.h in Headers */,
 				63D33D1D1A8AB94A0077802E /* KKeychainItemTypes.h in Headers */,
 				63D04F081A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.h in Headers */,
 				63D33D021A8AA62A0077802E /* KKKeychainDeleteOperation.h in Headers */,

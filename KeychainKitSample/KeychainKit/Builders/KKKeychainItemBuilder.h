@@ -9,12 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <KeychainKit/KKeychainItemTypes.h>
 
+@class KKKeychainSession;
+
 @interface KKKeychainItemBuilder : NSObject
 
 @property (nonatomic, strong) NSData *data;
 @property (nonatomic, strong) NSString *label;
 @property (nonatomic, strong) NSString *accessGroup;
-@property (nonatomic, assign) KKKeychainItemAccessibility accessbility NS_AVAILABLE_IOS(8_0);
+@property (nonatomic, assign) KKKeychainItemAccessibility accessbility; // default value is KKKeychainItemAccessibleWhenUnlockedThisDeviceOnly
+
+// Life Cycle
+- (instancetype)initWithKeychainSession:(KKKeychainSession *)keychainSession;
 
 // Building
 - (id)buildKeychainItem;

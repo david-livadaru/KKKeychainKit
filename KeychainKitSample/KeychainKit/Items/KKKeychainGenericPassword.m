@@ -8,8 +8,8 @@
 
 #import "KKKeychainGenericPassword.h"
 @import Security;
-#import "KKKeychainItem_SuclassesInterface.h"
-#import "KKKeychainPassword_SuclassesInterface.h"
+#import "KKKeychainItem+SuclassesInterface.h"
+#import "KKKeychainPassword+SuclassesInterface.h"
 #import "KKKeychainItem+KeychainKitInterface.h"
 #import "NSMutableDictionary+KeychainKit.h"
 
@@ -56,19 +56,6 @@
     }
     
     return self;
-}
-
-#pragma mark - Keychain mapping
-
-- (void)updateItemWithAttributes:(NSDictionary *)attributes {
-    NSString *service = [attributes objectForKey:(__bridge id)kSecAttrService];
-    if (service) {
-        self.service = service;
-    }
-    NSData *generic = [attributes objectForKey:(__bridge id)kSecAttrGeneric];
-    if (generic) {
-        self.generic = generic;
-    }
 }
 
 #pragma mark - Item Conversion

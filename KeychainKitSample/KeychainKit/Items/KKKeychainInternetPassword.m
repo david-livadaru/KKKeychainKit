@@ -8,8 +8,8 @@
 
 #import "KKKeychainInternetPassword.h"
 @import Security;
-#import "KKKeychainItem_SuclassesInterface.h"
-#import "KKKeychainPassword_SuclassesInterface.h"
+#import "KKKeychainItem+SuclassesInterface.h"
+#import "KKKeychainPassword+SuclassesInterface.h"
 #import "KKKeychainItem+KeychainKitInterface.h"
 #import "NSMutableDictionary+KeychainKit.h"
 
@@ -91,28 +91,6 @@
 }
 
 #pragma mark - Keychain mapping
-
-- (void)updateItemWithAttributes:(NSDictionary *)attributes {
-    NSString *securityDomain = [attributes objectForKey:(__bridge id)kSecAttrSecurityDomain];
-    if (securityDomain) {
-        self.securityDomain = securityDomain;
-    }
-    NSString *server = [attributes objectForKey:(__bridge id)kSecAttrServer];
-    if (server) {
-        self.server = server;
-    }
-    NSNumber *port = [attributes objectForKey:(__bridge id)kSecAttrPort];
-    if (port) {
-        self.port = port;
-    }
-    NSString *path = [attributes objectForKey:(__bridge id)kSecAttrPath];
-    if (path) {
-        self.path = path;
-    }
-    // Protocol and authenticationType are not updated because they're set only properties at initilization.
-    // If need to be changed, current item in keychain but be deleted and create a new one with
-    // diferent protocol and/or authenticationType.
-}
 
 /*!
  *  @return CFTypeRef associated to Intenert Protocol chosen by Item's creator.

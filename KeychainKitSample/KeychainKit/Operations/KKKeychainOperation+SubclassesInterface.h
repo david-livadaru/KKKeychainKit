@@ -11,6 +11,9 @@
 
 @interface KKKeychainOperation (SubclassesInterface)
 
+// Life Cycle
+- (instancetype)initWithOperationType:(KKKeychainOperationType)operationType item:(KKKeychainItem *)item NS_REQUIRES_SUPER;
+
 // Execution
 - (OSStatus)executeOperationWithAttributes:(NSDictionary *)attributes result:(CFTypeRef *)result;
 

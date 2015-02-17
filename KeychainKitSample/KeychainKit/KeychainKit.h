@@ -28,3 +28,7 @@ FOUNDATION_EXPORT const unsigned char KeychainKitVersionString[];
 #import <KeychainKit/KKKeychainPassword.h>
 #import <KeychainKit/KKKeychainGenericPassword.h>
 #import <KeychainKit/KKKeychainInternetPassword.h>
+#import <KeychainKit/KKKeychainItemBuilder.h>
+#import <KeychainKit/KKKeychainPasswordBuilder.h>
+#import <KeychainKit/KKKeychainGenericPasswordBuilder.h>
+#import <KeychainKit/KKKeychainInternetPasswordBuilder.h>

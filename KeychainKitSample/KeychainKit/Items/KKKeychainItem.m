@@ -8,7 +8,7 @@
 
 #import "KKKeychainItem.h"
 @import Security;
-#import "KKKeychainItem_SuclassesInterface.h"
+#import "KKKeychainItem+SuclassesInterface.h"
 #import "KKKeychainOperation+KeychainKitInteface.h"
 #import "NSMutableDictionary+KeychainKit.h"
 
@@ -22,6 +22,9 @@
 /*!
  *  @abstract
  *      User-visible label for this Keychain Item.
+ *  @discussion
+ *      Label is a property which can be seen as a key for the item from Keychain.
+ *      This property is required when the item is updated.
  */
 @property (nonatomic, strong, readwrite) NSString *label;
 /*!
@@ -74,30 +77,6 @@
 #pragma mark - Keychain mapping
 
 /*!
- *  Updates this item with content values from dictionary.
- *
- *  @param attributes An NSDictionary which contain data.
- */
-- (void)updateItemWithAttributes:(NSDictionary *)attributes {
-#warning check from design perspective if this method is worth keeping
-    NSData *data = [attributes objectForKey:(__bridge id)kSecValueData];
-    if (data) {
-        self.data = data;
-    }
-    NSString *label = [attributes objectForKey:(__bridge id)kSecAttrLabel];
-    if (label) {
-        self.label = label;
-    }
-    NSString *accessGroup = [attributes objectForKey:(__bridge id)kSecAttrAccessGroup];
-    if (accessGroup) {
-        self.accessGroup = accessGroup;
-    }
-    // Accessibility is not updated because it's a set only property at initilization.
-    // If needs to be changed, current item in keychain but be deleted and create a new one with
-    // diferent accessibility.
-}
-
-/*!
  *  @return CFTypeRef associated to access control protection chosen by item creator.
  */
 - (CFTypeRef)accessControlProtectionFromItem {
@@ -123,7 +102,6 @@
 
 /*!
  *  Converts Keychain Item into an NSDictionary.
- *  The error will be set only on iOS 8 and later.
  *
  *  @param error an error which will be set if something goes wrong.
  *
@@ -131,19 +109,17 @@
  */
 - (NSDictionary *)keychainAttributesWithError:(NSError *__autoreleasing *)error {
     NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
-    if ([[NSProcessInfo processInfo] respondsToSelector:@selector(operatingSystemVersion)]) { // iOS 8.0 or later?
-        CFErrorRef accessControlError = NULL;
-        SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault,
-                                                                            [self accessControlProtectionFromItem],
-                                                                            kSecAccessControlUserPresence,
-                                                                            &accessControlError);
-        if (accessControlError) { // was there any error
-            *error = (__bridge_transfer NSError *)accessControlError;
-            return nil;
-        }
-        [attributes setObjectSafely:(__bridge_transfer id)accessControl
-                             forKey:(__bridge id)kSecAttrAccessControl];
+    CFErrorRef accessControlError = NULL;
+    SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault,
+                                                                        [self accessControlProtectionFromItem],
+                                                                        kSecAccessControlUserPresence,
+                                                                        &accessControlError);
+    if (accessControlError) { // was there any error
+        *error = (__bridge_transfer NSError *)accessControlError;
+        return nil;
     }
+    [attributes setObjectSafely:(__bridge_transfer id)accessControl
+                         forKey:(__bridge id)kSecAttrAccessControl];
     [attributes setObjectSafely:self.data
                          forKey:(__bridge id)kSecValueData];
     return [attributes copy];

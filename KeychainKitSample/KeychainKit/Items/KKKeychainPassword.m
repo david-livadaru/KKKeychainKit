@@ -8,8 +8,8 @@
 
 #import "KKKeychainPassword.h"
 @import Security;
-#import "KKKeychainItem_SuclassesInterface.h"
-#import "KKKeychainPassword_SuclassesInterface.h"
+#import "KKKeychainItem+SuclassesInterface.h"
+#import "KKKeychainPassword+SuclassesInterface.h"
 #import "KKKeychainItem+KeychainKitInterface.h"
 #import "NSMutableDictionary+KeychainKit.h"
 
@@ -101,48 +101,6 @@
     }
     
     return self;
-}
-
-#pragma mark - Keychain mapping
-
-- (void)updateItemWithAttributes:(NSDictionary *)attributes {
-    [super updateItemWithAttributes:attributes];
-    NSDate *creationDate = [attributes objectForKey:(__bridge id)kSecAttrCreationDate];
-    if (creationDate) {
-        self.creationDate = creationDate;
-    }
-    NSDate *modificationDate = [attributes objectForKey:(__bridge id)kSecAttrModificationDate];
-    if (modificationDate) {
-        self.modificationDate = modificationDate;
-    }
-    NSString *itemDescription = [attributes objectForKey:(__bridge id)kSecAttrDescription];
-    if (itemDescription) {
-        self.itemDescription = itemDescription;
-    }
-    NSString *comment = [attributes objectForKey:(__bridge id)kSecAttrComment];
-    if (comment) {
-        self.comment = comment;
-    }
-    NSNumber *creator = [attributes objectForKey:(__bridge id)kSecAttrCreator];
-    if (creator) {
-        self.creator = creator;
-    }
-    NSNumber *type = [attributes objectForKey:(__bridge id)kSecAttrType];
-    if (type) {
-        self.type = type;
-    }
-    NSNumber *isInvisibleNumber = [attributes objectForKey:(__bridge id)kSecAttrIsInvisible];
-    if (isInvisibleNumber) {
-        self.invisible = [isInvisibleNumber boolValue];
-    }
-    NSNumber *isNegativeNumber = [attributes objectForKey:(__bridge id)kSecAttrIsNegative];
-    if (isNegativeNumber) {
-        self.negative = [isNegativeNumber boolValue];
-    }
-    NSString *account = [attributes objectForKey:(__bridge id)kSecAttrAccount];
-    if (account) {
-        self.account = account;
-    }
 }
 
 #pragma mark - Item Conversion
