@@ -41,6 +41,7 @@
 		63D14DF11A93D61C0089A048 /* KKKeychainSampleDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D14DF01A93D61C0089A048 /* KKKeychainSampleDataModel.m */; };
 		63D14DF41A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D14DF31A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.m */; };
 		63D14DF71A93E4510089A048 /* KKKeychainSampleItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D14DF61A93E4510089A048 /* KKKeychainSampleItemViewController.m */; };
+		63D5E0D31A952F260080F776 /* KKSStringVisualizerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D5E0D21A952F260080F776 /* KKSStringVisualizerViewController.m */; };
 		63DFAD5C1A5F03C00079B0B2 /* KKError.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B51D3B1A422722001B4EFC /* KKError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63DFAD5D1A5F05240079B0B2 /* KeychainKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B51D0A1A421F52001B4EFC /* KeychainKit.framework */; };
 /* End PBXBuildFile section */
@@ -138,6 +139,9 @@
 		63D14DF31A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainSampleUIDataAdapter.m; sourceTree = "<group>"; };
 		63D14DF51A93E4510089A048 /* KKKeychainSampleItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainSampleItemViewController.h; sourceTree = "<group>"; };
 		63D14DF61A93E4510089A048 /* KKKeychainSampleItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainSampleItemViewController.m; sourceTree = "<group>"; };
+		63D5E0D01A9524060080F776 /* KKKeychainSampleItemDataConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainSampleItemDataConverter.h; sourceTree = "<group>"; };
+		63D5E0D11A952F260080F776 /* KKSStringVisualizerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSStringVisualizerViewController.h; sourceTree = "<group>"; };
+		63D5E0D21A952F260080F776 /* KKSStringVisualizerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSStringVisualizerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +263,8 @@
 				63D14DED1A93D5F30089A048 /* KKKeychainSampleViewController.m */,
 				63D14DF51A93E4510089A048 /* KKKeychainSampleItemViewController.h */,
 				63D14DF61A93E4510089A048 /* KKKeychainSampleItemViewController.m */,
+				63D5E0D11A952F260080F776 /* KKSStringVisualizerViewController.h */,
+				63D5E0D21A952F260080F776 /* KKSStringVisualizerViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -270,6 +276,7 @@
 				63B51D391A4221A4001B4EFC /* KKSKeychainHandler.m */,
 				63D14DF21A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.h */,
 				63D14DF31A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.m */,
+				63D5E0D01A9524060080F776 /* KKKeychainSampleItemDataConverter.h */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -537,6 +544,7 @@
 				63B51D3A1A4221A4001B4EFC /* KKSKeychainHandler.m in Sources */,
 				63D14DF11A93D61C0089A048 /* KKKeychainSampleDataModel.m in Sources */,
 				63D14DF41A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.m in Sources */,
+				63D5E0D31A952F260080F776 /* KKSStringVisualizerViewController.m in Sources */,
 				63B51CC21A4207FC001B4EFC /* AppDelegate.m in Sources */,
 				63D14DF71A93E4510089A048 /* KKKeychainSampleItemViewController.m in Sources */,
 				63D14DEE1A93D5F30089A048 /* KKKeychainSampleViewController.m in Sources */,

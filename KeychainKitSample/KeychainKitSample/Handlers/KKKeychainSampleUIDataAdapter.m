@@ -22,7 +22,7 @@
 }
 
 - (NSString *)buttonTitleForModel:(KKKeychainSampleDataModel *)dataModel {
-    return [self stringForDataType:dataModel.dataType];
+    return [self stringForOperationType:dataModel.operationType];
 }
 
 - (NSString *)fullStringForModel:(KKKeychainSampleDataModel *)dataModel {
