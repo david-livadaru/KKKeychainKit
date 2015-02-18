@@ -47,11 +47,6 @@ static NSString * kCellIdentifier = @"org.david.KeychainSample.KKKeychainSampleV
     self.navigationItem.title = [self.dataUIAdapter navigationBarTitleForModel:[self.model firstObject]];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-//    [self.navigationController setNavigationBarHidden:YES animated:animated];
-}
-
 #pragma mark - UITableView Data Source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -63,6 +58,7 @@ static NSString * kCellIdentifier = @"org.david.KeychainSample.KKKeychainSampleV
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     KKKeychainSampleDataModel *dataModelAtIdex = [self.model objectAtIndex:indexPath.item];
     cell.textLabel.text = [self.dataUIAdapter cellTextForModel:dataModelAtIdex];
+    cell.imageView.image = [UIImage imageNamed:[self imageNameForDataType:dataModelAtIdex.dataType]];
     return cell;
 }
 
@@ -73,6 +69,23 @@ static NSString * kCellIdentifier = @"org.david.KeychainSample.KKKeychainSampleV
     KKKeychainSampleDataModel *modelAtIndexPath = [self.model objectAtIndex:indexPath.item];
     KKKeychainSampleItemViewController *itemViewController = [[KKKeychainSampleItemViewController alloc] initWithModel:modelAtIndexPath];
     [self.navigationController pushViewController:itemViewController animated:YES];
+}
+
+#pragma mark - Data Handling
+
+- (NSString *)imageNameForDataType:(KKKeychainSampleDataType)dataType {
+    switch (dataType) {
+        case KKKeychainSampleDataTypeString:
+            return @"string";
+        case KKKeychainSampleDataTypeAccount:
+            return @"account";
+        case KKKeychainSampleDataTypeDictionary:
+            return @"dictionary";
+        case KKKeychainSampleDataTypeImage:
+            return @"image";
+        default:
+            return @"";
+    }
 }
 
 @end

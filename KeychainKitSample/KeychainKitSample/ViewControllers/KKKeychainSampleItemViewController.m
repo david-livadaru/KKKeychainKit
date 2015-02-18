@@ -41,8 +41,4 @@
     self.navigationItem.title = [dataUIAdapter fullStringForModel:self.model];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
 @end
