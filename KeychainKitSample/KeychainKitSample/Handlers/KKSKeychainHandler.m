@@ -6,12 +6,13 @@
 //  Copyright (c) 2014 David Live Org. All rights reserved.
 //
 
-@import KeychainKit;
 #import "KKSKeychainHandler.h"
 
 @interface KKSKeychainHandler ()
 
-@property (nonatomic, strong) KKKeychainSession         *keychainSession;
+@property (nonatomic, strong) KKKeychainSession *keychainSession;
+@property (nonatomic, assign) KKKeychainOperationType operationType;
+@property (nonatomic, weak) id<KKKeychainSampleItemDataVisualizer> dataVisualizer;
 
 @end
 
@@ -19,10 +20,13 @@
 
 #pragma mark - Object Life Cycle
 
-- (instancetype)init {
+- (instancetype)initWithOperationType:(KKKeychainOperationType)operationType
+                       dataVisualizer:(id<KKKeychainSampleItemDataVisualizer>)dataVisualizer {
     self = [super init];
     
     if (self) {
+        self.operationType = operationType;
+        self.dataVisualizer = dataVisualizer;
         self.keychainSession = [[KKKeychainSession alloc] init];
     }
     
@@ -31,7 +35,10 @@
 
 #pragma mark - Operations
 
-- (void)addStringInKeychain:(NSString *)string key:(NSString *)key {
+- (void)performKeychainOperation {
+}
+
+//- (void)addStringInKeychain:(NSString *)string key:(NSString *)key {
 //    NSData *stringData = [string dataUsingEncoding:NSUTF8StringEncoding];
     // service name delete: @"Keychain Kit Sample"
 //    KKKeychainItem *stringItem =
@@ -44,6 +51,6 @@
 //            NSLog(@"Failed to add item in keychain. Reason:%@", [error localizedDescription]);
 //        }
 //    }];
-}
+//}
 
 @end

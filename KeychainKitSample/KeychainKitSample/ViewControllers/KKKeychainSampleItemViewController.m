@@ -9,6 +9,7 @@
 #import "KKKeychainSampleItemViewController.h"
 #import "KKKeychainSampleDataModel.h"
 #import "KKKeychainSampleUIDataAdapter.h"
+#import "KKKeychainSampleVisualizerViewController.h"
 
 @interface KKKeychainSampleItemViewController ()
 
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) UIButton *actionButton;
 @property (nonatomic, strong) UIView *itemContentView;
 @property (nonatomic, strong) KKKeychainSampleUIDataAdapter *dataUIAdapter;
+@property (nonatomic, strong) id<KKKeychainSampleItemDataVisualizer> dataVisualizer;
 
 @end
 
@@ -109,6 +111,16 @@
     [self.view addSubview:self.actionButton];
     self.itemContentView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.itemContentView];
+    [self addItemContentChildViewController];
+}
+
+- (void)addItemContentChildViewController {
+    KKKeychainSampleVisualizerViewController *visualizerViewController =
+    [KKKeychainSampleVisualizerViewController visualizerViewControllerFromDataType:self.model.dataType];
+    [self addChildViewController:visualizerViewController];
+    [self.itemContentView addSubview:visualizerViewController.view];
+    [visualizerViewController didMoveToParentViewController:self];
+    self.dataVisualizer = visualizerViewController;
 }
 
 - (void)customizeSubviews {
@@ -116,7 +128,17 @@
     [self.actionButton setTitle:[self.dataUIAdapter buttonTitleForModel:self.model] forState:UIControlStateNormal];
     [self.actionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.actionButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
-    self.itemContentView.backgroundColor = [UIColor redColor];
+    [self.actionButton addTarget:self action:@selector(performActionForActionButton:)
+                forControlEvents:UIControlEventTouchUpInside];
+}
+
+#pragma mark - Action Handling
+
+- (void)performActionForActionButton:(UIButton *)actionButton {
+    NSData *data = [self.dataVisualizer dataFromView];
+    if ([self.dataVisualizer respondsToSelector:@selector(accountDataFromView)]) {
+        NSData *accountData = [self.dataVisualizer accountDataFromView];
+    }
 }
 
 @end

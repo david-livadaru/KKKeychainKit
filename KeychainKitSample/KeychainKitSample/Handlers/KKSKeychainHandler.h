@@ -6,11 +6,17 @@
 //  Copyright (c) 2014 David Live Org. All rights reserved.
 //
 
+@import KeychainKit;
 #import <Foundation/Foundation.h>
+#import "KKKeychainSampleItemDataVisualizer.h"
 
 @interface KKSKeychainHandler : NSObject
 
+// Life Cycle
+- (instancetype)initWithOperationType:(KKKeychainOperationType)operationType
+                       dataVisualizer:(id<KKKeychainSampleItemDataVisualizer>)dataVisualizer;
+
 // Operations
-- (void)addStringInKeychain:(NSString *)string key:(NSString *)key;
+- (void)performKeychainOperation;
 
 @end

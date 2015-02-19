@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "KKKeychainSampleItemDataConverter.h"
+#import "KKKeychainSampleVisualizerViewController.h"
 
-@interface KKSStringVisualizerViewController : UIViewController <KKKeychaimSampleItemDataVisualizer>
+@interface KKSStringVisualizerViewController : KKKeychainSampleVisualizerViewController
 
 @end

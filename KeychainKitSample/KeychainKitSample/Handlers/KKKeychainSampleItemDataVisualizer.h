@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol KKKeychaimSampleItemDataVisualizer <NSObject>
+@protocol KKKeychainSampleItemDataVisualizer <NSObject>
 
 - (NSData *)dataFromView;
 - (void)previewData:(NSData *)data;
+
+@optional
+- (NSData *)accountDataFromView;
+- (void)previewAccountData:(NSData *)accountData;
 
 @end

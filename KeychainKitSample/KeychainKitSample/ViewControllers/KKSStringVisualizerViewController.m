@@ -7,6 +7,7 @@
 //
 
 #import "KKSStringVisualizerViewController.h"
+#import "KKKeychainSampleVisualizerViewController_KKSPrivateInterface.h"
 
 @interface KKSStringVisualizerViewController ()
 
@@ -31,21 +32,33 @@
     
     static CGFloat textInputPadding = 4.0f;
     
+    [self.textInput sizeToFit];
     CGRect textInputFrame = self.textInput.frame;
     textInputFrame.origin.x = textInputPadding;
     textInputFrame.origin.y = textInputPadding;
     textInputFrame.size.width = CGRectGetWidth(self.view.bounds) - textInputPadding * 2;
-    textInputFrame.size.height = 44.0f;
+    textInputFrame.size.height = MAX(CGRectGetHeight(textInputFrame), 44.0f);
+    self.textInput.frame = textInputFrame;
 }
 
-#pragma mark - KKKeychaimSampleItem Data Visualizer
+#pragma mark - KKKeychainSampleItem Data Visualizer
 
 - (NSData *)dataFromView {
-    return nil;
+    return [self.dataConverter dataFromModel:self.textInput.text];
 }
 
 - (void)previewData:(NSData *)data {
-    // TO DO
+    self.textInput.text = [self.dataConverter modelFromData:data];
+    self.textInput.enabled = NO;
+}
+
+#pragma mark - Getters and Setters
+
+- (KKKeychainSampleModelDataConverter *)dataConverter {
+    if (!_dataConverter) {
+        _dataConverter = [KKKeychainSampleModelDataConverter dataConverterForDataType:KKKeychainSampleDataTypeString];
+    }
+    return [super dataConverter];
 }
 
 @end
