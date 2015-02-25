@@ -10,7 +10,7 @@
 
 @interface KKSKeychainHandler ()
 
-@property (nonatomic, strong) KKKeychainSession *keychainSession;
+@property (nonatomic) KKKeychainSession *keychainSession;
 @property (nonatomic, assign) KKKeychainOperationType operationType;
 @property (nonatomic, weak) id<KKKeychainSampleItemDataVisualizer> dataVisualizer;
 

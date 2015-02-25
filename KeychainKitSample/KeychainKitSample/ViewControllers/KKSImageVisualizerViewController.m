@@ -11,8 +11,8 @@
 
 @interface KKSImageVisualizerViewController ()
 
-@property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) UIButton *addImageButton;
+@property (nonatomic) UIImageView *imageView;
+@property (nonatomic) UIButton *addImageButton;
 
 @end
 

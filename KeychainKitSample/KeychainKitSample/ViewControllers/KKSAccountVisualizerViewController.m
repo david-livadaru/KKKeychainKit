@@ -11,8 +11,8 @@
 
 @interface KKSAccountVisualizerViewController ()
 
-@property (nonatomic, strong) UITextField *accountNameTextField;
-@property (nonatomic, strong) UITextField *passwordTextField;
+@property (nonatomic) UITextField *accountNameTextField;
+@property (nonatomic) UITextField *passwordTextField;
 
 @end
 
@@ -24,10 +24,12 @@
     [super viewDidLoad];
     
     self.accountNameTextField = [[UITextField alloc] initWithFrame:CGRectZero];
-    self.accountNameTextField.placeholder = @"Add account name...";
+    self.accountNameTextField.placeholder = @"Add account name";
+    self.accountNameTextField.borderStyle = UITextBorderStyleRoundedRect;
     [self.view addSubview:self.accountNameTextField];
     self.passwordTextField = [[UITextField alloc] initWithFrame:CGRectZero];
-    self.passwordTextField.placeholder = @"Add password...";
+    self.passwordTextField.placeholder = @"Add password";
+    self.passwordTextField.borderStyle = UITextBorderStyleRoundedRect;
     [self.view addSubview:self.passwordTextField];
 }
 

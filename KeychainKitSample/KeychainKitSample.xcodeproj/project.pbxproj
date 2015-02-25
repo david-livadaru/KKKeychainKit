@@ -41,11 +41,14 @@
 		63D04F081A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D04F061A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.h */; };
 		63D04F091A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D04F071A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.m */; };
 		63D04F0D1A62E338003B31DB /* KKKeychainPassword_KeychainKitInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D04F0C1A62E338003B31DB /* KKKeychainPassword_KeychainKitInterface.h */; };
+		63D119E81A9E6DFA00057E7C /* KKSDictionaryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D119E71A9E6DFA00057E7C /* KKSDictionaryTableViewCell.m */; };
+		63D119EB1A9E8B9300057E7C /* KKSDictionaryPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D119EA1A9E8B9300057E7C /* KKSDictionaryPair.m */; };
 		63D14DEE1A93D5F30089A048 /* KKKeychainSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D14DED1A93D5F30089A048 /* KKKeychainSampleViewController.m */; };
 		63D14DF11A93D61C0089A048 /* KKKeychainSampleDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D14DF01A93D61C0089A048 /* KKKeychainSampleDataModel.m */; };
 		63D14DF41A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D14DF31A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.m */; };
 		63D14DF71A93E4510089A048 /* KKKeychainSampleItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D14DF61A93E4510089A048 /* KKKeychainSampleItemViewController.m */; };
 		63D5E0D31A952F260080F776 /* KKSStringVisualizerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D5E0D21A952F260080F776 /* KKSStringVisualizerViewController.m */; };
+		63DF3F6C1A9D0E2500AAC553 /* NSString+KKSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DF3F6B1A9D0E2500AAC553 /* NSString+KKSAdditions.m */; };
 		63DFAD5C1A5F03C00079B0B2 /* KKError.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B51D3B1A422722001B4EFC /* KKError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63DFAD5D1A5F05240079B0B2 /* KeychainKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B51D0A1A421F52001B4EFC /* KeychainKit.framework */; };
 		63E325901A968EB400342987 /* KKKeychainSampleModelDataConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E3258F1A968EB400342987 /* KKKeychainSampleModelDataConverter.m */; };
@@ -148,6 +151,10 @@
 		63D04F061A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+KeychainKit.h"; sourceTree = "<group>"; };
 		63D04F071A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+KeychainKit.m"; sourceTree = "<group>"; };
 		63D04F0C1A62E338003B31DB /* KKKeychainPassword_KeychainKitInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainPassword_KeychainKitInterface.h; sourceTree = "<group>"; };
+		63D119E61A9E6DFA00057E7C /* KKSDictionaryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSDictionaryTableViewCell.h; sourceTree = "<group>"; };
+		63D119E71A9E6DFA00057E7C /* KKSDictionaryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSDictionaryTableViewCell.m; sourceTree = "<group>"; };
+		63D119E91A9E8B9300057E7C /* KKSDictionaryPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSDictionaryPair.h; sourceTree = "<group>"; };
+		63D119EA1A9E8B9300057E7C /* KKSDictionaryPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSDictionaryPair.m; sourceTree = "<group>"; };
 		63D14DEC1A93D5F30089A048 /* KKKeychainSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainSampleViewController.h; sourceTree = "<group>"; };
 		63D14DED1A93D5F30089A048 /* KKKeychainSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainSampleViewController.m; sourceTree = "<group>"; };
 		63D14DEF1A93D61C0089A048 /* KKKeychainSampleDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainSampleDataModel.h; sourceTree = "<group>"; };
@@ -159,6 +166,8 @@
 		63D5E0D01A9524060080F776 /* KKKeychainSampleItemDataVisualizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainSampleItemDataVisualizer.h; sourceTree = "<group>"; };
 		63D5E0D11A952F260080F776 /* KKSStringVisualizerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSStringVisualizerViewController.h; sourceTree = "<group>"; };
 		63D5E0D21A952F260080F776 /* KKSStringVisualizerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSStringVisualizerViewController.m; sourceTree = "<group>"; };
+		63DF3F6A1A9D0E2500AAC553 /* NSString+KKSAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KKSAdditions.h"; sourceTree = "<group>"; };
+		63DF3F6B1A9D0E2500AAC553 /* NSString+KKSAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KKSAdditions.m"; sourceTree = "<group>"; };
 		63E3258E1A968EB400342987 /* KKKeychainSampleModelDataConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainSampleModelDataConverter.h; sourceTree = "<group>"; };
 		63E3258F1A968EB400342987 /* KKKeychainSampleModelDataConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainSampleModelDataConverter.m; sourceTree = "<group>"; };
 		63E325911A968F8A00342987 /* KKKeychainSampleStringModelDataConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainSampleStringModelDataConverter.h; sourceTree = "<group>"; };
@@ -248,6 +257,7 @@
 				63B51CF41A421563001B4EFC /* ViewControllers */,
 				63D5E0CF1A951B3E0080F776 /* Views */,
 				63B51D041A421586001B4EFC /* Handlers */,
+				63DF3F681A9D0DFD00AAC553 /* Categories */,
 				63D14DEB1A93D5BF0089A048 /* Model */,
 				63B51CC01A4207FC001B4EFC /* AppDelegate.h */,
 				63B51CC11A4207FC001B4EFC /* AppDelegate.m */,
@@ -399,6 +409,8 @@
 			children = (
 				63D14DEF1A93D61C0089A048 /* KKKeychainSampleDataModel.h */,
 				63D14DF01A93D61C0089A048 /* KKKeychainSampleDataModel.m */,
+				63D119E91A9E8B9300057E7C /* KKSDictionaryPair.h */,
+				63D119EA1A9E8B9300057E7C /* KKSDictionaryPair.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -408,8 +420,27 @@
 			children = (
 				63A8AC001A96AA0200351C28 /* KKSAddDictionaryPairView.h */,
 				63A8AC011A96AA0200351C28 /* KKSAddDictionaryPairView.m */,
+				63D119E61A9E6DFA00057E7C /* KKSDictionaryTableViewCell.h */,
+				63D119E71A9E6DFA00057E7C /* KKSDictionaryTableViewCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		63DF3F681A9D0DFD00AAC553 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				63DF3F691A9D0E0B00AAC553 /* Foundation */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		63DF3F691A9D0E0B00AAC553 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				63DF3F6A1A9D0E2500AAC553 /* NSString+KKSAdditions.h */,
+				63DF3F6B1A9D0E2500AAC553 /* NSString+KKSAdditions.m */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,12 +628,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				63A8ABF91A9698DC00351C28 /* KKSDictionaryVisualizerViewController.m in Sources */,
+				63D119EB1A9E8B9300057E7C /* KKSDictionaryPair.m in Sources */,
 				63B51D3A1A4221A4001B4EFC /* KKSKeychainHandler.m in Sources */,
 				63A8AC021A96AA0200351C28 /* KKSAddDictionaryPairView.m in Sources */,
 				63D14DF11A93D61C0089A048 /* KKKeychainSampleDataModel.m in Sources */,
 				63D14DF41A93D8A00089A048 /* KKKeychainSampleUIDataAdapter.m in Sources */,
 				63E325931A968F8A00342987 /* KKKeychainSampleStringModelDataConverter.m in Sources */,
+				63D119E81A9E6DFA00057E7C /* KKSDictionaryTableViewCell.m in Sources */,
 				63E325961A96902B00342987 /* KKKeychainSampleDictionaryModelDataConverter.m in Sources */,
+				63DF3F6C1A9D0E2500AAC553 /* NSString+KKSAdditions.m in Sources */,
 				63A8ABFF1A96993300351C28 /* KKSImageVisualizerViewController.m in Sources */,
 				63D5E0D31A952F260080F776 /* KKSStringVisualizerViewController.m in Sources */,
 				63E325991A96915100342987 /* KKKeychainSampleImageModelDataConverter.m in Sources */,

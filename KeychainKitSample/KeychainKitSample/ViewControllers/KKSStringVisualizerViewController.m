@@ -11,7 +11,7 @@
 
 @interface KKSStringVisualizerViewController ()
 
-@property (nonatomic, strong) UITextField *textInput;
+@property (nonatomic) UITextField *textInput;
 
 @end
 
@@ -23,7 +23,8 @@
     [super viewDidLoad];
     
     self.textInput = [[UITextField alloc] initWithFrame:CGRectZero];
-    self.textInput.placeholder = @"String to be added in Keychain...";
+    self.textInput.placeholder = @"String to be added in Keychain";
+    self.textInput.borderStyle = UITextBorderStyleRoundedRect;
     [self.view addSubview:self.textInput];
 }
 

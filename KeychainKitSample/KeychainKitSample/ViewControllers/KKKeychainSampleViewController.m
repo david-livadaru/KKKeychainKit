@@ -16,8 +16,8 @@ static NSString * kCellIdentifier = @"org.david.KeychainSample.KKKeychainSampleV
 
 @interface KKKeychainSampleViewController ()
 
-@property (nonatomic, strong) NSArray *model;
-@property (nonatomic, strong) KKKeychainSampleUIDataAdapter *dataUIAdapter;
+@property (nonatomic) NSArray *model;
+@property (nonatomic) KKKeychainSampleUIDataAdapter *dataUIAdapter;
 
 @end
 

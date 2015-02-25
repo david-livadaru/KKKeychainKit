@@ -13,12 +13,12 @@
 
 @interface KKKeychainSampleItemViewController ()
 
-@property (nonatomic, strong) KKKeychainSampleDataModel *model;
-@property (nonatomic, strong) UITextField *itemLabelTextField;
-@property (nonatomic, strong) UIButton *actionButton;
-@property (nonatomic, strong) UIView *itemContentView;
-@property (nonatomic, strong) KKKeychainSampleUIDataAdapter *dataUIAdapter;
-@property (nonatomic, strong) id<KKKeychainSampleItemDataVisualizer> dataVisualizer;
+@property (nonatomic) KKKeychainSampleDataModel *model;
+@property (nonatomic) UITextField *itemLabelTextField;
+@property (nonatomic) UIButton *actionButton;
+@property (nonatomic) UIView *itemContentView;
+@property (nonatomic) KKKeychainSampleUIDataAdapter *dataUIAdapter;
+@property (nonatomic) id<KKKeychainSampleItemDataVisualizer> dataVisualizer;
 
 @end
 
@@ -119,12 +119,14 @@
     [KKKeychainSampleVisualizerViewController visualizerViewControllerFromDataType:self.model.dataType];
     [self addChildViewController:visualizerViewController];
     [self.itemContentView addSubview:visualizerViewController.view];
+    visualizerViewController.view.frame = self.itemContentView.bounds;
     [visualizerViewController didMoveToParentViewController:self];
     self.dataVisualizer = visualizerViewController;
 }
 
 - (void)customizeSubviews {
-    self.itemLabelTextField.placeholder = @"Keychain Item's Label...";
+    self.itemLabelTextField.placeholder = @"Keychain Item's Label";
+    self.itemLabelTextField.borderStyle = UITextBorderStyleRoundedRect;
     [self.actionButton setTitle:[self.dataUIAdapter buttonTitleForModel:self.model] forState:UIControlStateNormal];
     [self.actionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.actionButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
