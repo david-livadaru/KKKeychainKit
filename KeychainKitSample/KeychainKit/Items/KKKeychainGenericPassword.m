@@ -20,12 +20,12 @@
  *      A string that represents the service associated with this item.
  *      (Exmaple: "com.apple.iDevice.PasscodeScreen")
  */
-@property (nonatomic, strong, readwrite) NSString *service;
+@property (nonatomic, copy, readwrite) NSString *service;
 /*!
  *  @abstract
  *      Contains a user-defined attribute.
  */
-@property (nonatomic, strong, readwrite) NSData *generic;
+@property (nonatomic, copy, readwrite) NSData *generic;
 
 @end
 

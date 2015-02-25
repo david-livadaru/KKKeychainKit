@@ -10,8 +10,8 @@
 
 @interface KKKeychainGenericPassword : KKKeychainPassword
 
-@property (nonatomic, strong, readonly) NSString *service;
-@property (nonatomic, strong, readonly) NSData *generic;
+@property (nonatomic, copy, readonly) NSString *service;
+@property (nonatomic, copy, readonly) NSData *generic;
 
 // Object Life Cycle
 - (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup

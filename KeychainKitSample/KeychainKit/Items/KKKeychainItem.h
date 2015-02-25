@@ -11,9 +11,9 @@
 
 @interface KKKeychainItem : NSObject
 
-@property (nonatomic, strong, readonly) NSData *data;
-@property (nonatomic, strong, readonly) NSString *label;
-@property (nonatomic, strong, readonly) NSString *accessGroup;
+@property (nonatomic, copy, readonly) NSData *data;
+@property (nonatomic, copy, readonly) NSString *label;
+@property (nonatomic, copy, readonly) NSString *accessGroup;
 @property (nonatomic, assign, readonly) KKKeychainItemAccessibility accessbility;
 
 @end

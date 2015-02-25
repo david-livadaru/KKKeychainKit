@@ -10,12 +10,12 @@
 
 @interface KKKeychainInternetPassword : KKKeychainPassword
 
-@property (nonatomic, strong, readonly) NSString *securityDomain;
-@property (nonatomic, strong, readonly) NSString *server;
+@property (nonatomic, copy, readonly) NSString *securityDomain;
+@property (nonatomic, copy, readonly) NSString *server;
 @property (nonatomic, assign, readonly) KKKeychainProtocol protocol;
 @property (nonatomic, assign, readonly) KKKeychainAuthenticationType authenticationType;
-@property (nonatomic, strong, readonly) NSNumber *port;
-@property (nonatomic, strong, readonly) NSString *path;
+@property (nonatomic, readonly) NSNumber *port;
+@property (nonatomic, copy, readonly) NSString *path;
 
 // Object Life Cycle
 - (instancetype)initWithData:(NSData *)data label:(NSString *)label accessGroup:(NSString *)accessGroup

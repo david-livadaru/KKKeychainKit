@@ -19,36 +19,36 @@
  *  @abstract
  *      Represents the date the item was created.
  */
-@property (nonatomic, strong, readwrite) NSDate *creationDate;
+@property (nonatomic, readwrite) NSDate *creationDate;
 /*!
  *  @abstract
  *      Represents the last time the item was updated.
  */
-@property (nonatomic, strong, readwrite) NSDate *modificationDate;
+@property (nonatomic, readwrite) NSDate *modificationDate;
 /*!
  *  @abstract
  *      Apecifies a user-visible string describing this kind of item 
  *      (Examples:"Disk image password"; "Login credentials."; 
  *       "An object which represent serialization of this class").
  */
-@property (nonatomic, strong, readwrite) NSString *itemDescription;
+@property (nonatomic, copy, readwrite) NSString *itemDescription;
 /*!
  *  @abstract
  *      Contains the user-editable comment for this item.
  */
-@property (nonatomic, strong, readwrite) NSString *comment;
+@property (nonatomic, copy, readwrite) NSString *comment;
 /*!
  *  @abstract
  *      Represents the item's creator. This number is the unsigned integer
  *      representation of a four-character code (for example, 'aCrt').
  */
-@property (nonatomic, strong, readwrite) NSNumber *creator;
+@property (nonatomic, readwrite) NSNumber *creator;
 /*!
  *  @abstract
  *      Tepresents the item's type. This number is the unsigned integer 
  *      representation of a four-character code (for example, 'aTyp').
  */
-@property (nonatomic, strong, readwrite) NSNumber *type;
+@property (nonatomic, readwrite) NSNumber *type;
 /*!
  *  @abstract
  *      Boolean value which specifies if the item is invisible (that is, should not be displayed).
@@ -67,7 +67,7 @@
  *  @abstract
  *      Contains an account name.
  */
-@property (nonatomic, strong, readwrite) NSString *account;
+@property (nonatomic, copy, readwrite) NSString *account;
 
 @end
 

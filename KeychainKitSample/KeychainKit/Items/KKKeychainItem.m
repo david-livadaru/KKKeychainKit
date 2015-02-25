@@ -18,7 +18,7 @@
  *  @abstract
  *      Item's content data.
  */
-@property (nonatomic, strong, readwrite) NSData *data;
+@property (nonatomic, copy, readwrite) NSData *data;
 /*!
  *  @abstract
  *      User-visible label for this Keychain Item.
@@ -26,7 +26,7 @@
  *      Label is a property which can be seen as a key for the item from Keychain.
  *      This property is required when the item is updated.
  */
-@property (nonatomic, strong, readwrite) NSString *label;
+@property (nonatomic, copy, readwrite) NSString *label;
 /*!
  *  @abstract
  *      Indicates which access group a Keychain Item is in.
@@ -36,7 +36,7 @@
  *      For applications to share a keychain item, the applications must have a common 
  *      access group listed in their keychain-access-groups entitlement.
  */
-@property (nonatomic, strong, readwrite) NSString *accessGroup;
+@property (nonatomic, copy, readwrite) NSString *accessGroup;
 /*!
  *  @abstract
  *      A value which indicates item's accessibility.

@@ -20,14 +20,14 @@
  *      Represents the Internet security domain.
  *      Examples: NIPRNet, SIPRNet. JWICS, NSANet.
  */
-@property (nonatomic, strong, readwrite) NSString *securityDomain;
+@property (nonatomic, copy, readwrite) NSString *securityDomain;
 /*!
  *  @abstract
  *      Contains the server's domain name or IP address.
  *      Examples: apple.com or 127.0.0.1
  *
  */
-@property (nonatomic, strong, readwrite) NSString *server;
+@property (nonatomic, copy, readwrite) NSString *server;
 /*!
  *  @abstract
  *      Denotes the protocol for this item. 
@@ -45,13 +45,13 @@
  *      Represents an Internet port number.
  *      Example: @80.
  */
-@property (nonatomic, strong, readwrite) NSNumber *port;
+@property (nonatomic, readwrite) NSNumber *port;
 /*!
  *  @abstract
  *      Represents a path, typically the path component of the URL.
  *      Example: login.html
  */
-@property (nonatomic, strong, readwrite) NSString *path;
+@property (nonatomic, copy, readwrite) NSString *path;
 
 @end
 
