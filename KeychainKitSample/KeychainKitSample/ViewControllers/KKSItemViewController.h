@@ -10,7 +10,7 @@
 
 @class KKKeychainSampleDataModel;
 
-@interface KKKeychainSampleItemViewController : UIViewController
+@interface KKSItemViewController : UIViewController
 
 - (instancetype)initWithModel:(KKKeychainSampleDataModel *)model;
 

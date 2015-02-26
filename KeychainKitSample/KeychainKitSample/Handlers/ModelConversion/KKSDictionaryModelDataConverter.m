@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
-#import "KKKeychainSampleDictionaryModelDataConverter.h"
+#import "KKSDictionaryModelDataConverter.h"
 
-@implementation KKKeychainSampleDictionaryModelDataConverter
+@implementation KKSDictionaryModelDataConverter
 
 #pragma mark - KKKeychainSample Model Data Converter Override
 

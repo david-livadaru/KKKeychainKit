@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "KKKeychainSampleDataModel.h"
-#import "KKKeychainSampleViewController.h"
+#import "KKSViewController.h"
 
 @interface AppDelegate ()
 
@@ -62,7 +62,7 @@
 
 - (UINavigationController *)navigationViewControllerForOperationType:(KKKeychainOperationType)operationType {
     NSArray *model = [self modelForOperationType:operationType];
-    KKKeychainSampleViewController *viewController = [[KKKeychainSampleViewController alloc] initWithModel:model];
+    KKSViewController *viewController = [[KKSViewController alloc] initWithModel:model];
     UINavigationController *navigationViewController = [[UINavigationController alloc] initWithRootViewController:viewController];
     UIImage *tabBarItemImage = [UIImage imageNamed:[self imageNameForOperationType:operationType]];
     navigationViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil

@@ -7,7 +7,7 @@
 //
 
 #import "KKSAccountVisualizerViewController.h"
-#import "KKKeychainSampleVisualizerViewController_KKSPrivateInterface.h"
+#import "KKSVisualizerViewController_KKSPrivateInterface.h"
 
 @interface KKSAccountVisualizerViewController ()
 
@@ -55,7 +55,7 @@
     self.passwordTextField.frame = passwordTextFieldFrame;
 }
 
-#pragma mark - KKKeychainSampleItem Data Visualizer
+#pragma mark - KKSItem Data Visualizer
 
 - (NSData *)dataFromView {
     return [self.dataConverter dataFromModel:self.passwordTextField.text];
@@ -73,15 +73,6 @@
 - (void)previewAccountData:(NSData *)accountData {
     self.accountNameTextField.text = [self.dataConverter modelFromData:accountData];
     self.accountNameTextField.enabled = NO;
-}
-
-#pragma mark - Getters and Setters
-
-- (KKKeychainSampleModelDataConverter *)dataConverter {
-    if (!_dataConverter) {
-        _dataConverter = [KKKeychainSampleModelDataConverter dataConverterForDataType:KKKeychainSampleDataTypeString];
-    }
-    return [super dataConverter];
 }
 
 @end

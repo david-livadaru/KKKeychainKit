@@ -10,7 +10,7 @@
 #import "KKKeychainSampleItemDataVisualizer.h"
 #import "KKKeychainSampleDataModel.h"
 
-@interface KKKeychainSampleVisualizerViewController : UIViewController <KKKeychainSampleItemDataVisualizer>
+@interface KKSVisualizerViewController : UIViewController <KKKeychainSampleItemDataVisualizer>
 
 + (instancetype)visualizerViewControllerFromDataType:(KKKeychainSampleDataType)dataType;
 

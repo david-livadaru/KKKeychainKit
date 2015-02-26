@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
-#import "KKKeychainSampleVisualizerViewController.h"
+#import "KKSVisualizerViewController.h"
 
-@interface KKSAccountVisualizerViewController : KKKeychainSampleVisualizerViewController
+@interface KKSAccountVisualizerViewController : KKSVisualizerViewController
 
 @end

@@ -7,21 +7,21 @@
 //  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
-#import "KKKeychainSampleViewController.h"
-#import "KKKeychainSampleItemViewController.h"
+#import "KKSViewController.h"
+#import "KKSItemViewController.h"
 #import "KKKeychainSampleDataModel.h"
 #import "KKKeychainSampleUIDataAdapter.h"
 
 static NSString * kCellIdentifier = @"org.david.KeychainSample.KKKeychainSampleViewController.Cell.Identifier";
 
-@interface KKKeychainSampleViewController ()
+@interface KKSViewController ()
 
 @property (nonatomic) NSArray *model;
 @property (nonatomic) KKKeychainSampleUIDataAdapter *dataUIAdapter;
 
 @end
 
-@implementation KKKeychainSampleViewController
+@implementation KKSViewController
 
 #pragma mark - Life Cycle
 
@@ -67,7 +67,7 @@ static NSString * kCellIdentifier = @"org.david.KeychainSample.KKKeychainSampleV
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     KKKeychainSampleDataModel *modelAtIndexPath = [self.model objectAtIndex:indexPath.item];
-    KKKeychainSampleItemViewController *itemViewController = [[KKKeychainSampleItemViewController alloc] initWithModel:modelAtIndexPath];
+    KKSItemViewController *itemViewController = [[KKSItemViewController alloc] initWithModel:modelAtIndexPath];
     [self.navigationController pushViewController:itemViewController animated:YES];
 }
 

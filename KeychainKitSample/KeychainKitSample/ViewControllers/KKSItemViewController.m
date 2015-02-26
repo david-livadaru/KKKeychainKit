@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
-#import "KKKeychainSampleItemViewController.h"
+#import "KKSItemViewController.h"
 #import "KKKeychainSampleDataModel.h"
 #import "KKKeychainSampleUIDataAdapter.h"
-#import "KKKeychainSampleVisualizerViewController.h"
+#import "KKSVisualizerViewController.h"
 
-@interface KKKeychainSampleItemViewController ()
+@interface KKSItemViewController ()
 
 @property (nonatomic) KKKeychainSampleDataModel *model;
 @property (nonatomic) UITextField *itemLabelTextField;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation KKKeychainSampleItemViewController
+@implementation KKSItemViewController
 
 #pragma mark - Life Cycle
 
@@ -115,8 +115,8 @@
 }
 
 - (void)addItemContentChildViewController {
-    KKKeychainSampleVisualizerViewController *visualizerViewController =
-    [KKKeychainSampleVisualizerViewController visualizerViewControllerFromDataType:self.model.dataType];
+    KKSVisualizerViewController *visualizerViewController =
+    [KKSVisualizerViewController visualizerViewControllerFromDataType:self.model.dataType];
     [self addChildViewController:visualizerViewController];
     [self.itemContentView addSubview:visualizerViewController.view];
     visualizerViewController.view.frame = self.itemContentView.bounds;
@@ -140,7 +140,10 @@
     NSData *data = [self.dataVisualizer dataFromView];
     if ([self.dataVisualizer respondsToSelector:@selector(accountDataFromView)]) {
         NSData *accountData = [self.dataVisualizer accountDataFromView];
+        accountData;
     }
+    data;
+    
 }
 
 @end

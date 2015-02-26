@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KKKeychainSampleViewController : UITableViewController
+@interface KKSViewController : UITableViewController
 
 - (instancetype)initWithModel:(NSArray *)model; // the model is an array of instances of KKKeychainSampleDataModel
 

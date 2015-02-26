@@ -7,7 +7,7 @@
 //
 
 #import "KKSDictionaryVisualizerViewController.h"
-#import "KKKeychainSampleVisualizerViewController_KKSPrivateInterface.h"
+#import "KKSVisualizerViewController_KKSPrivateInterface.h"
 #import "KKSDictionaryTableViewCell.h"
 #import "KKSAddDictionaryPairView.h"
 #import "KKSDictionaryPair.h"
@@ -93,14 +93,38 @@ KKSAddDictionaryPairViewDelegate>
     return [mutableDictionary copy];
 }
 
+- (void)fillDictionaryPairsFromDictionary:(NSDictionary *)dictionary {
+    [self.dictionaryPairs removeAllObjects];
+    for (NSString *key in dictionary.allKeys) {
+        NSString *object = [dictionary objectForKey:key];
+        KKSDictionaryPair *dictionaryPair = [[KKSDictionaryPair alloc] initWithKey:key object:object];
+        [self.dictionaryPairs addObject:dictionaryPair];
+    }
+}
+
 - (void)addPairToDictionary {
-    KKSDictionaryPair *dictionaryPair = [[KKSDictionaryPair alloc] initWithKey:self.addDictionaryPairView.keyString object:self.addDictionaryPairView.objectString];
+    KKSDictionaryPair *dictionaryPair = [[KKSDictionaryPair alloc] initWithKey:self.addDictionaryPairView.keyString
+                                                                        object:self.addDictionaryPairView.objectString];
     [self.dictionaryPairs insertObject:dictionaryPair atIndex:0];
 }
 
 - (void)insertNewRowInTable {
     NSIndexPath *indexPathAtTheBeginning = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPathAtTheBeginning] withRowAnimation:UITableViewRowAnimationTop];
+}
+
+#pragma mark - KKSItem Data Visualizer
+
+- (NSData *)dataFromView {
+    return [self.dataConverter dataFromModel:self.dictionaryFromPairs];
+}
+
+- (void)previewData:(NSData *)data {
+    NSDictionary *dictionary = [self.dataConverter modelFromData:data];
+    [self fillDictionaryPairsFromDictionary:dictionary];
+    if ([self isViewLoaded]) {
+        [self.tableView reloadData];
+    }
 }
 
 @end

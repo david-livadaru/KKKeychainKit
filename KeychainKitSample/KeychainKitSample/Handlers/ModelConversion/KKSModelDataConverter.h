@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "KKKeychainSampleDataModel.h"
 
-@interface KKKeychainSampleModelDataConverter : NSObject
+@interface KKSModelDataConverter : NSObject
 
 + (instancetype)dataConverterForDataType:(KKKeychainSampleDataType)dataType;
 

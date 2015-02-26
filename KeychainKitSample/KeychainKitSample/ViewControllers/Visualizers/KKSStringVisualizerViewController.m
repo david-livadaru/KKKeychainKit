@@ -7,7 +7,7 @@
 //
 
 #import "KKSStringVisualizerViewController.h"
-#import "KKKeychainSampleVisualizerViewController_KKSPrivateInterface.h"
+#import "KKSVisualizerViewController_KKSPrivateInterface.h"
 
 @interface KKSStringVisualizerViewController ()
 
@@ -51,15 +51,6 @@
 - (void)previewData:(NSData *)data {
     self.textInput.text = [self.dataConverter modelFromData:data];
     self.textInput.enabled = NO;
-}
-
-#pragma mark - Getters and Setters
-
-- (KKKeychainSampleModelDataConverter *)dataConverter {
-    if (!_dataConverter) {
-        _dataConverter = [KKKeychainSampleModelDataConverter dataConverterForDataType:KKKeychainSampleDataTypeString];
-    }
-    return [super dataConverter];
 }
 
 @end

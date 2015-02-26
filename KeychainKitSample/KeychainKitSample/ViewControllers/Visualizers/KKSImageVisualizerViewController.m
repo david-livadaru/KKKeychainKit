@@ -7,7 +7,7 @@
 //
 
 #import "KKSImageVisualizerViewController.h"
-#import "KKKeychainSampleVisualizerViewController_KKSPrivateInterface.h"
+#import "KKSVisualizerViewController_KKSPrivateInterface.h"
 
 @interface KKSImageVisualizerViewController ()
 

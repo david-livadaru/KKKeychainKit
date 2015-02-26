@@ -6,22 +6,22 @@
 //  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
-#import "KKKeychainSampleModelDataConverter.h"
-#import "KKKeychainSampleStringModelDataConverter.h"
-#import "KKKeychainSampleDictionaryModelDataConverter.h"
-#import "KKKeychainSampleImageModelDataConverter.h"
+#import "KKSModelDataConverter.h"
+#import "KKSStringModelDataConverter.h"
+#import "KKSDictionaryModelDataConverter.h"
+#import "KKSImageModelDataConverter.h"
 
-@implementation KKKeychainSampleModelDataConverter
+@implementation KKSModelDataConverter
 
 + (instancetype)dataConverterForDataType:(KKKeychainSampleDataType)dataType {
     switch (dataType) {
         case KKKeychainSampleDataTypeString:
         case KKKeychainSampleDataTypeAccount:
-            return [[KKKeychainSampleStringModelDataConverter alloc] init];
+            return [[KKSStringModelDataConverter alloc] init];
         case KKKeychainSampleDataTypeDictionary:
-            return [[KKKeychainSampleDictionaryModelDataConverter alloc] init];
+            return [[KKSDictionaryModelDataConverter alloc] init];
         case KKKeychainSampleDataTypeImage:
-            return [[KKKeychainSampleImageModelDataConverter alloc] init];
+            return [[KKSImageModelDataConverter alloc] init];
         default:
             return nil;
     }

@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
-#import "KKKeychainSampleImageModelDataConverter.h"
+#import "KKSImageModelDataConverter.h"
 @import UIKit;
 
-@implementation KKKeychainSampleImageModelDataConverter
+@implementation KKSImageModelDataConverter
 
 #pragma mark - KKKeychainSample Model Data Converter Override
 
