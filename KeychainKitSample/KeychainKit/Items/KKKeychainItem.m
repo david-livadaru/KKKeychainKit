@@ -109,17 +109,25 @@
  */
 - (NSDictionary *)keychainAttributesWithError:(NSError *__autoreleasing *)error {
     NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
-    CFErrorRef accessControlError = NULL;
-    SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault,
-                                                                        [self accessControlProtectionFromItem],
-                                                                        kSecAccessControlUserPresence,
-                                                                        &accessControlError);
-    if (accessControlError) { // was there any error
-        *error = (__bridge_transfer NSError *)accessControlError;
-        return nil;
+    SecAccessControlRef (*pointerToSecAccessControlCreateWithFlags)(CFAllocatorRef allocator, CFTypeRef protection,
+                                                                    SecAccessControlCreateFlags flags, CFErrorRef *error);
+    pointerToSecAccessControlCreateWithFlags = SecAccessControlCreateWithFlags;
+    if (pointerToSecAccessControlCreateWithFlags != nil) {
+        CFErrorRef accessControlError = NULL;
+        SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault,
+                                                                            [self accessControlProtectionFromItem],
+                                                                            kSecAccessControlUserPresence,
+                                                                            &accessControlError);
+        if (accessControlError) { // was there any error
+            *error = (__bridge_transfer NSError *)accessControlError;
+            return nil;
+        }
+        [attributes setObjectSafely:(__bridge_transfer id)accessControl
+                             forKey:(__bridge id)kSecAttrAccessControl];
+    } else {
+        [attributes setObject:(__bridge id)[self accessControlProtectionFromItem]
+                       forKey:(__bridge id)kSecAttrAccessible];
     }
-    [attributes setObjectSafely:(__bridge_transfer id)accessControl
-                         forKey:(__bridge id)kSecAttrAccessControl];
     [attributes setObjectSafely:self.data
                          forKey:(__bridge id)kSecValueData];
     return [attributes copy];

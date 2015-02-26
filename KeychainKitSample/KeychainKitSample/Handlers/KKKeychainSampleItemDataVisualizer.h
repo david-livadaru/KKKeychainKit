@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
+@import KeychainKit;
 #import <Foundation/Foundation.h>
 
 @protocol KKKeychainSampleItemDataVisualizer <NSObject>
@@ -14,7 +15,8 @@
 - (void)previewData:(NSData *)data;
 
 @optional
-- (NSData *)accountDataFromView;
-- (void)previewAccountData:(NSData *)accountData;
+- (NSString *)accountStringFromView;
+- (void)previewAccountString:(NSString *)accountString;
+- (KKKeychainSearchLimit)searchLimit;
 
 @end

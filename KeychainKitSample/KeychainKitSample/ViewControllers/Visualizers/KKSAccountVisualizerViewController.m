@@ -66,12 +66,12 @@
     self.passwordTextField.enabled = NO;
 }
 
-- (NSData *)accountDataFromView {
-    return [self.dataConverter dataFromModel:self.accountNameTextField.text];
+- (NSString *)accountStringFromView {
+    return self.accountNameTextField.text;
 }
 
-- (void)previewAccountData:(NSData *)accountData {
-    self.accountNameTextField.text = [self.dataConverter modelFromData:accountData];
+- (void)previewAccountString:(NSString *)accountString {
+    self.accountNameTextField.text = accountString;
     self.accountNameTextField.enabled = NO;
 }
 

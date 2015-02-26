@@ -10,13 +10,15 @@
 #import "KKSDataModel.h"
 #import "KKKeychainSampleUIDataAdapter.h"
 #import "KKSVisualizerViewController.h"
+#import "KKSKeychainHandler.h"
 
-@interface KKSItemViewController ()
+@interface KKSItemViewController () <KKSKeychainHandlerDataSource>
 
 @property (nonatomic) KKSDataModel *model;
 @property (nonatomic) UITextField *itemLabelTextField;
 @property (nonatomic) UIButton *actionButton;
 @property (nonatomic) UIView *itemContentView;
+@property (nonatomic) KKSKeychainHandler *keychainHandler;
 @property (nonatomic) KKKeychainSampleUIDataAdapter *dataUIAdapter;
 @property (nonatomic) id<KKKeychainSampleItemDataVisualizer> dataVisualizer;
 
@@ -46,6 +48,7 @@
     [self customizeViewAndNavigationBar];
     [self addSubviews];
     [self customizeSubviews];
+    self.keychainHandler = [[KKSKeychainHandler alloc] initWithDataModel:self.model dataSource:self];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -137,13 +140,43 @@
 #pragma mark - Action Handling
 
 - (void)performActionForActionButton:(UIButton *)actionButton {
-    NSData *data = [self.dataVisualizer dataFromView];
-    if ([self.dataVisualizer respondsToSelector:@selector(accountDataFromView)]) {
-        NSData *accountData = [self.dataVisualizer accountDataFromView];
-        accountData;
+    [self.keychainHandler performKeychainOperation];
+}
+
+#pragma mark - KKSKeychainHandler Data Source
+
+- (NSString *)keychainItemLabel {
+    return self.itemLabelTextField.text;
+}
+
+- (NSData *)dataFromView {
+    return [self.dataVisualizer dataFromView];
+}
+
+- (void)previewData:(NSData *)data {
+    [self.dataVisualizer previewData:data];
+}
+
+- (NSString *)accountStringFromView {
+    if ([self.dataVisualizer respondsToSelector:@selector(accountStringFromView)]) {
+        return [self.dataVisualizer accountStringFromView];
+    } else {
+        return nil;
     }
-    data;
-    
+}
+
+- (void)previewAccountString:(NSString *)accountString {
+    if ([self.dataVisualizer respondsToSelector:@selector(previewAccountString:)]) {
+        [self.dataVisualizer previewAccountString:accountString];
+    }
+}
+
+- (KKKeychainSearchLimit)searchLimit {
+    if ([self.dataVisualizer respondsToSelector:@selector(searchLimit)]) {
+        return [self.dataVisualizer searchLimit];
+    } else {
+        return KKKeychainSearchLimitOne;
+    }
 }
 
 @end

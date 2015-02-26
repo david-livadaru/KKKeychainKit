@@ -15,11 +15,13 @@
 #import "KKKeychainUpdateOperation.h"
 #import "KKKeychainSearchOperation.h"
 #import "KKKeychainItem+KeychainKitInterface.h"
+#import "KKKeychainGenericPasswordBuilder.h"
+#import "KKKeychainItemBuilder+KeychainKitInterface.h"
 
 @interface KKKeychainOperation ()
 
-@property (nonatomic, assign, readwrite) KKKeychainOperationType    operationType;
-@property (nonatomic, strong, readwrite) KKKeychainItem             *item;
+@property (nonatomic, assign, readwrite) KKKeychainOperationType operationType;
+@property (nonatomic, strong, readwrite) KKKeychainItem *item;
 
 @end
 
@@ -62,11 +64,15 @@
 - (void)executeWithCompletionBlock:(void (^)(NSArray *items, NSError *error))completionBlock {
     NSError *attributesError = nil;
     NSDictionary *attributes = [self.item keychainAttributesWithError:&attributesError];
+    NSMutableDictionary *mutableAttributes = [attributes mutableCopy];
+    [mutableAttributes setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnAttributes];
+    attributes = [mutableAttributes copy];
     CFTypeRef result = NULL;
     OSStatus operationExecutionStatus = [self executeOperationWithAttributes:attributes result:&result];
     NSError *operationError = [self createErrorWithOSStatus:operationExecutionStatus];
+    [self convertResult:result];
     if (completionBlock) {
-        completionBlock(@[], operationError);
+        completionBlock([self completionBlockItemsFromResult:result], operationError);
     }
 }
 
@@ -77,6 +83,15 @@
 - (void)convertResult:(CFTypeRef)result {
     // TO BE IMPLEMENTED
     // check if this needs to be overrided by operations (such as update or search)
+    NSDictionary *dictionary = (__bridge NSDictionary *)result;
+    NSLog(@"%@", dictionary);
+}
+
+- (NSArray *)completionBlockItemsFromResult:(CFTypeRef)result {
+    NSDictionary *dictionary = (__bridge NSDictionary *)result;
+#warning you need to create this builder by using class attribute
+    KKKeychainGenericPasswordBuilder *builder = [[KKKeychainGenericPasswordBuilder alloc] initWithKeychainSession:nil];
+    return @[[builder buildKeychainItemFromDictionary:dictionary]];
 }
 
 - (NSError *)createErrorWithOSStatus:(OSStatus)status {

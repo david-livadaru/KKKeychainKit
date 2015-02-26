@@ -9,12 +9,21 @@
 @import KeychainKit;
 #import <Foundation/Foundation.h>
 #import "KKKeychainSampleItemDataVisualizer.h"
+#import "KKSDataModel.h"
+
+@class KKSKeychainHandler;
+
+@protocol KKSKeychainHandlerDataSource <KKKeychainSampleItemDataVisualizer>
+
+- (NSString *)keychainItemLabel;
+
+@end
 
 @interface KKSKeychainHandler : NSObject
 
 // Life Cycle
-- (instancetype)initWithOperationType:(KKKeychainOperationType)operationType
-                       dataVisualizer:(id<KKKeychainSampleItemDataVisualizer>)dataVisualizer;
+- (instancetype)initWithDataModel:(KKSDataModel *)dataModel
+                   dataSource:(id<KKSKeychainHandlerDataSource>)dataSource;
 
 // Operations
 - (void)performKeychainOperation;

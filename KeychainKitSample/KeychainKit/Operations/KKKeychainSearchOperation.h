@@ -15,6 +15,6 @@ typedef NS_ENUM(NSUInteger, KKKeychainSearchLimit) {
 
 @interface KKKeychainSearchOperation : KKKeychainOperation
 
-@property (nonatomic, assign) KKKeychainSearchLimit     searchLimit; // default is KKKeychainSearchLimitOne
+@property (nonatomic, assign) KKKeychainSearchLimit searchLimit; // default is KKKeychainSearchLimitOne
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "KKKeychainGenericPasswordBuilder.h"
+#import "KKKeychainItemBuilder+KeychainKitInterface.h"
+#import "KKKeychainItemBuilder+SubclassesInterface.h"
 #import "KKKeychainGenericPassword.h"
 
 @implementation KKKeychainGenericPasswordBuilder
@@ -20,6 +22,26 @@
                                                       type:self.type isInvisible:self.isInvisible isNegative:self.isNegative
                                                    account:self.account service:self.service generic:self.generic
                                              accessibility:self.accessbility];
+}
+
+- (id)buildKeychainItemFromDictionary:(NSDictionary *)dictionary {
+    [self setPropertiesFromDictionary:dictionary];
+    return [self buildKeychainItem];
+}
+
+#warning pragma required
+
+- (void)setPropertiesFromDictionary:(NSDictionary *)dictionary {
+    [super setPropertiesFromDictionary:dictionary];
+    
+    NSString *service = [dictionary objectForKey:(__bridge id)kSecAttrService];
+    if (service) {
+        self.service = service;
+    }
+    NSData *generic = [dictionary objectForKey:(__bridge id)kSecAttrGeneric];
+    if (generic) {
+        self.generic = generic;
+    }
 }
 
 @end

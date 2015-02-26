@@ -19,8 +19,8 @@ typedef NS_ENUM(NSUInteger, KKKeychainOperationType) {
 
 @interface KKKeychainOperation : NSObject
 
-@property (nonatomic, assign, readonly) KKKeychainOperationType     operationType;
-@property (nonatomic, strong, readonly) KKKeychainItem              *item;
+@property (nonatomic, assign, readonly) KKKeychainOperationType operationType;
+@property (nonatomic, strong, readonly) KKKeychainItem *item;
 
 // Object Life Cycle
 + (instancetype)operationWithType:(KKKeychainOperationType)operationType item:(KKKeychainItem *)item;

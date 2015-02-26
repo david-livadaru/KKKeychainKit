@@ -25,6 +25,8 @@
 		63828ED41A9FC596006E1F6C /* NSString+KKSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 63828ED31A9FC596006E1F6C /* NSString+KKSAdditions.m */; };
 		63828ED91A9FC5A5006E1F6C /* KKSDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 63828ED61A9FC5A5006E1F6C /* KKSDataModel.m */; };
 		63828EDA1A9FC5A5006E1F6C /* KKSDictionaryPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 63828ED81A9FC5A5006E1F6C /* KKSDictionaryPair.m */; };
+		63828EDD1A9FDEBF006E1F6C /* KKKeychainItemBuilder+KeychainKitInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 63828EDB1A9FDEBF006E1F6C /* KKKeychainItemBuilder+KeychainKitInterface.h */; };
+		63828EE11A9FE083006E1F6C /* KKKeychainItemBuilder+SubclassesInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 63828EDF1A9FE083006E1F6C /* KKKeychainItemBuilder+SubclassesInterface.h */; };
 		63A8AC021A96AA0200351C28 /* KKSAddDictionaryPairView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A8AC011A96AA0200351C28 /* KKSAddDictionaryPairView.m */; };
 		63B51CBF1A4207FC001B4EFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B51CBE1A4207FC001B4EFC /* main.m */; };
 		63B51CC21A4207FC001B4EFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B51CC11A4207FC001B4EFC /* AppDelegate.m */; };
@@ -168,6 +170,8 @@
 		63828ED61A9FC5A5006E1F6C /* KKSDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSDataModel.m; sourceTree = "<group>"; };
 		63828ED71A9FC5A5006E1F6C /* KKSDictionaryPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSDictionaryPair.h; sourceTree = "<group>"; };
 		63828ED81A9FC5A5006E1F6C /* KKSDictionaryPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSDictionaryPair.m; sourceTree = "<group>"; };
+		63828EDB1A9FDEBF006E1F6C /* KKKeychainItemBuilder+KeychainKitInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KKKeychainItemBuilder+KeychainKitInterface.h"; sourceTree = "<group>"; };
+		63828EDF1A9FE083006E1F6C /* KKKeychainItemBuilder+SubclassesInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KKKeychainItemBuilder+SubclassesInterface.h"; sourceTree = "<group>"; };
 		63A8AC001A96AA0200351C28 /* KKSAddDictionaryPairView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSAddDictionaryPairView.h; sourceTree = "<group>"; };
 		63A8AC011A96AA0200351C28 /* KKSAddDictionaryPairView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSAddDictionaryPairView.m; sourceTree = "<group>"; };
 		63B51CB91A4207FC001B4EFC /* KeychainKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeychainKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -392,10 +396,10 @@
 		63B51D041A421586001B4EFC /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
+				63828EA41A9FB572006E1F6C /* ModelConversion */,
 				63828ECB1A9FC57C006E1F6C /* KKKeychainSampleItemDataVisualizer.h */,
 				63828ECC1A9FC57C006E1F6C /* KKKeychainSampleUIDataAdapter.h */,
 				63828ECD1A9FC57C006E1F6C /* KKKeychainSampleUIDataAdapter.m */,
-				63828EA41A9FB572006E1F6C /* ModelConversion */,
 				63B51D381A4221A4001B4EFC /* KKSKeychainHandler.h */,
 				63B51D391A4221A4001B4EFC /* KKSKeychainHandler.m */,
 			);
@@ -507,6 +511,8 @@
 			children = (
 				63D33D181A8AB8690077802E /* KKKeychainItemBuilder.h */,
 				63D33D191A8AB8690077802E /* KKKeychainItemBuilder.m */,
+				63828EDB1A9FDEBF006E1F6C /* KKKeychainItemBuilder+KeychainKitInterface.h */,
+				63828EDF1A9FE083006E1F6C /* KKKeychainItemBuilder+SubclassesInterface.h */,
 				63D33D1E1A8ABC320077802E /* KKKeychainPasswordBuilder.h */,
 				63D33D1F1A8ABC320077802E /* KKKeychainPasswordBuilder.m */,
 				63D33D221A8ABC7D0077802E /* KKKeychainGenericPasswordBuilder.h */,
@@ -561,6 +567,7 @@
 				63D33D121A8AABB10077802E /* KKKeychainOperation+SubclassesInterface.h in Headers */,
 				63D04EF91A62BC5E003B31DB /* KKKeychainItem.h in Headers */,
 				63B51D2E1A422104001B4EFC /* KKKeychainSession.h in Headers */,
+				63828EE11A9FE083006E1F6C /* KKKeychainItemBuilder+SubclassesInterface.h in Headers */,
 				63D33D0A1A8AA6440077802E /* KKKeychainSearchOperation.h in Headers */,
 				63DFAD5C1A5F03C00079B0B2 /* KKError.h in Headers */,
 				63D33D061A8AA6360077802E /* KKKeychainUpdateOperation.h in Headers */,
@@ -575,6 +582,7 @@
 				63EA5D7C1A93C49200826CF8 /* KKKeychainSession+KeychainKitInterface.h in Headers */,
 				63D33D1D1A8AB94A0077802E /* KKeychainItemTypes.h in Headers */,
 				63D04F081A62BD5E003B31DB /* NSMutableDictionary+KeychainKit.h in Headers */,
+				63828EDD1A9FDEBF006E1F6C /* KKKeychainItemBuilder+KeychainKitInterface.h in Headers */,
 				63D33D021A8AA62A0077802E /* KKKeychainDeleteOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

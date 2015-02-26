@@ -11,8 +11,8 @@
 @interface KKSKeychainHandler ()
 
 @property (nonatomic) KKKeychainSession *keychainSession;
-@property (nonatomic, assign) KKKeychainOperationType operationType;
-@property (nonatomic, weak) id<KKKeychainSampleItemDataVisualizer> dataVisualizer;
+@property (nonatomic) KKSDataModel *dataModel;
+@property (nonatomic, weak) id<KKSKeychainHandlerDataSource> dataSource;
 
 @end
 
@@ -20,13 +20,13 @@
 
 #pragma mark - Object Life Cycle
 
-- (instancetype)initWithOperationType:(KKKeychainOperationType)operationType
-                       dataVisualizer:(id<KKKeychainSampleItemDataVisualizer>)dataVisualizer {
+- (instancetype)initWithDataModel:(KKSDataModel *)dataModel
+                   dataSource:(id<KKSKeychainHandlerDataSource>)dataSource {
     self = [super init];
     
     if (self) {
-        self.operationType = operationType;
-        self.dataVisualizer = dataVisualizer;
+        self.dataModel = dataModel;
+        self.dataSource = dataSource;
         self.keychainSession = [[KKKeychainSession alloc] init];
     }
     
@@ -36,21 +36,41 @@
 #pragma mark - Operations
 
 - (void)performKeychainOperation {
+    KKKeychainItem *item = [self createKeychainItemAccordingToModel];
+    KKKeychainOperation *operation = [self createKeychainOperationAccordingToModelWithItem:item];
+    [self.keychainSession performOperation:operation completionBlock:^(NSArray *items, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            KKKeychainGenericPassword *genericPassword = [items firstObject];
+            NSLog(@"success");
+        }
+    }];
 }
 
-//- (void)addStringInKeychain:(NSString *)string key:(NSString *)key {
-//    NSData *stringData = [string dataUsingEncoding:NSUTF8StringEncoding];
-    // service name delete: @"Keychain Kit Sample"
-//    KKKeychainItem *stringItem =
-//    [[KKKeychainItem alloc] initWithData:stringData serviceName:key accessibility:KKKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly];
-//    KKKeychainOperation *addOperation =
-//    [[KKKeychainOperation alloc] initWithOperationType:KKKeychainOperationTypeAdd
-//                                                  item:stringItem];
-//    [self.keychainSession performOperation:addOperation completion:^(NSArray *items, NSError *error) {
-//        if (error) {
-//            NSLog(@"Failed to add item in keychain. Reason:%@", [error localizedDescription]);
-//        }
-//    }];
-//}
+- (KKKeychainItem *)createKeychainItemAccordingToModel {
+    KKKeychainGenericPasswordBuilder *genericPasswordBuilder = [[KKKeychainGenericPasswordBuilder alloc] initWithKeychainSession:self.keychainSession];
+    genericPasswordBuilder.data = [self.dataSource dataFromView];
+    genericPasswordBuilder.label = [self.dataSource keychainItemLabel];
+    genericPasswordBuilder.service = @"org.KeychainSample.KKSKeychainHandler.HandlingService.3"; // 1 - 3 and none there are items
+    if (self.dataModel.dataType == KKKeychainSampleDataTypeAccount &&
+        [self.dataSource respondsToSelector:@selector(accountStringFromView)]) {
+        genericPasswordBuilder.account = [self.dataSource accountStringFromView];
+    }
+    return [genericPasswordBuilder buildKeychainItem];
+}
+
+- (KKKeychainOperation *)createKeychainOperationAccordingToModelWithItem:(KKKeychainItem *)item {
+    return [KKKeychainOperation operationWithType:self.dataModel.operationType item:item];
+}
+
+- (void)setSearchLimitIfSearchOperation:(KKKeychainOperation *)operation {
+    if ([operation isKindOfClass:[KKKeychainSearchOperation class]]) {
+        KKKeychainSearchOperation *searchOperation = (KKKeychainSearchOperation *)operation;
+        if ([self.dataSource respondsToSelector:@selector(searchLimit)]) {
+            searchOperation.searchLimit = [self.dataSource searchLimit];
+        }
+    }
+}
 
 @end
