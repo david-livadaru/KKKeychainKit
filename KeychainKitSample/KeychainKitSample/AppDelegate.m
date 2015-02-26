@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "KKKeychainSampleDataModel.h"
+#import "KKSDataModel.h"
 #import "KKSViewController.h"
 
 @interface AppDelegate ()
@@ -72,14 +72,14 @@
 }
 
 - (NSArray *)modelForOperationType:(KKKeychainOperationType)operationType {
-    KKKeychainSampleDataModel *accountModel = [[KKKeychainSampleDataModel alloc] initWithOperationType:operationType
-                                                                                              dataType:KKKeychainSampleDataTypeAccount];
-    KKKeychainSampleDataModel *stringModel = [[KKKeychainSampleDataModel alloc] initWithOperationType:operationType
-                                                                                             dataType:KKKeychainSampleDataTypeString];
-    KKKeychainSampleDataModel *dictionaryModel = [[KKKeychainSampleDataModel alloc] initWithOperationType:operationType
-                                                                                                 dataType:KKKeychainSampleDataTypeDictionary];
-    KKKeychainSampleDataModel *imageModel = [[KKKeychainSampleDataModel alloc] initWithOperationType:operationType
-                                                                                            dataType:KKKeychainSampleDataTypeImage];
+    KKSDataModel *accountModel = [[KKSDataModel alloc] initWithOperationType:operationType
+                                                                    dataType:KKKeychainSampleDataTypeAccount];
+    KKSDataModel *stringModel = [[KKSDataModel alloc] initWithOperationType:operationType
+                                                                   dataType:KKKeychainSampleDataTypeString];
+    KKSDataModel *dictionaryModel = [[KKSDataModel alloc] initWithOperationType:operationType
+                                                                       dataType:KKKeychainSampleDataTypeDictionary];
+    KKSDataModel *imageModel = [[KKSDataModel alloc] initWithOperationType:operationType
+                                                                  dataType:KKKeychainSampleDataTypeImage];
     return @[accountModel, stringModel, dictionaryModel, imageModel];
 }
 

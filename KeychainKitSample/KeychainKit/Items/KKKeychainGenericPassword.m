@@ -7,8 +7,10 @@
 //
 
 #import "KKKeychainGenericPassword.h"
-#import "KKKeychainItem_KeychainKitInterface.h"
-#import "KKKeychainPassword_KeychainKitInterface.h"
+@import Security;
+#import "KKKeychainItem+SuclassesInterface.h"
+#import "KKKeychainPassword+SuclassesInterface.h"
+#import "KKKeychainItem+KeychainKitInterface.h"
 #import "NSMutableDictionary+KeychainKit.h"
 
 @interface KKKeychainGenericPassword ()
@@ -18,12 +20,12 @@
  *      A string that represents the service associated with this item.
  *      (Exmaple: "com.apple.iDevice.PasscodeScreen")
  */
-@property (nonatomic, strong, readwrite) NSString        *service;
+@property (nonatomic, copy, readwrite) NSString *service;
 /*!
  *  @abstract
  *      Contains a user-defined attribute.
  */
-@property (nonatomic, strong, readwrite) NSData          *generic;
+@property (nonatomic, copy, readwrite) NSData *generic;
 
 @end
 
@@ -56,34 +58,7 @@
     return self;
 }
 
-/*!
- *  Convenien method to initialize a Keychain Item using provided parameters.
- *
- *  @return An initialized object, or nil if an object could not be created for some
- *          reason that would not result in an exception.
- */
-- (instancetype)initWithData:(NSData *)data accessGroup:(NSString *)accessGroup
-             itemDescription:(NSString *)itemDescription account:(NSString *)account service:(NSString *)service
-                     generic:(NSData *)generic
-               accessibility:(KKKeychainItemAccessibility)accessibility {
-    self = [self initWithData:data label:nil accessGroup:accessGroup creationDate:nil modificationDate:nil
-              itemDescription:itemDescription comment:nil creator:nil type:nil isInvisible:NO isNegative:NO
-                      account:account service:service generic:generic accessibility:accessibility];
-    return self;
-}
-
-#pragma mark - Keychain mapping
-
-- (void)updateItemWithAttributes:(NSDictionary *)attributes {
-    NSString *service = [attributes objectForKey:(__bridge id)kSecAttrService];
-    if (service) {
-        self.service = service;
-    }
-    NSData *generic = [attributes objectForKey:(__bridge id)kSecAttrGeneric];
-    if (generic) {
-        self.generic = generic;
-    }
-}
+#pragma mark - Item Conversion
 
 - (NSDictionary *)keychainAttributesWithError:(NSError **)error {
     NSDictionary *attributes = [super keychainAttributesWithError:error];

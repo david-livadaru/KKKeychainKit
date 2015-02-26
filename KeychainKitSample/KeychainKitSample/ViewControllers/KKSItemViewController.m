@@ -7,13 +7,13 @@
 //
 
 #import "KKSItemViewController.h"
-#import "KKKeychainSampleDataModel.h"
+#import "KKSDataModel.h"
 #import "KKKeychainSampleUIDataAdapter.h"
 #import "KKSVisualizerViewController.h"
 
 @interface KKSItemViewController ()
 
-@property (nonatomic) KKKeychainSampleDataModel *model;
+@property (nonatomic) KKSDataModel *model;
 @property (nonatomic) UITextField *itemLabelTextField;
 @property (nonatomic) UIButton *actionButton;
 @property (nonatomic) UIView *itemContentView;
@@ -26,7 +26,7 @@
 
 #pragma mark - Life Cycle
 
-- (instancetype)initWithModel:(KKKeychainSampleDataModel *)model {
+- (instancetype)initWithModel:(KKSDataModel *)model {
     self = [super initWithNibName:nil bundle:nil];
     
     if (self) {

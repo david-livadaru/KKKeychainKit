@@ -7,8 +7,10 @@
 //
 
 #import "KKKeychainPassword.h"
-#import "KKKeychainItem_KeychainKitInterface.h"
-#import "KKKeychainPassword_KeychainKitInterface.h"
+@import Security;
+#import "KKKeychainItem+SuclassesInterface.h"
+#import "KKKeychainPassword+SuclassesInterface.h"
+#import "KKKeychainItem+KeychainKitInterface.h"
 #import "NSMutableDictionary+KeychainKit.h"
 
 @interface KKKeychainPassword ()
@@ -17,41 +19,41 @@
  *  @abstract
  *      Represents the date the item was created.
  */
-@property (nonatomic, strong, readwrite) NSDate                          *creationDate;
+@property (nonatomic, readwrite) NSDate *creationDate;
 /*!
  *  @abstract
  *      Represents the last time the item was updated.
  */
-@property (nonatomic, strong, readwrite) NSDate                          *modificationDate;
+@property (nonatomic, readwrite) NSDate *modificationDate;
 /*!
  *  @abstract
  *      Apecifies a user-visible string describing this kind of item 
  *      (Examples:"Disk image password"; "Login credentials."; 
  *       "An object which represent serialization of this class").
  */
-@property (nonatomic, strong, readwrite) NSString                        *itemDescription;
+@property (nonatomic, copy, readwrite) NSString *itemDescription;
 /*!
  *  @abstract
  *      Contains the user-editable comment for this item.
  */
-@property (nonatomic, strong, readwrite) NSString                        *comment;
+@property (nonatomic, copy, readwrite) NSString *comment;
 /*!
  *  @abstract
  *      Represents the item's creator. This number is the unsigned integer
  *      representation of a four-character code (for example, 'aCrt').
  */
-@property (nonatomic, strong, readwrite) NSNumber                        *creator;
+@property (nonatomic, readwrite) NSNumber *creator;
 /*!
  *  @abstract
  *      Tepresents the item's type. This number is the unsigned integer 
  *      representation of a four-character code (for example, 'aTyp').
  */
-@property (nonatomic, strong, readwrite) NSNumber                        *type;
+@property (nonatomic, readwrite) NSNumber *type;
 /*!
  *  @abstract
  *      Boolean value which specifies if the item is invisible (that is, should not be displayed).
  */
-@property (nonatomic, assign, readwrite, getter=isInvisible) BOOL        invisible;
+@property (nonatomic, assign, readwrite, getter=isInvisible) BOOL invisible;
 /*!
  *  @abstract
  *      Boolean values which indicates whether there is a valid password associated with this keychain item.
@@ -60,12 +62,12 @@
  *      This is useful if your application doesn't want a password for some particular service to be stored 
  *      in the keychain, but prefers that it always be entered by the user
  */
-@property (nonatomic, assign, readwrite, getter=isNegative) BOOL         negative;
+@property (nonatomic, assign, readwrite, getter=isNegative) BOOL negative;
 /*!
  *  @abstract
  *      Contains an account name.
  */
-@property (nonatomic, strong, readwrite) NSString                        *account;
+@property (nonatomic, copy, readwrite) NSString *account;
 
 @end
 
@@ -101,47 +103,7 @@
     return self;
 }
 
-#pragma mark - Keychain mapping
-
-- (void)updateItemWithAttributes:(NSDictionary *)attributes {
-    [super updateItemWithAttributes:attributes];
-    NSDate *creationDate = [attributes objectForKey:(__bridge id)kSecAttrCreationDate];
-    if (creationDate) {
-        self.creationDate = creationDate;
-    }
-    NSDate *modificationDate = [attributes objectForKey:(__bridge id)kSecAttrModificationDate];
-    if (modificationDate) {
-        self.modificationDate = modificationDate;
-    }
-    NSString *itemDescription = [attributes objectForKey:(__bridge id)kSecAttrDescription];
-    if (itemDescription) {
-        self.itemDescription = itemDescription;
-    }
-    NSString *comment = [attributes objectForKey:(__bridge id)kSecAttrComment];
-    if (comment) {
-        self.comment = comment;
-    }
-    NSNumber *creator = [attributes objectForKey:(__bridge id)kSecAttrCreator];
-    if (creator) {
-        self.creator = creator;
-    }
-    NSNumber *type = [attributes objectForKey:(__bridge id)kSecAttrType];
-    if (type) {
-        self.type = type;
-    }
-    NSNumber *isInvisibleNumber = [attributes objectForKey:(__bridge id)kSecAttrIsInvisible];
-    if (isInvisibleNumber) {
-        self.invisible = [isInvisibleNumber boolValue];
-    }
-    NSNumber *isNegativeNumber = [attributes objectForKey:(__bridge id)kSecAttrIsNegative];
-    if (isNegativeNumber) {
-        self.negative = [isNegativeNumber boolValue];
-    }
-    NSString *account = [attributes objectForKey:(__bridge id)kSecAttrAccount];
-    if (account) {
-        self.account = account;
-    }
-}
+#pragma mark - Item Conversion
 
 - (NSDictionary *)keychainAttributesWithError:(NSError **)error {
     NSDictionary *attributes = [super keychainAttributesWithError:error];

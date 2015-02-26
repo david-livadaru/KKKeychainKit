@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class KKKeychainSampleDataModel;
+@class KKSDataModel;
 
 @interface KKSItemViewController : UIViewController
 
-- (instancetype)initWithModel:(KKKeychainSampleDataModel *)model;
+- (instancetype)initWithModel:(KKSDataModel *)model;
 
 @end

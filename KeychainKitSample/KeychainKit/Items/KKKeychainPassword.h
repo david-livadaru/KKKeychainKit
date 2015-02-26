@@ -10,14 +10,14 @@
 
 @interface KKKeychainPassword : KKKeychainItem
 
-@property (nonatomic, strong, readonly) NSDate                          *creationDate;
-@property (nonatomic, strong, readonly) NSDate                          *modificationDate;
-@property (nonatomic, strong, readonly) NSString                        *itemDescription;
-@property (nonatomic, strong, readonly) NSString                        *comment;
-@property (nonatomic, strong, readonly) NSNumber                        *creator;
-@property (nonatomic, strong, readonly) NSNumber                        *type;
-@property (nonatomic, assign, readonly, getter=isInvisible) BOOL        invisible;
-@property (nonatomic, assign, readonly, getter=isNegative) BOOL         negative;
-@property (nonatomic, strong, readonly) NSString                        *account;
+@property (nonatomic, readonly) NSDate *creationDate;
+@property (nonatomic, readonly) NSDate *modificationDate;
+@property (nonatomic, copy, readonly) NSString *itemDescription;
+@property (nonatomic, copy, readonly) NSString *comment;
+@property (nonatomic, readonly) NSNumber *creator;
+@property (nonatomic, readonly) NSNumber *type;
+@property (nonatomic, assign, readonly, getter=isInvisible) BOOL invisible;
+@property (nonatomic, assign, readonly, getter=isNegative) BOOL negative;
+@property (nonatomic, copy, readonly) NSString *account;
 
 @end

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "KKKeychainSampleItemDataVisualizer.h"
-#import "KKKeychainSampleDataModel.h"
+#import "KKSDataModel.h"
 
 @interface KKSVisualizerViewController : UIViewController <KKKeychainSampleItemDataVisualizer>
 
-+ (instancetype)visualizerViewControllerFromDataType:(KKKeychainSampleDataType)dataType;
++ (instancetype)visualizerViewControllerFromDataType:(KKSDataType)dataType;
 
 @end

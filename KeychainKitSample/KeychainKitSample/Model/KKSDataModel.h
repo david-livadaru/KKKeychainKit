@@ -9,20 +9,20 @@
 @import KeychainKit;
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, KKKeychainSampleDataType) {
+typedef NS_ENUM(NSUInteger, KKSDataType) {
     KKKeychainSampleDataTypeAccount = 1,
     KKKeychainSampleDataTypeString,
     KKKeychainSampleDataTypeDictionary,
     KKKeychainSampleDataTypeImage
 };
 
-@interface KKKeychainSampleDataModel : NSObject
+@interface KKSDataModel : NSObject
 
 @property (nonatomic, assign, readonly) KKKeychainOperationType operationType;
-@property (nonatomic, assign, readonly) KKKeychainSampleDataType dataType;
+@property (nonatomic, assign, readonly) KKSDataType dataType;
 
 // Life Cycle
 - (instancetype)initWithOperationType:(KKKeychainOperationType)operationType
-                             dataType:(KKKeychainSampleDataType)dataType;
+                             dataType:(KKSDataType)dataType;
 
 @end

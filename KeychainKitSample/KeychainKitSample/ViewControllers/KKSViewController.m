@@ -9,7 +9,7 @@
 
 #import "KKSViewController.h"
 #import "KKSItemViewController.h"
-#import "KKKeychainSampleDataModel.h"
+#import "KKSDataModel.h"
 #import "KKKeychainSampleUIDataAdapter.h"
 
 static NSString * kCellIdentifier = @"org.david.KeychainSample.KKKeychainSampleViewController.Cell.Identifier";
@@ -56,7 +56,7 @@ static NSString * kCellIdentifier = @"org.david.KeychainSample.KKKeychainSampleV
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    KKKeychainSampleDataModel *dataModelAtIdex = [self.model objectAtIndex:indexPath.item];
+    KKSDataModel *dataModelAtIdex = [self.model objectAtIndex:indexPath.item];
     cell.textLabel.text = [self.dataUIAdapter cellTextForModel:dataModelAtIdex];
     cell.imageView.image = [UIImage imageNamed:[self imageNameForDataType:dataModelAtIdex.dataType]];
     return cell;
@@ -66,14 +66,14 @@ static NSString * kCellIdentifier = @"org.david.KeychainSample.KKKeychainSampleV
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    KKKeychainSampleDataModel *modelAtIndexPath = [self.model objectAtIndex:indexPath.item];
+    KKSDataModel *modelAtIndexPath = [self.model objectAtIndex:indexPath.item];
     KKSItemViewController *itemViewController = [[KKSItemViewController alloc] initWithModel:modelAtIndexPath];
     [self.navigationController pushViewController:itemViewController animated:YES];
 }
 
 #pragma mark - Data Handling
 
-- (NSString *)imageNameForDataType:(KKKeychainSampleDataType)dataType {
+- (NSString *)imageNameForDataType:(KKSDataType)dataType {
     switch (dataType) {
         case KKKeychainSampleDataTypeString:
             return @"string";

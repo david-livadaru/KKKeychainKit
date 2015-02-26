@@ -23,7 +23,7 @@
 
 #pragma mark - Life Cycle
 
-- (instancetype)initWithDataType:(KKKeychainSampleDataType)dataType {
+- (instancetype)initWithDataType:(KKSDataType)dataType {
     self = [super initWithNibName:nil bundle:nil];
     
     if (self) {
@@ -33,7 +33,7 @@
     return self;
 }
 
-+ (instancetype)visualizerViewControllerFromDataType:(KKKeychainSampleDataType)dataType {
++ (instancetype)visualizerViewControllerFromDataType:(KKSDataType)dataType {
     switch (dataType) {
         case KKKeychainSampleDataTypeString:
             return [[KKSStringVisualizerViewController alloc] initWithDataType:dataType];

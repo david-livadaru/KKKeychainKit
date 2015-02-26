@@ -12,7 +12,8 @@
 
 @interface KKKeychainSession : NSObject
 
-// Facilities
-- (void)performOperation:(KKKeychainOperation *)operation completion:(void (^)(NSArray *items, NSError *error))completion;
+// Operations
+- (void)performOperation:(KKKeychainOperation *)operation
+         completionBlock:(void (^)(NSArray *items, NSError *error))completionBlock;
 
 @end

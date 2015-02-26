@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class KKKeychainSampleDataModel;
+@class KKSDataModel;
 
 @interface KKKeychainSampleUIDataAdapter : NSObject
 
-- (NSString *)cellTextForModel:(KKKeychainSampleDataModel *)dataModel;
-- (NSString *)navigationBarTitleForModel:(KKKeychainSampleDataModel *)dataModel;
-- (NSString *)buttonTitleForModel:(KKKeychainSampleDataModel *)dataModel;
-- (NSString *)fullStringForModel:(KKKeychainSampleDataModel *)dataModel;
+- (NSString *)cellTextForModel:(KKSDataModel *)dataModel;
+- (NSString *)navigationBarTitleForModel:(KKSDataModel *)dataModel;
+- (NSString *)buttonTitleForModel:(KKSDataModel *)dataModel;
+- (NSString *)fullStringForModel:(KKSDataModel *)dataModel;
 
 @end

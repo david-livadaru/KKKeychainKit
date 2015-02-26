@@ -18,6 +18,14 @@ typedef NS_ENUM(NSInteger, KKError){
      */
     KKErrorOperationUnimplemented           = errSecUnimplemented,
     /*!
+     *  Input/ouput error.
+     */
+    KKErrorInputOutput                      = errSecIO,
+    /*!
+     *  File already open with write permission.
+     */
+    KKErrorWritePermission                  = errSecOpWr,
+    /*!
      *  One or more parameters passed to the function were not valid.
      */
     KKErrorInvalidParameter                 = errSecParam,
@@ -25,6 +33,18 @@ typedef NS_ENUM(NSInteger, KKError){
      *  Failed to allocate memory.
      */
     KKErrorAllocateFailed                   = errSecAllocate,
+    /*!
+     *  User canceled the operation.
+     */
+    KKErrorUserCanceled                     = errSecUserCanceled,
+    /*!
+     *  Bad parameter or invalid state for operation.
+     */
+    KKErrorBadRequest                       = errSecBadReq,
+    /*!
+     *  An error occured while processing request.
+     */
+    KKErrorInternalError                    = errSecInternalComponent,
     /*!
      *  No trust results are available.
      */

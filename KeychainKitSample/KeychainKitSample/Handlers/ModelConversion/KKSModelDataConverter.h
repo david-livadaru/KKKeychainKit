@@ -11,7 +11,7 @@
 
 @interface KKSModelDataConverter : NSObject
 
-+ (instancetype)dataConverterForDataType:(KKKeychainSampleDataType)dataType;
++ (instancetype)dataConverterForDataType:(KKSDataType)dataType;
 
 - (NSData *)dataFromModel:(id)model;
 - (id)modelFromData:(NSData *)data;

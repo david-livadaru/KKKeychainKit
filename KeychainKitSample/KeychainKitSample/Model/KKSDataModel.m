@@ -6,21 +6,21 @@
 //  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
-#import "KKKeychainSampleDataModel.h"
+#import "KKSDataModel.h"
 
-@interface KKKeychainSampleDataModel ()
+@interface KKSDataModel ()
 
 @property (nonatomic, assign, readwrite) KKKeychainOperationType operationType;
-@property (nonatomic, assign, readwrite) KKKeychainSampleDataType dataType;
+@property (nonatomic, assign, readwrite) KKSDataType dataType;
 
 @end
 
-@implementation KKKeychainSampleDataModel
+@implementation KKSDataModel
 
 #pragma mark - Life Cycle
 
 - (instancetype)initWithOperationType:(KKKeychainOperationType)operationType
-                             dataType:(KKKeychainSampleDataType)dataType {
+                             dataType:(KKSDataType)dataType {
     self = [super init];
     
     if (self) {

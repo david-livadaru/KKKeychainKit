@@ -7,25 +7,25 @@
 //
 
 #import "KKKeychainSampleUIDataAdapter.h"
-#import "KKKeychainSampleDataModel.h"
+#import "KKSDataModel.h"
 
 @implementation KKKeychainSampleUIDataAdapter
 
 #pragma mark - Public Interface
 
-- (NSString *)cellTextForModel:(KKKeychainSampleDataModel *)dataModel {
+- (NSString *)cellTextForModel:(KKSDataModel *)dataModel {
     return [self stringForDataType:dataModel.dataType];
 }
 
-- (NSString *)navigationBarTitleForModel:(KKKeychainSampleDataModel *)dataModel {
+- (NSString *)navigationBarTitleForModel:(KKSDataModel *)dataModel {
     return [[NSString alloc] initWithFormat:@"%@ Item", [self stringForOperationType:dataModel.operationType]];
 }
 
-- (NSString *)buttonTitleForModel:(KKKeychainSampleDataModel *)dataModel {
+- (NSString *)buttonTitleForModel:(KKSDataModel *)dataModel {
     return [self stringForOperationType:dataModel.operationType];
 }
 
-- (NSString *)fullStringForModel:(KKKeychainSampleDataModel *)dataModel {
+- (NSString *)fullStringForModel:(KKSDataModel *)dataModel {
     NSString *firstPart = [self stringForOperationType:dataModel.operationType];
     NSString *secordPart = [self stringForDataType:dataModel.dataType];
     return [[NSString alloc] initWithFormat:@"%@ %@", firstPart, secordPart];
@@ -48,7 +48,7 @@
     }
 }
 
-- (NSString *)stringForDataType:(KKKeychainSampleDataType)dataType {
+- (NSString *)stringForDataType:(KKSDataType)dataType {
     switch (dataType) {
         case KKKeychainSampleDataTypeAccount:
             return @"Account";

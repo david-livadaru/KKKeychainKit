@@ -13,7 +13,7 @@
 
 @implementation KKSModelDataConverter
 
-+ (instancetype)dataConverterForDataType:(KKKeychainSampleDataType)dataType {
++ (instancetype)dataConverterForDataType:(KKSDataType)dataType {
     switch (dataType) {
         case KKKeychainSampleDataTypeString:
         case KKKeychainSampleDataTypeAccount:
