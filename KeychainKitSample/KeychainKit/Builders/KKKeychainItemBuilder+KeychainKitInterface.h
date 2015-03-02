@@ -8,7 +8,12 @@
 
 #import <KeychainKit/KeychainKit.h>
 
+@class KKKeychainSession;
+
 @interface KKKeychainItemBuilder (KeychainKitInterface)
+
++ (instancetype)builderWithKeychainItemClass:(CFTypeRef)keychainItemClass
+                             keychainSession:(KKKeychainSession *)keychainSession;
 
 - (id)buildKeychainItemFromDictionary:(NSDictionary *)dictionary;
 

@@ -31,7 +31,7 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    static CGFloat textInputPadding = 4.0f;
+    static CGFloat textInputPadding = 8.0f;
     
     [self.textInput sizeToFit];
     CGRect textInputFrame = self.textInput.frame;

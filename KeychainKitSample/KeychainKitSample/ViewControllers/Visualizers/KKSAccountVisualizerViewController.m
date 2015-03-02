@@ -36,7 +36,7 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    static CGFloat padding = 4.0f;
+    static CGFloat padding = 8.0f;
     static CGFloat spacing = 4.0;
     
     [self.accountNameTextField sizeToFit];

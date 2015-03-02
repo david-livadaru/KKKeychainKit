@@ -16,6 +16,7 @@
 @protocol KKSKeychainHandlerDataSource <KKKeychainSampleItemDataVisualizer>
 
 - (NSString *)keychainItemLabel;
+- (NSString *)keychainItemServiceName;
 
 @end
 

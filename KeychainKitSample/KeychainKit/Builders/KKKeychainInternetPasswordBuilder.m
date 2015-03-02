@@ -22,7 +22,7 @@
                                                        type:self.type isInvisible:self.isInvisible isNegative:self.isNegative
                                                     account:self.account securityDomain:self.securityDomain server:self.server
                                                    protocol:self.protocol authenticationType:self.authenticationType
-                                                       port:self.port path:self.path accessibility:self.accessbility];
+                                                       port:self.port path:self.path accessibility:self.accessibility];
 }
 
 - (id)buildKeychainItemFromDictionary:(NSDictionary *)dictionary {
@@ -30,7 +30,7 @@
     return [self buildKeychainItem];
 }
 
-#warning pragma required
+#pragma mark - KKKeychainItemBuilder Subclasses interface
 
 - (void)setPropertiesFromDictionary:(NSDictionary *)dictionary {
     [super setPropertiesFromDictionary:dictionary];

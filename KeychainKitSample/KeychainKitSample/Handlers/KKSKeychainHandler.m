@@ -52,7 +52,7 @@
     KKKeychainGenericPasswordBuilder *genericPasswordBuilder = [[KKKeychainGenericPasswordBuilder alloc] initWithKeychainSession:self.keychainSession];
     genericPasswordBuilder.data = [self.dataSource dataFromView];
     genericPasswordBuilder.label = [self.dataSource keychainItemLabel];
-    genericPasswordBuilder.service = @"org.KeychainSample.KKSKeychainHandler.HandlingService.3"; // 1 - 3 and none there are items
+    genericPasswordBuilder.service = [self.dataSource keychainItemServiceName];
     if (self.dataModel.dataType == KKKeychainSampleDataTypeAccount &&
         [self.dataSource respondsToSelector:@selector(accountStringFromView)]) {
         genericPasswordBuilder.account = [self.dataSource accountStringFromView];

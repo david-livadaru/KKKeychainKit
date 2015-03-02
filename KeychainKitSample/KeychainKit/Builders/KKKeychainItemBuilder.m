@@ -11,6 +11,8 @@
 #import "KKKeychainItemBuilder+SubclassesInterface.h"
 #import "KKKeychainSession.h"
 #import "KKKeychainSession+KeychainKitInterface.h"
+#import "KKKeychainGenericPasswordBuilder.h"
+#import "KKKeychainInternetPasswordBuilder.h"
 
 @interface KKKeychainItemBuilder ()
 
@@ -27,10 +29,21 @@
     
     if (self) {
         self.keychainSession = keychainSession;
-        self.accessbility = KKKeychainItemAccessibleWhenUnlockedThisDeviceOnly;
+        self.accessibility = KKKeychainItemAccessibleWhenUnlockedThisDeviceOnly;
     }
     
     return self;
+}
+
++ (instancetype)builderWithKeychainItemClass:(CFTypeRef)keychainItemClass
+                             keychainSession:(KKKeychainSession *)keychainSession {
+    if (keychainItemClass == kSecClassGenericPassword) {
+        return [[KKKeychainGenericPasswordBuilder alloc] initWithKeychainSession:keychainSession];
+    } else if (keychainItemClass == kSecClassInternetPassword) {
+        return [[KKKeychainInternetPasswordBuilder alloc] initWithKeychainSession:keychainSession];
+    } else {
+        return nil;
+    }
 }
 
 #pragma mark - Building
@@ -55,7 +68,7 @@
     return nil;
 }
 
-#warning pragma required
+#pragma mark - KKKeychainItemBuilder Subclasses interface
 
 - (void)setPropertiesFromDictionary:(NSDictionary *)dictionary {
     NSData *data = [dictionary objectForKey:(__bridge id)kSecValueData];
@@ -70,7 +83,32 @@
     if (accessGroup) {
         self.accessGroup = accessGroup;
     }
-#warning get accesbility from SecAccessControlRef or kSecAttrAccessible depending on iOS version
+    if ([[NSProcessInfo processInfo] respondsToSelector:@selector(operatingSystemVersion)]) {
+#warning Cannot get protection 'field' from SecAccessControlRef
+        SecAccessControlRef accessControl = (__bridge SecAccessControlRef)[dictionary objectForKey:(__bridge id)kSecAttrAccessControl];
+        self.accessibility = KKKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
+    } else {
+        CFTypeRef accessibilityTypeRef = (__bridge CFTypeRef)dictionary[(__bridge id)kSecAttrAccessible];
+        self.accessibility = [self accessibilityFromTypeRef:accessibilityTypeRef];
+    }
+}
+
+- (KKKeychainItemAccessibility)accessibilityFromTypeRef:(CFTypeRef)typeRef {
+    if (typeRef == kSecAttrAccessibleAlways) {
+        return KKKeychainItemAccessibleAlways;
+    } else if (typeRef == kSecAttrAccessibleAlwaysThisDeviceOnly) {
+        return KKKeychainItemAccessibleAlwaysThisDeviceOnly;
+    } else if (typeRef == kSecAttrAccessibleAfterFirstUnlock) {
+        return KKKeychainItemAccessibleAfterFirstUnlock;
+    } else if (typeRef == kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly) {
+        return KKKeychainItemAccessibleAfterFirstUnlockThisDeviceOnly;
+    } else if (typeRef == kSecAttrAccessibleWhenUnlocked) {
+        return KKKeychainItemAccessibleWhenUnlocked;
+    } else if (typeRef == kSecAttrAccessibleWhenUnlockedThisDeviceOnly) {
+        return KKKeychainItemAccessibleWhenUnlockedThisDeviceOnly;
+    } else { // typeRef == kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly
+        return KKKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
+    }
 }
 
 @end

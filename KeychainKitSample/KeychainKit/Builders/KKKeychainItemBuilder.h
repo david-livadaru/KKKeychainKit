@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSData *data;
 @property (nonatomic, strong) NSString *label;
 @property (nonatomic, strong) NSString *accessGroup;
-@property (nonatomic, assign) KKKeychainItemAccessibility accessbility; // default value is KKKeychainItemAccessibleWhenUnlockedThisDeviceOnly
+@property (nonatomic, assign) KKKeychainItemAccessibility accessibility; // default value is KKKeychainItemAccessibleWhenUnlockedThisDeviceOnly
 
 // Life Cycle
 - (instancetype)initWithKeychainSession:(KKKeychainSession *)keychainSession;

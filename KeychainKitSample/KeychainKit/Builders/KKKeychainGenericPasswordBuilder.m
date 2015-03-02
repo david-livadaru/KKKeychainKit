@@ -21,7 +21,7 @@
                                            itemDescription:self.itemDescription comment:self.comment creator:self.creator
                                                       type:self.type isInvisible:self.isInvisible isNegative:self.isNegative
                                                    account:self.account service:self.service generic:self.generic
-                                             accessibility:self.accessbility];
+                                             accessibility:self.accessibility];
 }
 
 - (id)buildKeychainItemFromDictionary:(NSDictionary *)dictionary {
@@ -29,7 +29,7 @@
     return [self buildKeychainItem];
 }
 
-#warning pragma required
+#pragma mark - KKKeychainItemBuilder Subclasses interface
 
 - (void)setPropertiesFromDictionary:(NSDictionary *)dictionary {
     [super setPropertiesFromDictionary:dictionary];

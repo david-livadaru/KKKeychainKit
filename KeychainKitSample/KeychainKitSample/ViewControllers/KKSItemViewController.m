@@ -12,10 +12,14 @@
 #import "KKSVisualizerViewController.h"
 #import "KKSKeychainHandler.h"
 
+static CGFloat kPadding = 8.0f;
+static CGFloat kSpacing = 4.0f;
+
 @interface KKSItemViewController () <KKSKeychainHandlerDataSource>
 
 @property (nonatomic) KKSDataModel *model;
 @property (nonatomic) UITextField *itemLabelTextField;
+@property (nonatomic) UITextField *keychainItemServiceTextField;
 @property (nonatomic) UIButton *actionButton;
 @property (nonatomic) UIView *itemContentView;
 @property (nonatomic) KKSKeychainHandler *keychainHandler;
@@ -56,14 +60,13 @@
     
     [self layoutActionButton];
     [self layoutItemLabelTextField];
+    [self layoutKeychainItemServiceTextField];
     [self layoutItemContentView];
 }
 
 #pragma mark - Layout Subviews
 
 - (void)layoutActionButton {
-    static CGFloat actionButtonHPadding = 4.0f;
-    static CGFloat actionButtonVPadding = 8.0f;
     static CGSize buttonRecommendedSize = {44.0f, 44.0f};
     
     [self.actionButton sizeToFit];
@@ -72,29 +75,32 @@
     actionButtonFrame.size.height = MAX(CGRectGetHeight(actionButtonFrame), buttonRecommendedSize.height);
     actionButtonFrame.origin.x = (CGRectGetWidth(self.view.bounds) -
                                   CGRectGetWidth(actionButtonFrame) -
-                                  actionButtonHPadding);
-    actionButtonFrame.origin.y = actionButtonVPadding;
+                                  kPadding);
+    actionButtonFrame.origin.y = kPadding;
     self.actionButton.frame = actionButtonFrame;
 }
 
 - (void)layoutItemLabelTextField {
-    static CGFloat itemLabelTextFieldVPadding = 4.0f;
-    static CGFloat itemLabelTextFieldHPadding = 8.0f;
-    static CGFloat itemLabelTextFieldSpacing = 4.0f;
-    
     CGRect itemLabelFrame = self.itemLabelTextField.frame;
-    itemLabelFrame.origin.x = itemLabelTextFieldVPadding;
-    itemLabelFrame.origin.y = itemLabelTextFieldHPadding;
-    itemLabelFrame.size.width = (CGRectGetMinX(self.actionButton.frame) - itemLabelTextFieldSpacing);
+    itemLabelFrame.origin.x = kPadding;
+    itemLabelFrame.origin.y = kPadding;
+    itemLabelFrame.size.width = CGRectGetMinX(self.actionButton.frame) - kSpacing - CGRectGetMinX(itemLabelFrame);
     itemLabelFrame.size.height = 44.0f;
     self.itemLabelTextField.frame = itemLabelFrame;
 }
 
+- (void)layoutKeychainItemServiceTextField {
+    CGRect keychainItemServiceTextFieldFrame = self.keychainItemServiceTextField.frame;
+    keychainItemServiceTextFieldFrame.origin.x = kPadding;
+    keychainItemServiceTextFieldFrame.origin.y = CGRectGetMaxY(self.itemLabelTextField.frame) + kSpacing;
+    keychainItemServiceTextFieldFrame.size.width = CGRectGetWidth(self.view.bounds) - kPadding * 2;
+    keychainItemServiceTextFieldFrame.size.height = 44.0f;
+    self.keychainItemServiceTextField.frame = keychainItemServiceTextFieldFrame;
+}
+
 - (void)layoutItemContentView {
-    static CGFloat itemContentViewTopPadding = 4.0f;
-    
     CGRect itemContentViewFrame = self.itemContentView.frame;
-    itemContentViewFrame.origin.y = CGRectGetMaxY(self.itemLabelTextField.frame) + itemContentViewTopPadding * 2;
+    itemContentViewFrame.origin.y = CGRectGetMaxY(self.keychainItemServiceTextField.frame) + kSpacing;
     itemContentViewFrame.size.width = CGRectGetWidth(self.view.bounds);
     itemContentViewFrame.size.height = (CGRectGetHeight(self.view.bounds) - CGRectGetMinY(itemContentViewFrame));
     self.itemContentView.frame = itemContentViewFrame;
@@ -110,6 +116,8 @@
 - (void)addSubviews {
     self.itemLabelTextField = [[UITextField alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.itemLabelTextField];
+    self.keychainItemServiceTextField = [[UITextField alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.keychainItemServiceTextField];
     self.actionButton = [[UIButton alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.actionButton];
     self.itemContentView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -130,6 +138,8 @@
 - (void)customizeSubviews {
     self.itemLabelTextField.placeholder = @"Keychain Item's Label";
     self.itemLabelTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.keychainItemServiceTextField.placeholder = @"Keychain Item's Service Name";
+    self.keychainItemServiceTextField.borderStyle = UITextBorderStyleRoundedRect;
     [self.actionButton setTitle:[self.dataUIAdapter buttonTitleForModel:self.model] forState:UIControlStateNormal];
     [self.actionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.actionButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
@@ -147,6 +157,10 @@
 
 - (NSString *)keychainItemLabel {
     return self.itemLabelTextField.text;
+}
+
+- (NSString *)keychainItemServiceName {
+    return self.keychainItemServiceTextField.text;
 }
 
 - (NSData *)dataFromView {

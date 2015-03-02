@@ -55,7 +55,7 @@
         case KKKeychainOperationTypeUpdate:
             return [KKKeychainUpdateOperation class];
         case KKKeychainOperationTypeSearch:
-            return [KKKeychainDeleteOperation class];
+            return [KKKeychainSearchOperation class];
     }
 }
 
@@ -70,9 +70,10 @@
     CFTypeRef result = NULL;
     OSStatus operationExecutionStatus = [self executeOperationWithAttributes:attributes result:&result];
     NSError *operationError = [self createErrorWithOSStatus:operationExecutionStatus];
-    [self convertResult:result];
     if (completionBlock) {
-        completionBlock([self completionBlockItemsFromResult:result], operationError);
+        CFTypeRef keychainItemClass = (__bridge CFTypeRef)attributes[(__bridge id)kSecClass];
+        NSArray *completionBlockItems = [self completionBlockItemsFromResult:result keychainItemClass:keychainItemClass];
+        completionBlock(completionBlockItems, operationError);
     }
 }
 
@@ -80,17 +81,10 @@
     return errSecUnimplemented; // this operation is not implemented
 }
 
-- (void)convertResult:(CFTypeRef)result {
-    // TO BE IMPLEMENTED
-    // check if this needs to be overrided by operations (such as update or search)
+- (NSArray *)completionBlockItemsFromResult:(CFTypeRef)result keychainItemClass:(CFTypeRef)keychainItemClass {
     NSDictionary *dictionary = (__bridge NSDictionary *)result;
-    NSLog(@"%@", dictionary);
-}
-
-- (NSArray *)completionBlockItemsFromResult:(CFTypeRef)result {
-    NSDictionary *dictionary = (__bridge NSDictionary *)result;
-#warning you need to create this builder by using class attribute
-    KKKeychainGenericPasswordBuilder *builder = [[KKKeychainGenericPasswordBuilder alloc] initWithKeychainSession:nil];
+    KKKeychainItemBuilder *builder = [KKKeychainItemBuilder builderWithKeychainItemClass:keychainItemClass
+                                                                         keychainSession:nil];
     return @[[builder buildKeychainItemFromDictionary:dictionary]];
 }
 
@@ -98,10 +92,48 @@
     if (status == errSecSuccess) {
         return nil;
     } else {
+        NSMutableDictionary *errorUserInfo = [[NSMutableDictionary alloc] init];
+        errorUserInfo[NSLocalizedFailureReasonErrorKey] = [self errorMesageForOSStatus:status];
         return [[NSError alloc] initWithDomain:NSOSStatusErrorDomain
                                           code:status
-                                      userInfo:nil];
+                                      userInfo:errorUserInfo];
     }
 }
+
+- (NSString *)errorMesageForOSStatus:(OSStatus)status {
+    switch (status) {
+        case errSecUnimplemented:
+            return @"Function or operation is not implemented.";
+        case errSecIO:
+            return @"Input/Output error occured.";
+        case errSecOpWr:
+            return @"File is already open with write permisions.";
+        case errSecParam:
+            return @"One or more parameters were not valid.";
+        case errSecAllocate:
+            return @"Failed to allocate memory.";
+        case errSecUserCanceled:
+            return @"User canceled the operation.";
+        case errSecBadReq:
+            return @"Bad parameter or invalid state for operation.";
+        case errSecNotAvailable:
+            return @"No keychain is available. You may need to restart your device.";
+        case errSecDuplicateItem:
+            return @"The specified item already exists in the keychain.";
+        case errSecItemNotFound:
+            return @"The specified item could not be found in the keychain.";
+        case errSecInteractionNotAllowed:
+            return @"User interaction is not allowed.";
+        case errSecDecode:
+            return @"Unable to decode the provided data.";
+        case errSecAuthFailed:
+            return @"The user name or passphrase you entered is not correct.";
+        case errSecSuccess:
+            return @"";
+        default:
+            return @"Unknown error!";
+    }
+}
+
 
 @end
