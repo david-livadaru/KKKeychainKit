@@ -3,7 +3,6 @@
 //  KeychainKitSample
 //
 //  Created by david on 11/02/15.
-//  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
 #import "KKKeychainItemBuilder.h"
@@ -85,7 +84,8 @@
     }
     if ([[NSProcessInfo processInfo] respondsToSelector:@selector(operatingSystemVersion)]) {
 #warning Cannot get protection 'field' from SecAccessControlRef
-        SecAccessControlRef accessControl = (__bridge SecAccessControlRef)[dictionary objectForKey:(__bridge id)kSecAttrAccessControl];
+        SecAccessControlRef accessControl =
+        (__bridge SecAccessControlRef)[dictionary objectForKey:(__bridge id)kSecAttrAccessControl];
         self.accessibility = KKKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
     } else {
         CFTypeRef accessibilityTypeRef = (__bridge CFTypeRef)dictionary[(__bridge id)kSecAttrAccessible];

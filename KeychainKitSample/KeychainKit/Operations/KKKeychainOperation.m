@@ -3,14 +3,13 @@
 //  KeychainKitSample
 //
 //  Created by david on 17/12/14.
-//  Copyright (c) 2014 David Live Org. All rights reserved.
 //
 
 #import "KKKeychainOperation.h"
 @import Security;
 #import "KKKeychainOperation+KeychainKitInteface.h"
 #import "KKKeychainOperation+SubclassesInterface.h"
-#import "KKKKeychainAddOperation.h"
+#import "KKKeychainAddOperation.h"
 #import "KKKeychainDeleteOperation.h"
 #import "KKKeychainUpdateOperation.h"
 #import "KKKeychainSearchOperation.h"
@@ -49,7 +48,7 @@
 + (Class)operationClassForType:(KKKeychainOperationType)operationType {
     switch (operationType) {
         case KKKeychainOperationTypeAdd:
-            return [KKKKeychainAddOperation class];
+            return [KKKeychainAddOperation class];
         case KKKeychainOperationTypeDelete:
             return [KKKeychainDeleteOperation class];
         case KKKeychainOperationTypeUpdate:
@@ -72,7 +71,8 @@
     NSError *operationError = [self createErrorWithOSStatus:operationExecutionStatus];
     if (completionBlock) {
         CFTypeRef keychainItemClass = (__bridge CFTypeRef)attributes[(__bridge id)kSecClass];
-        NSArray *completionBlockItems = [self completionBlockItemsFromResult:result keychainItemClass:keychainItemClass];
+        NSArray *completionBlockItems = [self completionBlockItemsFromResult:result
+                                                           keychainItemClass:keychainItemClass];
         completionBlock(completionBlockItems, operationError);
     }
 }

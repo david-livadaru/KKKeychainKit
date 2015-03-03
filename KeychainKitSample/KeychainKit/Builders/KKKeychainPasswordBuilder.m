@@ -3,7 +3,6 @@
 //  KeychainKitSample
 //
 //  Created by david on 11/02/15.
-//  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
 #import "KKKeychainPasswordBuilder.h"
@@ -17,7 +16,7 @@
     return nil; // client is not allowed to create incomplete object
 }
 
-#warning pragma required
+#pragma mark - KKKeychainItemBuilder Subclasses interface
 
 - (void)setPropertiesFromDictionary:(NSDictionary *)dictionary {
     [super setPropertiesFromDictionary:dictionary];

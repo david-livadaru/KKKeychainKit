@@ -3,7 +3,6 @@
 //  KeychainKitSample
 //
 //  Created by david on 17/12/14.
-//  Copyright (c) 2014 David Live Org. All rights reserved.
 //
 
 #import "KKSKeychainHandler.h"
@@ -42,14 +41,14 @@
         if (error) {
             NSLog(@"%@", error);
         } else {
-            KKKeychainGenericPassword *genericPassword = [items firstObject];
-            NSLog(@"success");
+            KKKeychainGenericPassword *genericPassword = [items firstObject]; // do something with this item
         }
     }];
 }
 
 - (KKKeychainItem *)createKeychainItemAccordingToModel {
-    KKKeychainGenericPasswordBuilder *genericPasswordBuilder = [[KKKeychainGenericPasswordBuilder alloc] initWithKeychainSession:self.keychainSession];
+    KKKeychainGenericPasswordBuilder *genericPasswordBuilder =
+    [[KKKeychainGenericPasswordBuilder alloc] initWithKeychainSession:self.keychainSession];
     genericPasswordBuilder.data = [self.dataSource dataFromView];
     genericPasswordBuilder.label = [self.dataSource keychainItemLabel];
     genericPasswordBuilder.service = [self.dataSource keychainItemServiceName];

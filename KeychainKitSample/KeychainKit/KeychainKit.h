@@ -3,7 +3,6 @@
 //  KeychainKit
 //
 //  Created by david on 17/12/14.
-//  Copyright (c) 2014 David Live Org. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -20,7 +19,7 @@ FOUNDATION_EXPORT const unsigned char KeychainKitVersionString[];
 #import <KeychainKit/KKError.h>
 #import <KeychainKit/KKKeychainSession.h>
 #import <KeychainKit/KKKeychainOperation.h>
-#import <KeychainKit/KKKKeychainAddOperation.h>
+#import <KeychainKit/KKKeychainAddOperation.h>
 #import <KeychainKit/KKKeychainDeleteOperation.h>
 #import <KeychainKit/KKKeychainUpdateOperation.h>
 #import <KeychainKit/KKKeychainSearchOperation.h>

@@ -3,7 +3,6 @@
 //  KeychainKitSample
 //
 //  Created by david on 17/12/14.
-//  Copyright (c) 2014 David Live Org. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -53,17 +52,23 @@
 }
 
 - (NSArray *)tabBarViewControllers {
-    UINavigationController *addNavigationViewController = [self navigationViewControllerForOperationType:KKKeychainOperationTypeAdd];
-    UINavigationController *updateNavigationViewController = [self navigationViewControllerForOperationType:KKKeychainOperationTypeUpdate];
-    UINavigationController *deleteNavigationViewController = [self navigationViewControllerForOperationType:KKKeychainOperationTypeDelete];
-    UINavigationController *searchNavigationViewController = [self navigationViewControllerForOperationType:KKKeychainOperationTypeSearch];
-    return @[addNavigationViewController, updateNavigationViewController, deleteNavigationViewController, searchNavigationViewController];
+    UINavigationController *addNavigationViewController =
+    [self navigationViewControllerForOperationType:KKKeychainOperationTypeAdd];
+    UINavigationController *updateNavigationViewController =
+    [self navigationViewControllerForOperationType:KKKeychainOperationTypeUpdate];
+    UINavigationController *deleteNavigationViewController =
+    [self navigationViewControllerForOperationType:KKKeychainOperationTypeDelete];
+    UINavigationController *searchNavigationViewController =
+    [self navigationViewControllerForOperationType:KKKeychainOperationTypeSearch];
+    return @[addNavigationViewController, updateNavigationViewController, deleteNavigationViewController,
+             searchNavigationViewController];
 }
 
 - (UINavigationController *)navigationViewControllerForOperationType:(KKKeychainOperationType)operationType {
     NSArray *model = [self modelForOperationType:operationType];
     KKSViewController *viewController = [[KKSViewController alloc] initWithModel:model];
-    UINavigationController *navigationViewController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    UINavigationController *navigationViewController =
+    [[UINavigationController alloc] initWithRootViewController:viewController];
     UIImage *tabBarItemImage = [UIImage imageNamed:[self imageNameForOperationType:operationType]];
     navigationViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:nil
                                                                         image:tabBarItemImage
@@ -76,8 +81,9 @@
                                                                     dataType:KKKeychainSampleDataTypeAccount];
     KKSDataModel *stringModel = [[KKSDataModel alloc] initWithOperationType:operationType
                                                                    dataType:KKKeychainSampleDataTypeString];
-    KKSDataModel *dictionaryModel = [[KKSDataModel alloc] initWithOperationType:operationType
-                                                                       dataType:KKKeychainSampleDataTypeDictionary];
+    KKSDataModel *dictionaryModel =
+    [[KKSDataModel alloc] initWithOperationType:operationType
+                                       dataType:KKKeychainSampleDataTypeDictionary];
     KKSDataModel *imageModel = [[KKSDataModel alloc] initWithOperationType:operationType
                                                                   dataType:KKKeychainSampleDataTypeImage];
     return @[accountModel, stringModel, dictionaryModel, imageModel];

@@ -3,13 +3,13 @@
 //  KeychainKitSample
 //
 //  Created by david on 20/02/15.
-//  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
 #import "KKSImageVisualizerViewController.h"
 #import "KKSVisualizerViewController_KKSPrivateInterface.h"
 
-@interface KKSImageVisualizerViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface KKSImageVisualizerViewController () <UINavigationControllerDelegate,
+UIImagePickerControllerDelegate>
 
 @property (nonatomic) UIImageView *imageView;
 @property (nonatomic) UIButton *addImageButton;
@@ -30,7 +30,8 @@
     [self.addImageButton setTitle:@"Add image" forState:UIControlStateNormal];
     [self.addImageButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.addImageButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-    [self.addImageButton addTarget:self action:@selector(addImageButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.addImageButton addTarget:self action:@selector(addImageButtonPressed:)
+                  forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.addImageButton];
 }
 
@@ -57,7 +58,8 @@
 
 #pragma mark - UIImagePickerController Delegate
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info {
     self.imageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [self.view setNeedsLayout];
     [self dismissViewControllerAnimated:YES completion:nil];

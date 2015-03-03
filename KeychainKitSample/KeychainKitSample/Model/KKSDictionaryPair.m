@@ -3,7 +3,6 @@
 //  KeychainKitSample
 //
 //  Created by david on 26/02/15.
-//  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
 #import "KKSDictionaryPair.h"

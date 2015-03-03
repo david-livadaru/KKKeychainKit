@@ -3,7 +3,6 @@
 //  KeychainKitSample
 //
 //  Created by david on 20/02/15.
-//  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
 #import "KKSAccountVisualizerViewController.h"
@@ -36,15 +35,17 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    static CGFloat padding = 8.0f;
-    static CGFloat spacing = 4.0;
+    static const CGFloat padding = 8.0f;
+    static const CGFloat spacing = 4.0;
+    static const CGFloat kRecommendedHeight = 44.0f;
     
     [self.accountNameTextField sizeToFit];
     CGRect accountNameTextFieldFrame = self.accountNameTextField.frame;
     accountNameTextFieldFrame.origin.x = padding;
     accountNameTextFieldFrame.origin.y = padding;
     accountNameTextFieldFrame.size.width = (CGRectGetWidth(self.view.bounds) - padding * 2);
-    accountNameTextFieldFrame.size.height = MAX(CGRectGetHeight(accountNameTextFieldFrame), 44.0f);
+    accountNameTextFieldFrame.size.height = MAX(CGRectGetHeight(accountNameTextFieldFrame),
+                                                kRecommendedHeight);
     self.accountNameTextField.frame = accountNameTextFieldFrame;
     
     [self.passwordTextField sizeToFit];

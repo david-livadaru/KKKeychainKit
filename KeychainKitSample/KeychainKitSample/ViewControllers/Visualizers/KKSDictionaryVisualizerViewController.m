@@ -3,7 +3,6 @@
 //  KeychainKitSample
 //
 //  Created by david on 20/02/15.
-//  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
 #import "KKSDictionaryVisualizerViewController.h"
@@ -12,7 +11,8 @@
 #import "KKSAddDictionaryPairView.h"
 #import "KKSDictionaryPair.h"
 
-static NSString * const kTableViewCellReuseIdentifier = @"org.KeychainKit.Sample.KKSDictionaryVisualizerViewController.kTableViewCellReuseIdentifier";
+static NSString * const kTableViewCellReuseIdentifier =
+@"org.KeychainKit.Sample.KKSDictionaryVisualizerViewController.kTableViewCellReuseIdentifier";
 
 @interface KKSDictionaryVisualizerViewController () <UITableViewDataSource, UITableViewDelegate,
 KKSAddDictionaryPairViewDelegate>
@@ -38,7 +38,8 @@ KKSAddDictionaryPairViewDelegate>
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
-    [self.tableView registerClass:[KKSDictionaryTableViewCell class] forCellReuseIdentifier:kTableViewCellReuseIdentifier];
+    [self.tableView registerClass:[KKSDictionaryTableViewCell class]
+           forCellReuseIdentifier:kTableViewCellReuseIdentifier];
     self.addDictionaryPairView = [[KKSAddDictionaryPairView alloc] initWithFrame:self.view.bounds];
     self.addDictionaryPairView.delegate = self;
     [self.view addSubview:self.addDictionaryPairView];
@@ -61,7 +62,8 @@ KKSAddDictionaryPairViewDelegate>
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    KKSDictionaryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableViewCellReuseIdentifier];
+    KKSDictionaryTableViewCell *cell =
+    [tableView dequeueReusableCellWithIdentifier:kTableViewCellReuseIdentifier];
     KKSDictionaryPair *dictionaryPairAtIndexPath = [self.dictionaryPairs objectAtIndex:indexPath.row];
     cell.textLabel.text = @"Key:";
     cell.detailTextLabel.text = @"Object:";
@@ -86,7 +88,8 @@ KKSAddDictionaryPairViewDelegate>
 #pragma mark - Data Handling
 
 - (NSDictionary *)dictionaryFromPairs {
-    NSMutableDictionary *mutableDictionary = [[NSMutableDictionary alloc] initWithCapacity:[self.dictionaryPairs count]];
+    NSMutableDictionary *mutableDictionary =
+    [[NSMutableDictionary alloc] initWithCapacity:[self.dictionaryPairs count]];
     for (KKSDictionaryPair *dictionaryPair in self.dictionaryPairs) {
         [mutableDictionary setObject:dictionaryPair.object forKey:dictionaryPair.key];
     }
@@ -103,14 +106,16 @@ KKSAddDictionaryPairViewDelegate>
 }
 
 - (void)addPairToDictionary {
-    KKSDictionaryPair *dictionaryPair = [[KKSDictionaryPair alloc] initWithKey:self.addDictionaryPairView.keyString
-                                                                        object:self.addDictionaryPairView.objectString];
+    KKSDictionaryPair *dictionaryPair =
+    [[KKSDictionaryPair alloc] initWithKey:self.addDictionaryPairView.keyString
+                                    object:self.addDictionaryPairView.objectString];
     [self.dictionaryPairs insertObject:dictionaryPair atIndex:0];
 }
 
 - (void)insertNewRowInTable {
     NSIndexPath *indexPathAtTheBeginning = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPathAtTheBeginning] withRowAnimation:UITableViewRowAnimationTop];
+    [self.tableView insertRowsAtIndexPaths:@[indexPathAtTheBeginning]
+                          withRowAnimation:UITableViewRowAnimationTop];
 }
 
 #pragma mark - KKSItem Data Visualizer

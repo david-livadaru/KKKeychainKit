@@ -3,7 +3,6 @@
 //  KeychainKitSample
 //
 //  Created by david on 17/02/15.
-//  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
 #import "KKSItemViewController.h"
@@ -12,8 +11,8 @@
 #import "KKSVisualizerViewController.h"
 #import "KKSKeychainHandler.h"
 
-static CGFloat kPadding = 8.0f;
-static CGFloat kSpacing = 4.0f;
+static const CGFloat kPadding = 8.0f;
+static const CGFloat kSpacing = 4.0f;
 
 @interface KKSItemViewController () <KKSKeychainHandlerDataSource>
 
@@ -69,7 +68,7 @@ static CGFloat kSpacing = 4.0f;
 #pragma mark - Layout Subviews
 
 - (void)layoutActionButton {
-    static CGSize buttonRecommendedSize = {44.0f, 44.0f};
+    static const CGSize buttonRecommendedSize = {44.0f, 44.0f};
     
     [self.actionButton sizeToFit];
     CGRect actionButtonFrame = self.actionButton.frame;
@@ -86,7 +85,8 @@ static CGFloat kSpacing = 4.0f;
     CGRect itemLabelFrame = self.itemLabelTextField.frame;
     itemLabelFrame.origin.x = kPadding;
     itemLabelFrame.origin.y = kPadding;
-    itemLabelFrame.size.width = CGRectGetMinX(self.actionButton.frame) - kSpacing - CGRectGetMinX(itemLabelFrame);
+    itemLabelFrame.size.width = (CGRectGetMinX(self.actionButton.frame) - kSpacing -
+                                 CGRectGetMinX(itemLabelFrame));
     itemLabelFrame.size.height = 44.0f;
     self.itemLabelTextField.frame = itemLabelFrame;
 }
@@ -104,7 +104,8 @@ static CGFloat kSpacing = 4.0f;
     CGRect itemContentViewFrame = self.itemContentView.frame;
     itemContentViewFrame.origin.y = CGRectGetMaxY(self.keychainItemServiceTextField.frame) + kSpacing;
     itemContentViewFrame.size.width = CGRectGetWidth(self.view.bounds);
-    itemContentViewFrame.size.height = (CGRectGetHeight(self.view.bounds) - CGRectGetMinY(itemContentViewFrame));
+    itemContentViewFrame.size.height = (CGRectGetHeight(self.view.bounds) -
+                                        CGRectGetMinY(itemContentViewFrame));
     self.itemContentView.frame = itemContentViewFrame;
 }
 
@@ -156,7 +157,8 @@ static CGFloat kSpacing = 4.0f;
     self.itemLabelTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.keychainItemServiceTextField.placeholder = @"Keychain Item's Service Name";
     self.keychainItemServiceTextField.borderStyle = UITextBorderStyleRoundedRect;
-    [self.actionButton setTitle:[self.dataUIAdapter buttonTitleForModel:self.model] forState:UIControlStateNormal];
+    [self.actionButton setTitle:[self.dataUIAdapter buttonTitleForModel:self.model]
+                       forState:UIControlStateNormal];
     [self.actionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.actionButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
     [self.actionButton addTarget:self action:@selector(performActionForActionButton:)

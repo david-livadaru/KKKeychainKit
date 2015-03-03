@@ -3,7 +3,6 @@
 //  KeychainKitSample
 //
 //  Created by david on 20/02/15.
-//  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
 #import "KKSAddDictionaryPairView.h"
@@ -15,9 +14,9 @@ typedef NS_ENUM(NSUInteger, KKSAddPairButtonVisibilityState) {
 };
 
 // UI Layout Constants
-static CGFloat kPadding = 4.0f;
-static CGFloat kSpacing = 4.0f;
-static CGFloat kRecommendedButtonSizeComponent = 44.0f;
+static const CGFloat kPadding = 4.0f;
+static const CGFloat kSpacing = 4.0f;
+static const CGFloat kRecommendedButtonSizeComponent = 44.0f;
 
 @interface KKSAddDictionaryPairView ()
 
@@ -51,8 +50,10 @@ static CGFloat kRecommendedButtonSizeComponent = 44.0f;
 }
 
 - (void)setupTargetActions {
-    [self.keyTextField addTarget:self action:@selector(textFieldDidChangeText:) forControlEvents:UIControlEventEditingChanged];
-    [self.objectTextField addTarget:self action:@selector(textFieldDidChangeText:) forControlEvents:UIControlEventEditingChanged];
+    [self.keyTextField addTarget:self action:@selector(textFieldDidChangeText:)
+                forControlEvents:UIControlEventEditingChanged];
+    [self.objectTextField addTarget:self action:@selector(textFieldDidChangeText:)
+                   forControlEvents:UIControlEventEditingChanged];
     [self.addPairButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.addPairButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
 }
@@ -120,13 +121,15 @@ static CGFloat kRecommendedButtonSizeComponent = 44.0f;
         addPairButtonFrame.origin.x -= CGRectGetWidth(addPairButtonFrame) + kPadding;
     }
     addPairButtonFrame.size.width = MAX(CGRectGetWidth(addPairButtonFrame), kRecommendedButtonSizeComponent);
-    addPairButtonFrame.size.height = MAX(CGRectGetHeight(addPairButtonFrame), kRecommendedButtonSizeComponent);
+    addPairButtonFrame.size.height = MAX(CGRectGetHeight(addPairButtonFrame),
+                                         kRecommendedButtonSizeComponent);
     addPairButtonFrame.origin.y = (CGRectGetHeight(self.bounds) - CGRectGetHeight(addPairButtonFrame)) / 2;
     self.addPairButton.frame = addPairButtonFrame;
 }
 
 - (CGFloat)textFieldWidthAccodingToAddPairButtonVisibility {
-    CGFloat textFieldsAvailableSpace = (CGRectGetMinX(self.addPairButton.frame) - kSpacing - kPadding); // left padding and spacing between add pair button and text fields
+    // left padding and spacing between add pair button and text fields
+    CGFloat textFieldsAvailableSpace = (CGRectGetMinX(self.addPairButton.frame) - kSpacing - kPadding);
     return (textFieldsAvailableSpace - kSpacing) / 2; // remove space between text fields
 }
 
@@ -150,9 +153,11 @@ static CGFloat kRecommendedButtonSizeComponent = 44.0f;
 
 - (KKSAddPairButtonVisibilityState)buttonVisibilityStateAccordingToTextFieldsText {
     BOOL keyTextFieldHasText = [self.keyTextField.text lengthByRemovingWhiteSpaceAndNewLineCharacters] != 0;
-    BOOL objectTextFieldHasText = [self.objectTextField.text lengthByRemovingWhiteSpaceAndNewLineCharacters] != 0;
+    BOOL objectTextFieldHasText =
+    ([self.objectTextField.text lengthByRemovingWhiteSpaceAndNewLineCharacters] != 0);
     BOOL textFieldsHaveText = keyTextFieldHasText && objectTextFieldHasText;
-    return (textFieldsHaveText) ? KKSAddPairButtonVisibilityStateVisible : KKSAddPairButtonVisibilityStateHidden;
+    return ((textFieldsHaveText) ? KKSAddPairButtonVisibilityStateVisible :
+                                   KKSAddPairButtonVisibilityStateHidden);
 }
 
 - (void)clearTextFields {
@@ -201,7 +206,8 @@ static CGFloat kRecommendedButtonSizeComponent = 44.0f;
 
 - (void)customizeAddPairButton {
     [self.addPairButton setTitle:@"Add Pair" forState:UIControlStateNormal];
-    [self.addPairButton addTarget:self action:@selector(addPairButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.addPairButton addTarget:self action:@selector(addPairButtonPressed:)
+                 forControlEvents:UIControlEventTouchUpInside];
 }
 
 @end

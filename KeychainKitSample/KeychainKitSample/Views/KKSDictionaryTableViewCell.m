@@ -3,13 +3,12 @@
 //  KeychainKitSample
 //
 //  Created by david on 25/02/15.
-//  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
 #import "KKSDictionaryTableViewCell.h"
 
-static CGFloat const kPadding = 4.0f;
-static CGFloat const kSpacing = 4.0f;
+static const CGFloat kPadding = 4.0f;
+static const CGFloat kSpacing = 4.0f;
 
 @interface KKSDictionaryTableViewCell ()
 

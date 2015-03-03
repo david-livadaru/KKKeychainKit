@@ -3,14 +3,13 @@
 //  KeychainKitSample
 //
 //  Created by david on 10/02/15.
-//  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
-#import "KKKKeychainAddOperation.h"
+#import "KKKeychainAddOperation.h"
 @import Security;
 #import "KKKeychainOperation+SubclassesInterface.h"
 
-@implementation KKKKeychainAddOperation
+@implementation KKKeychainAddOperation
 
 #pragma mark - Execution
 

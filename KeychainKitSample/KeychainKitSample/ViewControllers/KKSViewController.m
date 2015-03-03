@@ -1,10 +1,8 @@
-
 //
 //  KKKeychainSampleViewController.m
 //  KeychainKitSample
 //
 //  Created by david on 17/02/15.
-//  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
 #import "KKSViewController.h"
@@ -12,7 +10,8 @@
 #import "KKSDataModel.h"
 #import "KKKeychainSampleUIDataAdapter.h"
 
-static NSString * kCellIdentifier = @"org.david.KeychainSample.KKKeychainSampleViewController.Cell.Identifier";
+static NSString * kCellIdentifier =
+@"org.david.KeychainSample.KKKeychainSampleViewController.Cell.Identifier";
 
 @interface KKSViewController ()
 
@@ -67,7 +66,8 @@ static NSString * kCellIdentifier = @"org.david.KeychainSample.KKKeychainSampleV
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     KKSDataModel *modelAtIndexPath = [self.model objectAtIndex:indexPath.item];
-    KKSItemViewController *itemViewController = [[KKSItemViewController alloc] initWithModel:modelAtIndexPath];
+    KKSItemViewController *itemViewController =
+    [[KKSItemViewController alloc] initWithModel:modelAtIndexPath];
     [self.navigationController pushViewController:itemViewController animated:YES];
 }
 

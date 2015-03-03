@@ -3,7 +3,6 @@
 //  KeychainKitSample
 //
 //  Created by david on 11/02/15.
-//  Copyright (c) 2015 David Live Org. All rights reserved.
 //
 
 #import "KKKeychainInternetPasswordBuilder.h"
@@ -16,13 +15,20 @@
 #pragma mark - Building
 
 - (id)buildKeychainItem {
-    return [[KKKeychainInternetPassword alloc] initWithData:self.data label:self.label accessGroup:self.accessGroup
-                                               creationDate:self.creationDate modificationDate:self.modificationDate
-                                            itemDescription:self.itemDescription comment:self.comment creator:self.creator
-                                                       type:self.type isInvisible:self.isInvisible isNegative:self.isNegative
-                                                    account:self.account securityDomain:self.securityDomain server:self.server
-                                                   protocol:self.protocol authenticationType:self.authenticationType
-                                                       port:self.port path:self.path accessibility:self.accessibility];
+    return [[KKKeychainInternetPassword alloc] initWithData:self.data label:self.label
+                                                accessGroup:self.accessGroup
+                                               creationDate:self.creationDate
+                                           modificationDate:self.modificationDate
+                                            itemDescription:self.itemDescription comment:self.comment
+                                                    creator:self.creator
+                                                       type:self.type isInvisible:self.isInvisible
+                                                 isNegative:self.isNegative
+                                                    account:self.account securityDomain:self.securityDomain
+                                                     server:self.server
+                                                   protocol:self.protocol
+                                         authenticationType:self.authenticationType
+                                                       port:self.port path:self.path
+                                              accessibility:self.accessibility];
 }
 
 - (id)buildKeychainItemFromDictionary:(NSDictionary *)dictionary {
@@ -51,7 +57,8 @@
     if (path) {
         self.path = path;
     }
-#warning needs to set protocol
+#warning Needs to set protocol. To be added later on.
+#warning Although this depends on architecture changes that will come.
 }
 
 @end

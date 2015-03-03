@@ -62,8 +62,8 @@
 		63D14DF71A93E4510089A048 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		63D33CF91A8AA5590077802E /* KKKeychainOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33CF71A8AA5590077802E /* KKKeychainOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63D33CFA1A8AA5590077802E /* KKKeychainOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D33CF81A8AA5590077802E /* KKKeychainOperation.m */; };
-		63D33CFE1A8AA61C0077802E /* KKKKeychainAddOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33CFC1A8AA61C0077802E /* KKKKeychainAddOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		63D33CFF1A8AA61C0077802E /* KKKKeychainAddOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D33CFD1A8AA61C0077802E /* KKKKeychainAddOperation.m */; };
+		63D33CFE1A8AA61C0077802E /* KKKeychainAddOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33CFC1A8AA61C0077802E /* KKKeychainAddOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63D33CFF1A8AA61C0077802E /* KKKeychainAddOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D33CFD1A8AA61C0077802E /* KKKeychainAddOperation.m */; };
 		63D33D021A8AA62A0077802E /* KKKeychainDeleteOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D001A8AA62A0077802E /* KKKeychainDeleteOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63D33D031A8AA62A0077802E /* KKKeychainDeleteOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D33D011A8AA62A0077802E /* KKKeychainDeleteOperation.m */; };
 		63D33D061A8AA6360077802E /* KKKeychainUpdateOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D33D041A8AA6360077802E /* KKKeychainUpdateOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -211,8 +211,8 @@
 		63D04F0C1A62E338003B31DB /* KKKeychainPassword+SuclassesInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KKKeychainPassword+SuclassesInterface.h"; sourceTree = "<group>"; };
 		63D33CF71A8AA5590077802E /* KKKeychainOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainOperation.h; sourceTree = "<group>"; };
 		63D33CF81A8AA5590077802E /* KKKeychainOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainOperation.m; sourceTree = "<group>"; };
-		63D33CFC1A8AA61C0077802E /* KKKKeychainAddOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKKeychainAddOperation.h; sourceTree = "<group>"; };
-		63D33CFD1A8AA61C0077802E /* KKKKeychainAddOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKKeychainAddOperation.m; sourceTree = "<group>"; };
+		63D33CFC1A8AA61C0077802E /* KKKeychainAddOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainAddOperation.h; sourceTree = "<group>"; };
+		63D33CFD1A8AA61C0077802E /* KKKeychainAddOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainAddOperation.m; sourceTree = "<group>"; };
 		63D33D001A8AA62A0077802E /* KKKeychainDeleteOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainDeleteOperation.h; sourceTree = "<group>"; };
 		63D33D011A8AA62A0077802E /* KKKeychainDeleteOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKKeychainDeleteOperation.m; sourceTree = "<group>"; };
 		63D33D041A8AA6360077802E /* KKKeychainUpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKKeychainUpdateOperation.h; sourceTree = "<group>"; };
@@ -494,8 +494,8 @@
 				63D33CF81A8AA5590077802E /* KKKeychainOperation.m */,
 				63D33D0C1A8AA8300077802E /* KKKeychainOperation+KeychainKitInteface.h */,
 				63D33D101A8AABB10077802E /* KKKeychainOperation+SubclassesInterface.h */,
-				63D33CFC1A8AA61C0077802E /* KKKKeychainAddOperation.h */,
-				63D33CFD1A8AA61C0077802E /* KKKKeychainAddOperation.m */,
+				63D33CFC1A8AA61C0077802E /* KKKeychainAddOperation.h */,
+				63D33CFD1A8AA61C0077802E /* KKKeychainAddOperation.m */,
 				63D33D001A8AA62A0077802E /* KKKeychainDeleteOperation.h */,
 				63D33D011A8AA62A0077802E /* KKKeychainDeleteOperation.m */,
 				63D33D041A8AA6360077802E /* KKKeychainUpdateOperation.h */,
@@ -573,7 +573,7 @@
 				63D33D061A8AA6360077802E /* KKKeychainUpdateOperation.h in Headers */,
 				63D04EFC1A62BC5E003B31DB /* KKKeychainPassword.h in Headers */,
 				63D33D1A1A8AB8690077802E /* KKKeychainItemBuilder.h in Headers */,
-				63D33CFE1A8AA61C0077802E /* KKKKeychainAddOperation.h in Headers */,
+				63D33CFE1A8AA61C0077802E /* KKKeychainAddOperation.h in Headers */,
 				63D33D201A8ABC320077802E /* KKKeychainPasswordBuilder.h in Headers */,
 				63D04F0D1A62E338003B31DB /* KKKeychainPassword+SuclassesInterface.h in Headers */,
 				63D04EF51A62BC5E003B31DB /* KKKeychainGenericPassword.h in Headers */,
@@ -672,7 +672,7 @@
 			attributes = {
 				CLASSPREFIX = KKS;
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "David Live Org";
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					63B51CB81A4207FC001B4EFC = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -799,7 +799,7 @@
 				63D33CFA1A8AA5590077802E /* KKKeychainOperation.m in Sources */,
 				63D04EFA1A62BC5E003B31DB /* KKKeychainItem.m in Sources */,
 				63B51D2F1A422104001B4EFC /* KKKeychainSession.m in Sources */,
-				63D33CFF1A8AA61C0077802E /* KKKKeychainAddOperation.m in Sources */,
+				63D33CFF1A8AA61C0077802E /* KKKeychainAddOperation.m in Sources */,
 				63D33D251A8ABC7D0077802E /* KKKeychainGenericPasswordBuilder.m in Sources */,
 				63D04EF61A62BC5E003B31DB /* KKKeychainGenericPassword.m in Sources */,
 				63D33D291A8ABCC30077802E /* KKKeychainInternetPasswordBuilder.m in Sources */,
@@ -947,7 +947,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = KeychainKitSample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -959,7 +959,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = KeychainKitSample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
