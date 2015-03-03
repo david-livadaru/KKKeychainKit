@@ -25,6 +25,7 @@ static CGFloat kSpacing = 4.0f;
 @property (nonatomic) KKSKeychainHandler *keychainHandler;
 @property (nonatomic) KKKeychainSampleUIDataAdapter *dataUIAdapter;
 @property (nonatomic) id<KKKeychainSampleItemDataVisualizer> dataVisualizer;
+@property (nonatomic) UILabel *screenOverlay;
 
 @end
 
@@ -62,6 +63,7 @@ static CGFloat kSpacing = 4.0f;
     [self layoutItemLabelTextField];
     [self layoutKeychainItemServiceTextField];
     [self layoutItemContentView];
+    [self layoutScreenOverlayIfExists];
 }
 
 #pragma mark - Layout Subviews
@@ -106,6 +108,12 @@ static CGFloat kSpacing = 4.0f;
     self.itemContentView.frame = itemContentViewFrame;
 }
 
+- (void)layoutScreenOverlayIfExists {
+    if ([self isScreenOverlayAdded]) {
+        self.screenOverlay.frame = self.view.bounds;
+    }
+}
+
 #pragma mark - View Setup
 
 - (void)customizeViewAndNavigationBar {
@@ -123,6 +131,7 @@ static CGFloat kSpacing = 4.0f;
     self.itemContentView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.itemContentView];
     [self addItemContentChildViewController];
+    [self addScreenOverlaySubviewIfNecessary];
 }
 
 - (void)addItemContentChildViewController {
@@ -135,6 +144,13 @@ static CGFloat kSpacing = 4.0f;
     self.dataVisualizer = visualizerViewController;
 }
 
+- (void)addScreenOverlaySubviewIfNecessary {
+    if (self.model.operationType == KKKeychainOperationTypeUpdate) {
+        self.screenOverlay = [[UILabel alloc] initWithFrame:CGRectZero];
+        [self.view addSubview:self.screenOverlay];
+    }
+}
+
 - (void)customizeSubviews {
     self.itemLabelTextField.placeholder = @"Keychain Item's Label";
     self.itemLabelTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -145,12 +161,30 @@ static CGFloat kSpacing = 4.0f;
     [self.actionButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
     [self.actionButton addTarget:self action:@selector(performActionForActionButton:)
                 forControlEvents:UIControlEventTouchUpInside];
+    [self customizeScreenOverlayIfAdded];
+}
+
+- (void)customizeScreenOverlayIfAdded {
+    if ([self isScreenOverlayAdded]) {
+        self.screenOverlay.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.7f];
+        self.screenOverlay.textAlignment = NSTextAlignmentCenter;
+        self.screenOverlay.text = @"This screen is buggy or doesn't work properly! "
+                                   "This is the reason why you're seeing this overlay!";
+        self.screenOverlay.numberOfLines = 0;
+        self.screenOverlay.userInteractionEnabled = YES; // don't allow touches below overlay
+    }
 }
 
 #pragma mark - Action Handling
 
 - (void)performActionForActionButton:(UIButton *)actionButton {
     [self.keychainHandler performKeychainOperation];
+}
+
+#pragma mark - Data Handling
+
+- (BOOL)isScreenOverlayAdded {
+    return self.screenOverlay != nil;
 }
 
 #pragma mark - KKSKeychainHandler Data Source
