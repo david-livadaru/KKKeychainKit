@@ -1,0 +1,12 @@
+//
+//  KKImageVisualizerViewController.h
+//  KeychainKitSample
+//
+//  Created by david on 20/02/15.
+//
+
+#import "KKSVisualizerViewController.h"
+
+@interface KKSImageVisualizerViewController : KKSVisualizerViewController
+
+@end
