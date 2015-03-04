@@ -5,7 +5,7 @@
 //  Created by david on 26/02/15.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface KKSDictionaryPair : NSObject
 

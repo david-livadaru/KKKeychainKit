@@ -5,8 +5,8 @@
 //  Created by david on 11/01/15.
 //
 
+#import <Security/Security.h>
 #import "KKKeychainInternetPassword.h"
-@import Security;
 #import "KKKeychainItem+SuclassesInterface.h"
 #import "KKKeychainPassword+SuclassesInterface.h"
 #import "KKKeychainItem+KeychainKitInterface.h"

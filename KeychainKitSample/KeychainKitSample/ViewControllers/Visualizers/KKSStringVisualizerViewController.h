@@ -5,7 +5,7 @@
 //  Created by david on 18/02/15.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 #import "KKSVisualizerViewController.h"
 
 @interface KKSStringVisualizerViewController : KKSVisualizerViewController

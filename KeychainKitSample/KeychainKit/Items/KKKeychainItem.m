@@ -5,8 +5,8 @@
 //  Created by david on 17/12/14.
 //
 
+#import <Security/Security.h>
 #import "KKKeychainItem.h"
-@import Security;
 #import "KKKeychainItem+SuclassesInterface.h"
 #import "KKKeychainOperation+KeychainKitInteface.h"
 #import "NSMutableDictionary+KeychainKit.h"

@@ -5,7 +5,7 @@
 //  Created by david on 19/02/15.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 #import "KKSDataModel.h"
 
 @interface KKSModelDataConverter : NSObject

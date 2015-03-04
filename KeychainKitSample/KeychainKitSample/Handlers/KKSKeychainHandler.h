@@ -5,8 +5,8 @@
 //  Created by david on 17/12/14.
 //
 
+@import Foundation;
 @import KeychainKit;
-#import <Foundation/Foundation.h>
 #import "KKKeychainSampleItemDataVisualizer.h"
 #import "KKSDataModel.h"
 

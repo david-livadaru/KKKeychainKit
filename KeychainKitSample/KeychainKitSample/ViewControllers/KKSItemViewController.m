@@ -6,9 +6,9 @@
 //
 
 #import "KKSItemViewController.h"
+#import "KKSVisualizerViewController.h"
 #import "KKSDataModel.h"
 #import "KKKeychainSampleUIDataAdapter.h"
-#import "KKSVisualizerViewController.h"
 #import "KKSKeychainHandler.h"
 
 static const CGFloat kPadding = 8.0f;

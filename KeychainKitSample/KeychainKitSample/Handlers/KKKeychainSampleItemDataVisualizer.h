@@ -5,8 +5,8 @@
 //  Created by david on 18/02/15.
 //
 
+@import Foundation;
 @import KeychainKit;
-#import <Foundation/Foundation.h>
 
 @protocol KKKeychainSampleItemDataVisualizer <NSObject>
 

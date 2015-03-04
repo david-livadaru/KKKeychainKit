@@ -5,7 +5,7 @@
 //  Created by david on 20/02/15.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @class KKSAddDictionaryPairView;
 

@@ -5,7 +5,7 @@
 //  Created by david on 17/02/15.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface KKSViewController : UITableViewController
 

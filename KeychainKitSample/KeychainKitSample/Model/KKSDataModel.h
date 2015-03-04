@@ -5,8 +5,8 @@
 //  Created by david on 17/02/15.
 //
 
+@import Foundation;
 @import KeychainKit;
-#import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, KKSDataType) {
     KKKeychainSampleDataTypeAccount = 1,
