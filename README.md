@@ -1,7 +1,7 @@
 KeychainKit
 ===========
 
-Keychain Kit framework aims to provide you an abstract layer over Keychain Services (at the moment for iOS, maybe in the feature OS X too).
+Keychain Kit framework aims to provide you an abstract layer over Keychain Services (at the moment for iOS, maybe in the future OS X too).
 
 # Current version : KeychainKit Beta
 
@@ -11,7 +11,7 @@ If you’d like to see framework’s progress read the [Wiki page](https://githu
 # How to use
 
 Keychain Kit works similar to Network API in iOS.
-You create an KKKeychainSession and operations to it. Any operation work on items. The items can be created only through builders. You should and you are enforced to use only this kinds of items: `KKKeychainGenericPassword` and `KKKeychainInternetPassword`. The reasons that only these are `complete` Keychain Items.
+You create an `KKKeychainSession` and add operations to it. Any operation work with items. The items can be created only through builders. You should and you are enforced to use only this kinds of items: `KKKeychainGenericPassword` and `KKKeychainInternetPassword`. The reasons is that only these are `complete` Keychain Items.
 
 ## Create a Keychain Session
 
@@ -38,7 +38,7 @@ KKKeychainGenericPassword *genericPassword = [genericPasswordBuilder buildKeycha
 
 ## Add an item in Keychain
 
-```objective-c
+```objective-c]]
 KKKeychainOperation *addOperation = [KKKeychainOperation operationWithType:KKKeychainOperationTypeAdd item:genericPassword];
     [keychainSession performOperation:addOperation completionBlock:^(NSArray *items, NSError *error) {
         // check for errors
@@ -48,9 +48,10 @@ KKKeychainOperation *addOperation = [KKKeychainOperation operationWithType:KKKey
 
 ### Notes
 
-If an error occurs during processing, no items are provided through block and appropriate error with specific error code and a descriptive reason. E.g. if you try to add a duplicate in Keychain, an error who’s description will look similar to:
-‘Error Domain=NSOSStatusErrorDomain Code=-25299 "The operation couldn’t be completed. The specified item already exists in the keychain." UserInfo=someAddress {NSLocalizedFailureReason=The specified item already exists in the keychain.}’
-The value -25299 is equal to KKErrorDuplicateItem. Possible errors are available in header `KKError.h`.
+If an error occurs during processing, no items are provided through block and appropriate error with specific error code and a descriptive reason. E.g. if you try to add a duplicate in Keychain, an error will be given with description  similar to:
+```
+Error Domain=NSOSStatusErrorDomain Code=-25299 "The operation couldn’t be completed. The specified item already exists in the keychain." UserInfo=someAddress {NSLocalizedFailureReason=The specified item already exists in the keychain.}```
+The value -25299 is equal to `KKErrorDuplicateItem`. Possible errors are available in header `KKError.h`.
 
 # Credits
 
